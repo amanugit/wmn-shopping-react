@@ -1,0 +1,32 @@
+.shop {
+  margin-top: 4rem;
+}
+.shop .spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #c06d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop .load_more {
+  padding: 0.6rem 2rem;
+  outline: none;
+  border: none;
+  border: 1px solid #c06d00;
+  background: #fff;
+  color: #c06d00;
+}
+.shop .load_more:hover {
+  background: #c06d00;
+  color: #fff;
+  box-shadow: 11px 15px 12px 2px #f1f1f1;
+}
+.shop .load_more_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

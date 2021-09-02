@@ -1,0 +1,19 @@
+.cart_items {
+  margin-top: 5rem;
+}
+.cart_items .checkoutBtn {
+  outline: none !important;
+  border: none !important;
+  background: #c06d00;
+}
+
+.cart_items .removeCartBtn:focus {
+  outline: none !important;
+  border: none !important;
+}
+.cart_items .myselect:focus {
+  outline: 0 !important;
+  border: none !important;
+  border: 1px solid #f1f1f1 !important;
+  box-shadow: none;
+}

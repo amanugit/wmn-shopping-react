@@ -1,0 +1,20 @@
+.home {
+  margin-top: 5rem;
+}
+.home .img-container {
+  position: relative;
+}
+.home .img-container .item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home .img-container .item h3 {
+  color: white;
+}

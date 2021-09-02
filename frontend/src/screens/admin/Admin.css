@@ -1,0 +1,36 @@
+.admin {
+  margin-top: 5rem;
+}
+
+.admin .admin_side_nav {
+  width: 150px;
+  position: fixed;
+  top: 46px;
+  left: 0;
+  bottom: 0;
+  padding-top: 60px;
+  padding-right: 20px;
+  background: #f3f3f3;
+}
+.admin .admin_side_nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.admin .admin_side_nav ul li .admin_side_nav_link {
+  display: block;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: black;
+}
+.admin .admin_side_nav ul li .admin_side_nav_link:hover {
+  background: #797979;
+  color: white;
+}
+.admin .admin_main {
+  margin-left: 151px;
+}
+.admin .spinner {
+  text-align: center;
+}

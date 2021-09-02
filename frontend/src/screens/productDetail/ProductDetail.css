@@ -1,0 +1,95 @@
+.product-detail {
+  margin-top: 3.5rem;
+}
+.product-detail .product-detail-container {
+  margin-top: 0.5rem;
+}
+.product-detail .colors {
+  display: flex;
+  align-items: center;
+}
+.product-detail .colors p {
+  margin-right: 2rem;
+}
+.product-detail .colors p span {
+  margin-right: 2rem;
+}
+
+.product-detail .sizes {
+  display: flex;
+  align-items: center;
+}
+.product-detail .sizes p {
+  margin-right: 2rem;
+}
+
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #c06d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail .img {
+  object-fit: cover;
+  height: 100%;
+}
+.product-detail .img-item {
+  cursor: pointer;
+}
+.myselect:focus {
+  outline: 0 !important;
+  border: none !important;
+  border: 1px solid #f1f1f1 !important;
+  box-shadow: none;
+}
+.mybtn {
+  background: #c06d00;
+  color: white;
+  border: none !important;
+  border: 1px solid #f1f1f1 !important;
+}
+
+.mybtn:hover {
+  background: white;
+  color: black;
+}
+.mybtn:visited {
+  outline: none;
+  background: none;
+}
+.mybtn:focus {
+  background-color: #c06d00;
+  border: none;
+  outline: thin dotted;
+  box-shadow: none;
+}
+.mybtn:active {
+  background-color: #c06d00 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.product_detail_scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.product_detail_scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.product_detail_scroll::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.product_detail_scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

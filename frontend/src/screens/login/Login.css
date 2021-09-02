@@ -1,0 +1,24 @@
+.login {
+  margin-top: 5rem;
+}
+
+.login .mybtn {
+  border: none !important;
+  border: 1px solid #c06d00 !important;
+  background-color: white;
+  color: black;
+}
+
+.login .mybtn:hover {
+  background: #c06d00;
+  color: white;
+}
+
+.login .mybtn:focus,
+.login .mybtn:active {
+  outline: none;
+  border: none;
+  background-color: #c06d00;
+  box-shadow: none;
+  color: white;
+}

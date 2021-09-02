@@ -1,0 +1,25 @@
+.register {
+  margin-top: 5rem;
+}
+.register .mybtn:focus,
+.register .mybtn:active {
+  outline: none;
+  border: none;
+  background-color: #c06d00;
+  box-shadow: none;
+  color: white;
+}
+.register .mybtn {
+  border: none !important;
+  border: 1px solid #c06d00 !important;
+  background-color: white;
+  color: black;
+}
+
+.register .mybtn:hover {
+  background: #c06d00;
+  color: white;
+}
+.register .spinner {
+  color: #c06d00;
+}

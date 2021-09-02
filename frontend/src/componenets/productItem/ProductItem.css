@@ -1,0 +1,23 @@
+.p_item {
+  position: relative;
+  overflow: hidden;
+}
+.p_item .hoverContainer ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  padding: 0.5rem;
+}
+.p_item .hoverContainer {
+  position: absolute;
+  height: auto;
+  left: -10px;
+  visibility: hidden;
+  width: 70px;
+  background-color: #ffffff;
+  transition: left 0.5s ease-in-out;
+}
+.p_item:hover > .hoverContainer {
+  visibility: visible;
+  left: 0;
+}
