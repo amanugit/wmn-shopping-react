@@ -31,7 +31,7 @@ function Cart({ history }) {
                       <Row>
                         <Col md={3}>
                           <img
-                            src={`uploads/img/${item.photo}`}
+                            src={item.photo}
                             style={{ width: "100%" }}
                             alt={item.name}
                           ></img>

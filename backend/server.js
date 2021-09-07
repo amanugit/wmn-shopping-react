@@ -7,6 +7,8 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import { errorHandler } from "./controllers/errorController.js";
+import path from "path";
+const __dirname = path.resolve();
 dotenv.config();
 connectToDatabase();
 const app = express();
@@ -24,6 +26,9 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 8080;
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
 }
 app.listen(
   PORT,

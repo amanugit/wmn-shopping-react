@@ -139,7 +139,7 @@ const OrderScreen = ({ match, history }) => {
                         <Col md={1}>
                           <img
                             className="img-fluid"
-                            src={`/uploads/img/${item.photo}`}
+                            src={item.photo}
                             alt={item.name}
                           ></img>
                         </Col>

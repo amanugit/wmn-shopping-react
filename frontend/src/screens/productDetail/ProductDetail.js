@@ -38,15 +38,7 @@ function ProductDetail({ match }) {
   };
 
   const addToBag = () => {
-    if (qty === "") {
-      alert("please choose quantity");
-    } else if (color === "") {
-      alert("Please choose color");
-    } else if (size === "") {
-      alert("please choose size");
-    } else {
-      dispatch(addToCart(productId, qty, size, color));
-    }
+    dispatch(addToCart(productId, qty, size, color));
   };
   const dispatch = useDispatch();
   useEffect(() => {
@@ -123,7 +115,7 @@ function ProductDetail({ match }) {
               </ul>
               <p>Shipping Cost: {product.shippingCost} $</p>
               <div className="colors">
-                <p>Available Colors</p>
+                <p>Select Color</p>
                 <Form.Control
                   as="select"
                   className="myselect"
@@ -131,7 +123,6 @@ function ProductDetail({ match }) {
                     setColor(e.target.value);
                   }}
                 >
-                  <option value="">Select Colors</option>
                   {product.color.map((color, index) => {
                     return (
                       <option key={index} value={color}>
@@ -143,7 +134,7 @@ function ProductDetail({ match }) {
               </div>
 
               <div className="sizes">
-                <p>Available Sizes</p>
+                <p>Select Size</p>
                 <Form.Control
                   as="select"
                   className="myselect"
@@ -151,7 +142,6 @@ function ProductDetail({ match }) {
                     setSize(e.target.value);
                   }}
                 >
-                  <option value="">Select Size</option>
                   {product.sizes.map((size) => {
                     return <option value={size}>{size}</option>;
                   })}
@@ -159,7 +149,7 @@ function ProductDetail({ match }) {
               </div>
 
               <div className="sizes">
-                <p>Count In Stock</p>
+                <p>Select Qauntity</p>
                 <Form.Control
                   as="select"
                   className="myselect"
@@ -167,7 +157,6 @@ function ProductDetail({ match }) {
                     setQty(e.target.value);
                   }}
                 >
-                  <option value="">Enter quality</option>
                   {product.countInStock > 0
                     ? [...Array(product.countInStock).keys()].map((c) => {
                         return (
