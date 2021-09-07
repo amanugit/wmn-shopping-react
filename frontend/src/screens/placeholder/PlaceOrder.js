@@ -113,9 +113,9 @@ function PlaceOrder({ history }) {
                               alt={item.name}
                             ></img>
                           </Col>
-                          <Col md={1}>
+                          <Col md={2}>
                             <Link
-                              to={`/${item.superCat}/${item.name}/${item._id}`}
+                              to={`/${item.superCat}/${item.name}/${item.productId}`}
                             >
                               {item.name}
                             </Link>

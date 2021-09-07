@@ -43,6 +43,9 @@ function ProductDetail({ match }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct(productId));
+    setQty(1);
+    setColor(product.color[0]);
+    setSize(product.sizes[0]);
   }, [dispatch, match, productId]);
   return (
     <section className="product-detail">
