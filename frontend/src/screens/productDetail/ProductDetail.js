@@ -18,7 +18,7 @@ function ProductDetail({ match }) {
   const productId = match.params.id;
   const productGet = useSelector((state) => state.productGet);
   const { loading, product, relatedProducts, error } = productGet;
-  const [qty, setQty] = useState("");
+  const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
   const imgRefs = useRef([]);
