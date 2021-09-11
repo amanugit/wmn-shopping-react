@@ -97,6 +97,25 @@
   height: 100%;
 }
 
+.category .side-cats::-webkit-scrollbar {
+  width: 8px;
+}
+
+.category .side-cats::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.category .side-cats::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+}
+
+.category .side-cats::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.category .side-cats {
+  height: 350px;
+  overflow-y: auto;
+}
 @media screen and (max-width: 992px) {
   .scoll_filxed {
     position: static;

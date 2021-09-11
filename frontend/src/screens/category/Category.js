@@ -342,7 +342,7 @@ function Category({ match }) {
               ) : (
                 <div>
                   <div className="my-2">
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         <li>
                           {" "}
@@ -359,7 +359,7 @@ function Category({ match }) {
                   </div>
 
                   <div className="my-2">
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {subCatsAPI.map((sbc, index) => {
                           return (
@@ -385,7 +385,7 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Brands</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {brandAPI.map((brand, index) => {
                           return (
@@ -410,7 +410,7 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Materials</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {materialAPI.map((material, index) => {
                           return (
@@ -435,7 +435,7 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Colors</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {colorsAPI.map((color, index) => {
                           return (
@@ -460,7 +460,7 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         <li className="price">
                           <span>&lt;{priceState} $ </span>
@@ -481,7 +481,7 @@ function Category({ match }) {
                       <div className="mb-1 coll">
                         <h6>Clothing Size</h6>
                       </div>
-                      <div className="left-menu">
+                      <div className="left-menu side-cats">
                         <ul>
                           {clothingSizeAPI.map((cs, index) => {
                             return (
@@ -507,7 +507,7 @@ function Category({ match }) {
                       <div className="mb-1 coll">
                         <h6>Shoe Size</h6>
                       </div>
-                      <div className="left-menu">
+                      <div className="left-menu side-cats">
                         <ul>
                           {shoeSizeAPI.map((ss, index) => {
                             return (

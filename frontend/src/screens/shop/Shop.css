@@ -1,17 +1,7 @@
 .shop {
   margin-top: 4rem;
 }
-.shop .spinner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #c06d00;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .shop .load_more {
   padding: 0.6rem 2rem;
   outline: none;
@@ -29,4 +19,111 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.left-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.left-menu ul li {
+  display: flex;
+  align-items: center;
+  line-height: 2rem;
+}
+.left-menu ul li input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+.coll {
+  display: flex;
+  align-items: center;
+}
+.left-menu .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #c06d00;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #c06d00;
+  cursor: pointer;
+}
+
+.scoll_filxed::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scoll_filxed::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scoll_filxed::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+}
+
+.scoll_filxed::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scoll_filxed {
+  position: fixed;
+  top: 45px;
+  bottom: 100px;
+  padding-bottom: 50px;
+  left: 0;
+  padding-left: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.shop .side-cats::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shop .side-cats::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.shop .side-cats::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+}
+
+.shop .side-cats::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.shop .side-cats {
+  height: 350px;
+  overflow-y: auto;
+}
+@media screen and (max-width: 992px) {
+  .scoll_filxed {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .scoll_filxed {
+    position: static;
+  }
 }

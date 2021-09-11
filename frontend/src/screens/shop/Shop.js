@@ -252,7 +252,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Categories</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         <li>
                           {" "}
@@ -287,7 +287,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Brands</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {brandAPI.map((brand, index) => {
                           return (
@@ -312,7 +312,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Materials</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {materialAPI.map((material, index) => {
                           return (
@@ -337,7 +337,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Colors</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         {colorsAPI.map((color, index) => {
                           return (
@@ -363,7 +363,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu">
+                    <div className="left-menu side-cats">
                       <ul>
                         <li className="price">
                           <span>&lt;{priceState} $ </span>
