@@ -28,11 +28,11 @@ function Women({ location, history }) {
       <Container className="my-4">
         <Row>
           <Col md={6} sm={12}>
-            <h2>Woemn's fashion shopping page</h2>
+            <h2 className="my-2">Woemn's fashion shopping page</h2>
             <img src="/img/44.jpg" alt="women-1" className="img-fluid"></img>
           </Col>
           <Col md={6} sm={12}>
-            <h3>
+            <h3 className="my-2">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ullamco laboris.
             </h3>
@@ -48,8 +48,8 @@ function Women({ location, history }) {
           </Col>
         </Row>
         <Row>
-          <Col md={12} sm={12} className="py-3 my-4 bg-light">
-            <h3 className="my-2">Top fashions of the week</h3>
+          <Col md={12} sm={12} className="py-2 my-4 bg-light">
+            <h3 className="my-3">Top fashions of the week</h3>
             <Row>
               <Col md={3} sm={12}>
                 <img
