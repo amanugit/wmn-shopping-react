@@ -18,7 +18,7 @@ function ProductNotFound() {
     };
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
-  }, []);
+  }, [dispatch]);
   return (
     <div className="notfound" id="notfound">
       <div
