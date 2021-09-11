@@ -7,8 +7,7 @@ import {
 } from "../../constants/productConstants";
 function ProductNotFound() {
   const dispatch = useDispatch();
-  dispatch({ type: PRODUCT_LIST_RESET });
-  dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
+
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
     const time = setTimeout(() => {
@@ -17,6 +16,8 @@ function ProductNotFound() {
     return () => {
       clearTimeout(time);
     };
+    dispatch({ type: PRODUCT_LIST_RESET });
+    dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
   }, []);
   return (
     <div className="notfound" id="notfound">

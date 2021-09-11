@@ -7,7 +7,7 @@ function Home() {
     <section className="home" id="home">
       <Container>
         <Row>
-          <Col md={4} sm={12} className="cat-container">
+          <Col md={4} sm={12} className="cat-container mb-3">
             <Link to="/shop/men">
               <div className="img-container">
                 <img
@@ -21,7 +21,7 @@ function Home() {
               </div>
             </Link>
           </Col>
-          <Col md={4} sm={12} className="cat-container">
+          <Col md={4} sm={12} className="cat-container mb-3">
             <Link to="/shop/women">
               <div className="img-container">
                 <img
@@ -35,7 +35,7 @@ function Home() {
               </div>
             </Link>
           </Col>
-          <Col md={4} sm={12} className="cat-container">
+          <Col md={4} sm={12} className="cat-container mb-3">
             <Link to="/shop/kid">
               <div className="img-container">
                 <img
