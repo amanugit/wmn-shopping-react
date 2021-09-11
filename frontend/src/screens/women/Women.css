@@ -5,7 +5,7 @@
   width: 100%;
   height: 80vh;
   background-image: url("img/44.jpg");
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -32,6 +32,21 @@
   padding: 0.6rem 2rem !important;
   margin-top: 30px;
   cursor: pointer;
+}
+.Women .landing-container .landing-img-container .banner-desc {
+  display: block;
+}
+
+@media screen and (max-width: 992px) {
+  .Women .landing-container .landing-img-container .banner-desc {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Women .landing-container .landing-img-container .banner-desc {
+    display: none;
+  }
 }
 
 .Women .landing-container .landing-img-container .mybutton_banner:hover {

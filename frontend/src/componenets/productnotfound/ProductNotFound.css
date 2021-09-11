@@ -8,15 +8,16 @@
   z-index: 1;
 }
 .notfound .modalnotfound .notfoundContainer {
-  width: 900px;
+  max-width: 900px;
   height: 400px;
   padding: 50px;
   background-color: #d6d2cb;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding-top: 5%;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 .notfound .modalShown {
   display: block;

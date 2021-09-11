@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./ProductNotFound.css";
+import {
+  PRODUCT_LIST_RESET,
+  PRODUCT_GET_BYFILTER_RESET,
+} from "../../constants/productConstants";
 function ProductNotFound() {
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
@@ -9,6 +13,8 @@ function ProductNotFound() {
     return () => {
       clearTimeout(time);
     };
+    dispatch({ type: PRODUCT_LIST_RESET });
+    dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
   }, []);
   return (
     <div className="notfound" id="notfound">

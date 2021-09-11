@@ -11,7 +11,7 @@ function Men({ location, history }) {
       <Container className="my-4">
         <Row>
           <Col md={6} sm={12}>
-            <h2>Woemn's fashion shopping page</h2>
+            <h2>Men's fashion shopping page</h2>
             <img
               alt="men-1"
               src="/img/men/pexels-andrea-piacquadio-842811.jpg"

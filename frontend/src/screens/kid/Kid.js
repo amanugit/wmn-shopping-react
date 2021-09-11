@@ -11,7 +11,7 @@ function Kid() {
       <Container className="my-4">
         <Row>
           <Col md={6} sm={12}>
-            <h2>Woemn's fashion shopping page</h2>
+            <h2>Kids's fashion shopping page</h2>
             <img
               alt="kid-1"
               src="/img/kid/pexels-jessica-lewis-189857.jpg"

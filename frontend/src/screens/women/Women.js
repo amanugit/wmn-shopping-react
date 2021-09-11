@@ -9,7 +9,7 @@ function Women({ location, history }) {
           <Row className="p-5">
             <Col md={5} sm={6} className="p-3">
               <h2>Women's Latest Arrivals</h2>
-              <p>
+              <p className="banner-desc">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -52,28 +52,44 @@ function Women({ location, history }) {
             <h3 className="my-2">Top fashions of the week</h3>
             <Row>
               <Col md={3} sm={12}>
-                <img src="/img/1.jpg" alt="women-2" className="img-fluid"></img>
+                <img
+                  src="/img/1.jpg"
+                  alt="women-2"
+                  className="img-fluid mb-2"
+                ></img>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </Col>
               <Col md={3} sm={12}>
-                <img src="/img/2.jpg" alt="women-3" className="img-fluid"></img>
+                <img
+                  src="/img/2.jpg"
+                  alt="women-3"
+                  className="img-fluid mb-2"
+                ></img>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </Col>
               <Col md={3} sm={12}>
-                <img src="/img/3.jpg" alt="women-4" className="img-fluid"></img>
+                <img
+                  src="/img/3.jpg"
+                  alt="women-4"
+                  className="img-fluid mb-2"
+                ></img>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </Col>
               <Col md={3} sm={12}>
-                <img src="/img/4.jpg" alt="women-5" className="img-fluid"></img>
+                <img
+                  src="/img/4.jpg"
+                  alt="women-5"
+                  className="img-fluid mb-2"
+                ></img>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -86,7 +102,11 @@ function Women({ location, history }) {
         <Row className="mb-4">
           <h3 className="my-2">Shop by categories</h3>
           <Col md={4} sm={12} className="shadow-sm">
-            <img src="/img/1.jpg" alt="women-6" className="img-fluid"></img>
+            <img
+              src="/img/1.jpg"
+              alt="women-6"
+              className="img-fluid mb-2"
+            ></img>
             <h1>Clothings</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -95,7 +115,11 @@ function Women({ location, history }) {
             <Button className="mybutton my-3">Shop Now</Button>
           </Col>
           <Col md={4} sm={12} className="shadow-sm">
-            <img src="/img/bag.jpg" alt="women-7" className="img-fluid"></img>
+            <img
+              src="/img/bag.jpg"
+              alt="women-7"
+              className="img-fluid mb-2"
+            ></img>
             <h1>Bags</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -104,7 +128,11 @@ function Women({ location, history }) {
             <Button className="mybutton my-3">Shop Now</Button>
           </Col>
           <Col md={4} sm={12} className="shadow-sm">
-            <img src="/img/shoe.jpg" alt="women-8" className="img-fluid"></img>
+            <img
+              src="/img/shoe.jpg"
+              alt="women-8"
+              className="img-fluid mb-2"
+            ></img>
             <h1>Shoes</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -116,7 +144,7 @@ function Women({ location, history }) {
             <img
               src="/img/jweleries_.jpg"
               alt="women-9"
-              className="img-fluid"
+              className="img-fluid mb-2"
             ></img>
             <h1> Jweleries</h1>
             <p>
@@ -129,7 +157,7 @@ function Women({ location, history }) {
             <img
               src="/img/watch.jpg"
               alt="women-10"
-              className="img-fluid"
+              className="img-fluid mb-2"
             ></img>
             <h1>Watches</h1>
             <p>
@@ -142,7 +170,7 @@ function Women({ location, history }) {
             <img
               src="/img/sports.jpg"
               alt="women-11"
-              className="img-fluid"
+              className="img-fluid mb-2"
             ></img>
             <h1>Sports</h1>
             <p>
