@@ -23,7 +23,7 @@ import {
   DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 import { logOut } from "../actions/userActions";
-
+/** list products */
 export const listProducts =
   (superCat = " ", catq = " ") =>
   async (dispatch) => {
