@@ -32,6 +32,9 @@ function Admin({ match, history }) {
   const dispatch = useDispatch();
   const { loading, products, error } = productList;
   const matchKey = match.params.key;
+  const deletePrd = (id) => {
+    dispatch(deleteProduct(id));
+  };
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
       history.push("/admin/login?redirect=admin");
@@ -40,11 +43,11 @@ function Admin({ match, history }) {
       dispatch(listProducts());
     } else if (matchKey === "orders") {
       dispatch(listOrders());
+    } else {
+      return;
     }
   }, [dispatch, matchKey, userInfo, history]);
-  const deletePrd = (id) => {
-    dispatch(deleteProduct(id));
-  };
+
   return (
     <section className="admin" id="admin">
       <Container fluid>
@@ -323,7 +326,9 @@ function Admin({ match, history }) {
               </div>
             )
           ) : (
-            <h4>Something </h4>
+            <h4 className="text-center py-3 my-3">
+              Welcome to admin dashboard
+            </h4>
           )}
         </div>
       </Container>
