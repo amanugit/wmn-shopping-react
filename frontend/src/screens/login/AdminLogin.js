@@ -48,7 +48,7 @@ function AdminLogin({ location, history }) {
           <Card.Body>
             <h5 className="my-3 bg-warning text-white p-2">
               To see admin panel login as email: admin@gmail.com , password:
-              aman123456{" "}
+              admindash{" "}
             </h5>
             <Form onSubmit={LoginHandler}>
               <Form.Group>
