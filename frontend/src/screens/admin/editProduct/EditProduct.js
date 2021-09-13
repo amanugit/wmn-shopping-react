@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getProduct, updateProduct } from "../../../actions/productActions";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaBackward } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCT_RESET } from "../../../constants/productConstants";
 import {
@@ -208,6 +208,14 @@ function EditProduct({ match, history }) {
 
   return (
     <div className="admin_edit_product" id="admin_edit_product">
+      <div className="my-2">
+        <Link to="/admin/products">
+          <FaBackward
+            title="Go to back"
+            style={{ fontSize: "2rem", color: "#c06d00" }}
+          ></FaBackward>
+        </Link>
+      </div>
       <Alert variant="warning" className="text-center my-2 py-2">
         {" "}
         (*) required fileds

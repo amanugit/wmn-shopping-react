@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaBackward } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Col,
@@ -193,6 +193,14 @@ function AddProduct({ history }) {
   };
   return (
     <section className="admin_add_product" id="admin_add_product">
+      <div className="my-2">
+        <Link to="/admin/products">
+          <FaBackward
+            title="Go to back"
+            style={{ fontSize: "2rem", color: "#c06d00" }}
+          ></FaBackward>
+        </Link>
+      </div>
       <Alert variant="warning" className="text-center my-2 py-2">
         {" "}
         (*) required fileds
@@ -302,7 +310,7 @@ function AddProduct({ history }) {
                     </Col>
 
                     <Col md={12} sm={12}>
-                      <Form.Label>Category</Form.Label>
+                      <Form.Label>Category (*)</Form.Label>
                       <Form.Control
                         name="p_category"
                         as="select"
@@ -311,7 +319,7 @@ function AddProduct({ history }) {
                           setCategory(e.target.value);
                         }}
                       >
-                        <option value="">Choose Category (*)</option>
+                        <option value="">Choose Category </option>
                         <option value="men">Men</option>
                         <option value="women">Women</option>
                         <option value="kids">Kids</option>
