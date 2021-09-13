@@ -13,6 +13,7 @@ import {
 import { createProduct } from "../../../actions/productActions";
 import { CREATE_PRODUCT_RESET } from "../../../constants/productConstants";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./AddProduct.css";
 function AddProduct({ history }) {
   const [name, setName] = useState("");
