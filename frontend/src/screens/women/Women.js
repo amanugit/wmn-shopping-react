@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Women.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
-function Women({ location, history }) {
+function Women() {
   return (
     <section className="Women" id="Women">
       <div className="landing-container">

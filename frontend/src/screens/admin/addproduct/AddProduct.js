@@ -85,7 +85,7 @@ function AddProduct({ history }) {
         )
       );
     } catch (error) {
-      console.error(error);
+      //console.error(error);
     }
   };
 
@@ -192,6 +192,10 @@ function AddProduct({ history }) {
   };
   return (
     <section className="admin_add_product" id="admin_add_product">
+      <Alert variant="warning" className="text-center my-2 py-2">
+        {" "}
+        (*) required fileds
+      </Alert>
       <Container className="pb-5">
         {loading ? (
           <div className="spinner">
@@ -205,7 +209,7 @@ function AddProduct({ history }) {
         ) : error ? (
           <div>
             <Alert variant="danger" className="text-center">
-              Opps: something went wrong..., try to reload the page
+              Opps: something went wrong..., Make sure to enter valid data
             </Alert>
           </div>
         ) : (
@@ -218,7 +222,7 @@ function AddProduct({ history }) {
                 <Col md={6} sm={12}>
                   <Row>
                     <Col md={12} sm={12}>
-                      <Form.Label>Name</Form.Label>
+                      <Form.Label>Name (*)</Form.Label>
                       <Form.Control
                         onChange={(e) => {
                           setName(e.target.value);
@@ -231,7 +235,7 @@ function AddProduct({ history }) {
                       ></Form.Control>
                     </Col>
                     <Col md={12} sm={12}>
-                      <Form.Label>Price</Form.Label>
+                      <Form.Label>Price (*)</Form.Label>
                       <Form.Control
                         onChange={(e) => {
                           setPrice(e.target.value);
@@ -244,7 +248,7 @@ function AddProduct({ history }) {
                       ></Form.Control>
                     </Col>
                     <Col md={12} sm={12}>
-                      <Form.Label>Shipping Cost</Form.Label>
+                      <Form.Label>Shipping Cost (*) </Form.Label>
                       <Form.Control
                         onChange={(e) => {
                           setShippingCost(e.target.value);
@@ -270,7 +274,7 @@ function AddProduct({ history }) {
                       ></Form.Control>
                     </Col>
                     <Col md={12} sm={12}>
-                      <Form.Label>Count In Stock</Form.Label>
+                      <Form.Label>Count In Stock (*)</Form.Label>
                       <Form.Control
                         onChange={(e) => {
                           setCountInStock(e.target.value);
@@ -287,7 +291,7 @@ function AddProduct({ history }) {
                 <Col md={6} sm={12}>
                   <Row>
                     <Col md={12} sm={12}>
-                      <Form.Label>Choose A Photo To Upload</Form.Label>
+                      <Form.Label>Choose A Photo To Upload (*) </Form.Label>
                       <Form.Control
                         onChange={uploadPhoto}
                         className="mb-3"
@@ -306,14 +310,14 @@ function AddProduct({ history }) {
                           setCategory(e.target.value);
                         }}
                       >
-                        <option value="">Choose Category</option>
+                        <option value="">Choose Category (*)</option>
                         <option value="men">Men</option>
                         <option value="women">Women</option>
                         <option value="kids">Kids</option>
                       </Form.Control>
                     </Col>
                     <Col md={12} sm={12}>
-                      <Form.Label>Sub Category</Form.Label>
+                      <Form.Label>Sub Category (*)</Form.Label>
                       <Form.Control
                         as="select"
                         name="p_sub_category"
@@ -350,7 +354,7 @@ function AddProduct({ history }) {
               </Row>
               <Row>
                 <Col md={12} sm={12}>
-                  <Form.Label>Description</Form.Label>
+                  <Form.Label>Description (*)</Form.Label>
                   <Form.Control
                     as="textarea"
                     rows={4}

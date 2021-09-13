@@ -3,7 +3,15 @@ import { getProduct, updateProduct } from "../../../actions/productActions";
 import { FaPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCT_RESET } from "../../../constants/productConstants";
-import { Col, Container, Form, Row, Button, Spinner } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  Row,
+  Button,
+  Spinner,
+  Alert,
+} from "react-bootstrap";
 import axios from "axios";
 import "./EditProduct.css";
 function EditProduct({ match, history }) {
@@ -199,6 +207,10 @@ function EditProduct({ match, history }) {
 
   return (
     <div className="admin_edit_product" id="admin_edit_product">
+      <Alert variant="warning" className="text-center my-2 py-2">
+        {" "}
+        (*) required fileds
+      </Alert>
       {productUpdateLoading && (
         <div className="spinner">
           <Spinner
@@ -209,7 +221,7 @@ function EditProduct({ match, history }) {
           />
         </div>
       )}
-      {productUpdateError && <div>Error</div>}
+      {productUpdateError && <div>{productUpdateError}</div>}
       {loading ? (
         <div className="spinner">
           <Spinner
@@ -220,7 +232,11 @@ function EditProduct({ match, history }) {
           />
         </div>
       ) : error ? (
-        <div>Error</div>
+        <div>
+          <Alert variant="danger" className="text-center">
+            Opps: something went wrong..., Make sure to enter valid data
+          </Alert>
+        </div>
       ) : (
         <Container className="pb-5">
           <Form onSubmit={updatePr}>
@@ -230,7 +246,7 @@ function EditProduct({ match, history }) {
                   <Col md={6} sm={12}>
                     <Row>
                       <Col md={12} sm={12}>
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label>Name (*)</Form.Label>
                         <Form.Control
                           onChange={(e) => {
                             setName(e.target.value);
@@ -243,7 +259,7 @@ function EditProduct({ match, history }) {
                         ></Form.Control>
                       </Col>
                       <Col md={12} sm={12}>
-                        <Form.Label>Price</Form.Label>
+                        <Form.Label>Price (*)</Form.Label>
                         <Form.Control
                           onChange={(e) => {
                             setPrice(e.target.value);
@@ -256,7 +272,7 @@ function EditProduct({ match, history }) {
                         ></Form.Control>
                       </Col>
                       <Col md={12} sm={12}>
-                        <Form.Label>Shipping Cost</Form.Label>
+                        <Form.Label>Shipping Cost (*)</Form.Label>
                         <Form.Control
                           onChange={(e) => {
                             setShippingCost(e.target.value);
@@ -282,7 +298,7 @@ function EditProduct({ match, history }) {
                         ></Form.Control>
                       </Col>
                       <Col md={12} sm={12}>
-                        <Form.Label>Count In Stock</Form.Label>
+                        <Form.Label>Count In Stock (*)</Form.Label>
                         <Form.Control
                           onChange={(e) => {
                             setCountInStock(e.target.value);
@@ -305,7 +321,7 @@ function EditProduct({ match, history }) {
                           className="my-2"
                           style={{ width: "100%" }}
                         ></img>
-                        <Form.Label>Update photo</Form.Label>
+                        <Form.Label>Update photo (*)</Form.Label>
                         <Form.Control
                           onChange={uploadPhoto}
                           className="mb-3"
@@ -315,7 +331,7 @@ function EditProduct({ match, history }) {
                       </Col>
 
                       <Col md={12} sm={12}>
-                        <Form.Label>Category</Form.Label>
+                        <Form.Label>Category (*)</Form.Label>
                         <Form.Control
                           value={category}
                           name="p_category"
@@ -342,7 +358,7 @@ function EditProduct({ match, history }) {
                             setSubCategory(e.target.value);
                           }}
                         >
-                          <option value="">Choose sub category</option>
+                          <option value="">Choose sub category (*)</option>
                           <option value="clothings">Clothings</option>
                           <option value="bags">Bags</option>
                           <option value="bags">Shoes</option>
@@ -370,7 +386,7 @@ function EditProduct({ match, history }) {
                 </Row>
                 <Row>
                   <Col md={12} sm={12}>
-                    <Form.Label>Description</Form.Label>
+                    <Form.Label>Description (*)</Form.Label>
                     <Form.Control
                       as="textarea"
                       rows={4}
