@@ -116,7 +116,7 @@ function Admin({ match, history }) {
                             <td>{pr.name}</td>
                             <td>
                               <img
-                                src={`/uploads/img/${pr.photo}`}
+                                src={pr.photo}
                                 style={{
                                   width: "45px",
                                   height: "45px",
@@ -218,7 +218,7 @@ function Admin({ match, history }) {
                                     <p>
                                       <strong>Photo: </strong>
                                       <img
-                                        src={`/uploads/img/${oi.photo}`}
+                                        src={oi.photo}
                                         style={{
                                           width: "50px",
                                           height: "50px",
