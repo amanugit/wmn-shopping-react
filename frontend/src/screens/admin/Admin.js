@@ -36,15 +36,16 @@ function Admin({ match, history }) {
     dispatch(deleteProduct(id));
   };
   useEffect(() => {
-    if (!userInfo || !userInfo.isAdmin) {
-      history.push("/admin/login?redirect=admin");
-    }
-    if (matchKey === "products") {
-      dispatch(listProducts());
-    } else if (matchKey === "orders") {
-      dispatch(listOrders());
+    if (userInfo && userInfo.isAdmin) {
+      if (matchKey === "products") {
+        dispatch(listProducts());
+      } else if (matchKey === "orders") {
+        dispatch(listOrders());
+      } else {
+        return;
+      }
     } else {
-      return;
+      history.push("/admin/login?redirect=admin");
     }
   }, [dispatch, matchKey, userInfo, history]);
 

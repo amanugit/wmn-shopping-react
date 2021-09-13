@@ -46,28 +46,29 @@ function EditProduct({ match, history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (!userInfo || !userInfo.isAdmin) {
+    if (!userInfo && !userInfo.isAdmin) {
       history.push(`/admin/login?redirect=/admin/product/${productId}/edit`);
-    }
-    if (productUpdateSuccess) {
-      dispatch({ type: UPDATE_PRODUCT_RESET });
-      history.push("/admin/products");
     } else {
-      dispatch(getProduct(productId));
-      setName(product.name);
-      setPrice(product.price);
-      setShippingCost(product.shippingCost);
-      setPriceDiscount(product.priceDisc);
-      setCountInStock(product.countInStock);
-      setSubCategory(product.subCat);
-      setBrand(product.brand);
-      setColors(product.color);
-      setMaterial(product.material);
-      setSizes(product.sizes);
-      setshoeSizes(product.shoeSize);
-      setDesc(product.desc);
-      setCategory(product.superCat);
-      setItemCategory(product.itemCat);
+      if (productUpdateSuccess) {
+        dispatch({ type: UPDATE_PRODUCT_RESET });
+        history.push("/admin/products");
+      } else {
+        dispatch(getProduct(productId));
+        setName(product.name);
+        setPrice(product.price);
+        setShippingCost(product.shippingCost);
+        setPriceDiscount(product.priceDisc);
+        setCountInStock(product.countInStock);
+        setSubCategory(product.subCat);
+        setBrand(product.brand);
+        setColors(product.color);
+        setMaterial(product.material);
+        setSizes(product.sizes);
+        setshoeSizes(product.shoeSize);
+        setDesc(product.desc);
+        setCategory(product.superCat);
+        setItemCategory(product.itemCat);
+      }
     }
   }, [dispatch, productId, productUpdateSuccess, history, userInfo]);
   const updatePr = async (e) => {

@@ -19,8 +19,9 @@ function MyOrders({ history, match }) {
   useEffect(() => {
     if (!userInfo) {
       history.push(`/login/redirect=/user/${match.params.userId}/orders`);
+    } else {
+      dispatch(listMyOrders());
     }
-    dispatch(listMyOrders());
   }, [dispatch, userInfo, match, history]);
   return (
     <div className="myorders" id="myorders">

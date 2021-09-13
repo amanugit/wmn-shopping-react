@@ -39,12 +39,13 @@ function AddProduct({ history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (!userInfo || !userInfo.isAdmin) {
+    if (!userInfo && !userInfo.isAdmin) {
       history.push("/admin/login?redirect=/admin/products/add");
-    }
-    dispatch({ type: CREATE_PRODUCT_RESET });
-    if (success) {
-      history.push("/admin/products");
+    } else {
+      dispatch({ type: CREATE_PRODUCT_RESET });
+      if (success) {
+        history.push("/admin/products");
+      }
     }
   }, [history, dispatch, success, userInfo]);
   const addProduct = async (e) => {
