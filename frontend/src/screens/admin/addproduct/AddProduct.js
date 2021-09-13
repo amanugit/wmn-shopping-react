@@ -40,7 +40,7 @@ function AddProduct({ history }) {
   const { userInfo } = userLogin;
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
-      history.push("/login?redirect=/admin/products/add");
+      history.push("/admin/login?redirect=/admin/products/add");
     }
     dispatch({ type: CREATE_PRODUCT_RESET });
     if (success) {

@@ -15,7 +15,7 @@ function ViewProduct({ match, history }) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
-      history.push(`/login?redirect=/admin/product/${productId}`);
+      history.push(`/admin/login?redirect=/admin/product/${productId}`);
     }
     dispatch(getProduct(productId));
   }, [productId, dispatch, userInfo, history]);

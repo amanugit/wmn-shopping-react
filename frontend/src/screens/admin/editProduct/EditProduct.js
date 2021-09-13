@@ -39,7 +39,7 @@ function EditProduct({ match, history }) {
   const { userInfo } = userLogin;
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
-      history.push(`/login?redirect=/admin/product/${productId}/edit`);
+      history.push(`/admin/login?redirect=/admin/product/${productId}/edit`);
     }
     if (productUpdateSuccess) {
       dispatch({ type: UPDATE_PRODUCT_RESET });

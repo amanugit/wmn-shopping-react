@@ -34,7 +34,7 @@ function Admin({ match, history }) {
   const matchKey = match.params.key;
   useEffect(() => {
     if (!userInfo || !userInfo.isAdmin) {
-      history.push("/login?redirect=admin");
+      history.push("/admin/login?redirect=admin");
     }
     if (matchKey === "products") {
       dispatch(listProducts());
