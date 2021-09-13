@@ -25,7 +25,7 @@ import {
 import { logOut } from "../actions/userActions";
 /** list products */
 export const listProducts =
-  (superCat = " ", catq = " ") =>
+  (superCat = "", catq = "") =>
   async (dispatch) => {
     try {
       dispatch({
