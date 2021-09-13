@@ -205,7 +205,7 @@ function Admin({ match, history }) {
                     {orders.map((order) => {
                       return (
                         <tr key={order._id}>
-                          <td>{order.user.name}</td>
+                          <td>{order.user && order.user.name}</td>
                           <td>
                             <ListGroup>
                               {order.orderItems.map((oi) => {

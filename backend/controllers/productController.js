@@ -230,14 +230,19 @@ const getAllByFilter = asyncHandler(async (req, res, next) => {
 });
 
 const getAll = asyncHandler(async (req, res, next) => {
-  const superCat = req.query.superCat;
-  const catq = req.query.catq;
+  const superCat = req.query.superCat || " ";
+  const catq = req.query.catq || " ";
   const superCatQ = superCat ? { superCat: { $eq: superCat } } : {};
   const catqQ = catq ? { subCat: { $eq: catq } } : {};
+  let products;
+  if (catq === "" && superCat === "") {
+    products = await Product.find({});
+  } else {
+    products = await Product.find({
+      $and: [{ ...superCatQ }, { ...catqQ }],
+    });
+  }
 
-  const products = await Product.find({
-    $and: [{ ...superCatQ }, { ...catqQ }],
-  });
   return res.status(200).json({
     status: "success",
     products,

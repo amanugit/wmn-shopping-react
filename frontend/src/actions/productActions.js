@@ -24,147 +24,161 @@ import {
 } from "../constants/productConstants";
 import { logOut } from "../actions/userActions";
 
-export const listProducts = (superCat, catq) => async (dispatch) => {
-  try {
-    dispatch({
-      type: PRODUCT_LIST_REQUEST,
-    });
-
-    const { data } = await axios.get(
-      `/api/products?superCat=${superCat}&catq=${catq}`
-    );
-    const {
-      data: { colors },
-    } = await axios.get(`/api/products/cbm?superCat=${superCat}&catq=${catq}`);
-    const {
-      data: { brands },
-    } = await axios.get(`/api/products/bbm?superCat=${superCat}&catq=${catq}`);
-
-    const {
-      data: { materials },
-    } = await axios.get(`/api/products/mbm?superCat=${superCat}&catq=${catq}`);
-
-    /****
-     * new
-     */
-
-    const {
-      data: { clothingSizes },
-    } = await axios.get(`/api/products/csbm?superCat=${superCat}&catq=${catq}`);
-
-    const {
-      data: { shoeSizes },
-    } = await axios.get(`/api/products/ssbm?superCat=${superCat}&catq=${catq}`);
-
-    const {
-      data: { itemCategories },
-    } = await axios.get(`/api/products/scbm?superCat=${superCat}&catq=${catq}`);
-
-    const {
-      data: { maxPrice },
-    } = await axios.get("/api/products/getmaxprice");
-    const {
-      data: { minPrice },
-    } = await axios.get("/api/products/getminprice");
-    const {
-      data: { categories },
-    } = await axios.get("/api/products/catbm");
-    const prices = {
-      maxprice: maxPrice[0].price,
-      minprice: minPrice[0].price,
-    };
-    let colorsForState = [];
-    let categoiresForState = [];
-    let brandsForState = [];
-    let materialsForState = [];
-    let itemCategoriesForState = [];
-
-    /**
-     * new
-     */
-
-    let clothingSizeForState = [];
-    let shoeSiezeForState = [];
-
-    /**
-     * new
-     */
-
-    clothingSizes.map((cs) => {
-      return clothingSizeForState.push({
-        clothingSize: cs._id,
-        isChecked: false,
+export const listProducts =
+  (superCat = " ", catq = " ") =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: PRODUCT_LIST_REQUEST,
       });
-    });
-    shoeSizes.map((ss) => {
-      return shoeSiezeForState.push({
-        shoeSize: ss._id,
-        isChecked: false,
-      });
-    });
 
-    /**
-     * ------------------------
-     */
+      const { data } = await axios.get(
+        `/api/products?superCat=${superCat}&catq=${catq}`
+      );
+      const {
+        data: { colors },
+      } = await axios.get(
+        `/api/products/cbm?superCat=${superCat}&catq=${catq}`
+      );
+      const {
+        data: { brands },
+      } = await axios.get(
+        `/api/products/bbm?superCat=${superCat}&catq=${catq}`
+      );
 
-    colors.map((color) => {
-      return colorsForState.push({
-        color: color._id,
-        isChecked: false,
-      });
-    });
+      const {
+        data: { materials },
+      } = await axios.get(
+        `/api/products/mbm?superCat=${superCat}&catq=${catq}`
+      );
 
-    categories.map((category) => {
-      return categoiresForState.push({
-        category: category._id,
-        isChecked: false,
-      });
-    });
+      /****
+       * new
+       */
 
-    materials.map((material) => {
-      return materialsForState.push({
-        material: material._id,
-        isChecked: false,
-      });
-    });
-    brands.map((brand) => {
-      return brandsForState.push({
-        brand: brand._id,
-        isChecked: false,
-      });
-    });
+      const {
+        data: { clothingSizes },
+      } = await axios.get(
+        `/api/products/csbm?superCat=${superCat}&catq=${catq}`
+      );
 
-    itemCategories.map((itemcat) => {
-      return itemCategoriesForState.push({
-        itemCategory: itemcat._id,
-        isChecked: false,
-      });
-    });
+      const {
+        data: { shoeSizes },
+      } = await axios.get(
+        `/api/products/ssbm?superCat=${superCat}&catq=${catq}`
+      );
 
-    dispatch({
-      type: PRODUCT_LIST_SUCCESS,
-      payload: {
-        products: data,
-        colorsAPI: colorsForState,
-        categoryAPI: categoiresForState,
-        brandAPI: brandsForState,
-        materialAPI: materialsForState,
-        itemCategoryAPI: itemCategoriesForState,
-        priceAPI: prices,
-        clothingSizeAPI: clothingSizeForState,
-        shoeSizeAPI: shoeSiezeForState,
-      },
-    });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      const {
+        data: { itemCategories },
+      } = await axios.get(
+        `/api/products/scbm?superCat=${superCat}&catq=${catq}`
+      );
+
+      const {
+        data: { maxPrice },
+      } = await axios.get("/api/products/getmaxprice");
+      const {
+        data: { minPrice },
+      } = await axios.get("/api/products/getminprice");
+      const {
+        data: { categories },
+      } = await axios.get("/api/products/catbm");
+      const prices = {
+        maxprice: maxPrice[0].price,
+        minprice: minPrice[0].price,
+      };
+      let colorsForState = [];
+      let categoiresForState = [];
+      let brandsForState = [];
+      let materialsForState = [];
+      let itemCategoriesForState = [];
+
+      /**
+       * new
+       */
+
+      let clothingSizeForState = [];
+      let shoeSiezeForState = [];
+
+      /**
+       * new
+       */
+
+      clothingSizes.map((cs) => {
+        return clothingSizeForState.push({
+          clothingSize: cs._id,
+          isChecked: false,
+        });
+      });
+      shoeSizes.map((ss) => {
+        return shoeSiezeForState.push({
+          shoeSize: ss._id,
+          isChecked: false,
+        });
+      });
+
+      /**
+       * ------------------------
+       */
+
+      colors.map((color) => {
+        return colorsForState.push({
+          color: color._id,
+          isChecked: false,
+        });
+      });
+
+      categories.map((category) => {
+        return categoiresForState.push({
+          category: category._id,
+          isChecked: false,
+        });
+      });
+
+      materials.map((material) => {
+        return materialsForState.push({
+          material: material._id,
+          isChecked: false,
+        });
+      });
+      brands.map((brand) => {
+        return brandsForState.push({
+          brand: brand._id,
+          isChecked: false,
+        });
+      });
+
+      itemCategories.map((itemcat) => {
+        return itemCategoriesForState.push({
+          itemCategory: itemcat._id,
+          isChecked: false,
+        });
+      });
+
+      dispatch({
+        type: PRODUCT_LIST_SUCCESS,
+        payload: {
+          products: data,
+          colorsAPI: colorsForState,
+          categoryAPI: categoiresForState,
+          brandAPI: brandsForState,
+          materialAPI: materialsForState,
+          itemCategoryAPI: itemCategoriesForState,
+          priceAPI: prices,
+          clothingSizeAPI: clothingSizeForState,
+          shoeSizeAPI: shoeSiezeForState,
+        },
+      });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_LIST_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const getProductsByFilter =
   (
