@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userActions";
 import { Link } from "react-router-dom";
 import "./Login.css";
-function Login({ location, history }) {
+function AdminLogin({ location, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo, error } = userLogin;
 
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split("=")[1] : "/admin";
 
   useEffect(() => {
     if (userInfo) {
@@ -46,6 +46,10 @@ function Login({ location, history }) {
 
           {error && <Alert variant="danger">{error}</Alert>}
           <Card.Body>
+            <h5 className="my-3 bg-warning text-white p-2">
+              To see admin panel login as email: admin@gmail.com , password:
+              aman123456{" "}
+            </h5>
             <Form onSubmit={LoginHandler}>
               <Form.Group>
                 <Form.Label>Email:</Form.Label>
@@ -80,20 +84,6 @@ function Login({ location, history }) {
                   Login
                 </Button>
               </div>
-              <div>
-                <Link
-                  to={redirect ? `/register?${redirect}` : "/"}
-                  className="ml-3"
-                >
-                  <Button
-                    type="submit"
-                    className="mybtn py-2 "
-                    style={{ width: "100%" }}
-                  >
-                    Register
-                  </Button>
-                </Link>
-              </div>
             </Form>
           </Card.Body>
         </Card>
@@ -102,4 +92,4 @@ function Login({ location, history }) {
   );
 }
 
-export default Login;
+export default AdminLogin;

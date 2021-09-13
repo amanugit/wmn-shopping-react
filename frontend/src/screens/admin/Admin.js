@@ -41,7 +41,7 @@ function Admin({ match, history }) {
     } else if (matchKey === "orders") {
       dispatch(listOrders());
     }
-  }, [dispatch, success, orderDeliverSuccess, matchKey, userInfo, history]);
+  }, [dispatch, matchKey, userInfo, history]);
   const deletePrd = (id) => {
     dispatch(deleteProduct(id));
   };

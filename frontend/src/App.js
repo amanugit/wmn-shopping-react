@@ -23,6 +23,7 @@ import Admin from "./screens/admin/Admin";
 import AddProduct from "./screens/admin/addproduct/AddProduct";
 import EditProduct from "./screens/admin/editProduct/EditProduct";
 import ViewProduct from "./screens/admin/viewproduct/ViewProduct";
+import AdminLogin from "./screens/login/AdminLogin";
 function App() {
   return (
     <Provider store={store}>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/payment" component={Payment} exact></Route>
           <Route path="/placeorder" component={PlaceOrder} exact></Route>
           <Route path="/admin" component={Admin} exact></Route>
+          <Route path="/admin/login" component={AdminLogin} exact></Route>
           <Route path="/admin/:key" component={Admin} exact></Route>
           <Route path="/admin/:key/add" component={AddProduct} exact></Route>
           <Route
