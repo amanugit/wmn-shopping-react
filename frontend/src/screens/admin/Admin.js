@@ -38,12 +38,11 @@ function Admin({ match, history }) {
   useEffect(() => {
     if (!userInfo && !userInfo.isAdmin) {
       history.push("/admin/login?redirect=admin");
-    } else {
-      if (matchKey === "products") {
-        dispatch(listProducts());
-      } else if (matchKey === "orders") {
-        dispatch(listOrders());
-      }
+    }
+    if (matchKey === "products") {
+      dispatch(listProducts());
+    } else if (matchKey === "orders") {
+      dispatch(listOrders());
     }
   }, [dispatch, matchKey, userInfo, history]);
 
