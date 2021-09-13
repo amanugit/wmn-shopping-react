@@ -36,13 +36,14 @@ function Admin({ match, history }) {
     dispatch(deleteProduct(id));
   };
   useEffect(() => {
-    if (!userInfo && !userInfo.isAdmin) {
+    if (userInfo && userInfo.isAdmin) {
+      if (matchKey === "products") {
+        dispatch(listProducts());
+      } else if (matchKey === "orders") {
+        dispatch(listOrders());
+      }
+    } else {
       history.push("/admin/login?redirect=admin");
-    }
-    if (matchKey === "products") {
-      dispatch(listProducts());
-    } else if (matchKey === "orders") {
-      dispatch(listOrders());
     }
   }, [dispatch, matchKey, userInfo, history]);
 

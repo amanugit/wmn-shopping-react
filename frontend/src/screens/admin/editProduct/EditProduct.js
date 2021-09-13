@@ -46,9 +46,7 @@ function EditProduct({ match, history }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (!userInfo && !userInfo.isAdmin) {
-      history.push(`/admin/login?redirect=/admin/product/${productId}/edit`);
-    } else {
+    if (userInfo && userInfo.isAdmin) {
       if (productUpdateSuccess) {
         dispatch({ type: UPDATE_PRODUCT_RESET });
         history.push("/admin/products");
@@ -69,6 +67,8 @@ function EditProduct({ match, history }) {
         setCategory(product.superCat);
         setItemCategory(product.itemCat);
       }
+    } else {
+      history.push(`/admin/login?redirect=/admin/product/${productId}/edit`);
     }
   }, [dispatch, productId, productUpdateSuccess, history, userInfo]);
   const updatePr = async (e) => {
