@@ -244,7 +244,7 @@ export const productDeleteReducer = (state = {}, action) => {
       return {
         loading: false,
         success: true,
-        product: action.payload,
+        product: action.payload.product,
       };
     case DELETE_PRODUCT_FAIL:
       return {
