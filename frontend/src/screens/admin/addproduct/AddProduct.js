@@ -194,14 +194,14 @@ function AddProduct({ history }) {
   };
   return (
     <section className="admin_add_product" id="admin_add_product">
-      <div className="my-2">
+      <Container className="my-2">
         <Link to="/admin/products">
           <FaBackward
             title="Go to back"
             style={{ fontSize: "2rem", color: "#c06d00" }}
           ></FaBackward>
         </Link>
-      </div>
+      </Container>
       <Alert variant="warning" className="text-center my-2 py-2">
         {" "}
         (*) required fileds

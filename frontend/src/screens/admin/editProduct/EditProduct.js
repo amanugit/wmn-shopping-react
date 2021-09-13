@@ -209,14 +209,14 @@ function EditProduct({ match, history }) {
 
   return (
     <div className="admin_edit_product" id="admin_edit_product">
-      <div className="my-2">
+      <Container className="my-2">
         <Link to="/admin/products">
           <FaBackward
             title="Go to back"
             style={{ fontSize: "2rem", color: "#c06d00" }}
           ></FaBackward>
         </Link>
-      </div>
+      </Container>
       <Alert variant="warning" className="text-center my-2 py-2">
         {" "}
         (*) required fileds
@@ -326,7 +326,7 @@ function EditProduct({ match, history }) {
                     <Row>
                       <Col md={12} sm={12}>
                         <img
-                          src={`/uploads/img/${product.photo}`}
+                          src={product.photo}
                           alt={product.name}
                           className="my-2"
                           style={{ width: "100%" }}
@@ -592,7 +592,7 @@ function EditProduct({ match, history }) {
                         return (
                           <Col md={3} sm={12} key={index}>
                             <img
-                              src={`/uploads/imgs/${img}`}
+                              src={img}
                               className="mb-4"
                               style={{ width: "100%" }}
                               alt={product.name}
