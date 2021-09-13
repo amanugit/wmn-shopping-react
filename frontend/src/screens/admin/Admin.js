@@ -45,7 +45,7 @@ function Admin({ match, history }) {
     } else {
       history.push("/admin/login?redirect=admin");
     }
-  }, [dispatch, matchKey, userInfo, history]);
+  }, [dispatch, matchKey, userInfo, success, history]);
 
   return (
     <section className="admin" id="admin">
@@ -152,7 +152,7 @@ function Admin({ match, history }) {
                               <FaTrash
                                 title="delete product"
                                 style={{ cursor: "pointer", color: "red" }}
-                                onClick={(e) => {
+                                onClick={() => {
                                   deletePrd(pr._id);
                                 }}
                               ></FaTrash>

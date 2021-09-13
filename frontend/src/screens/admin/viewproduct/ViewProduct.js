@@ -52,7 +52,7 @@ function ViewProduct({ match, history }) {
                 >
                   <img
                     className=" rounded-circle"
-                    src={`/uploads/img/${product.photo}`}
+                    src={product.photo}
                     style={{
                       width: "200px",
                       height: "200px",
@@ -151,7 +151,7 @@ function ViewProduct({ match, history }) {
                           return (
                             <img
                               key={index}
-                              src={`/uploads/imgs/${img}`}
+                              src={img}
                               style={{
                                 width: "70px",
                                 height: "70px",
