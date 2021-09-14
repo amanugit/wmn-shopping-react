@@ -30,7 +30,7 @@ import { logOut } from "../actions/userActions";
 
 export const adminListProducts =
   (keyWord = "", currentPageNo = "") =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
     try {
       dispatch({
         type: ADMIN_PRODUCT_LIST_REQUEST,
