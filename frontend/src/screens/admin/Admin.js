@@ -187,7 +187,7 @@ function Admin({ match, history }) {
                         key={x + 1}
                         to={`/admin/products/${searchTerm}/${x + 1}`}
                       >
-                        <Pagination.Item active={x + 1 === currentPageNo}>
+                        <Pagination.Item active={x + 1 === page}>
                           {x + 1}
                         </Pagination.Item>
                       </LinkContainer>;
