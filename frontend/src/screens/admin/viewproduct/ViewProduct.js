@@ -72,27 +72,27 @@ function ViewProduct({ match, history }) {
                   <ListGroup>
                     <ListGroup.Item>
                       <h6>Price</h6>
-                      <p>${product.price}</p>
+                      <p>{product.price}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Category</h6>
-                      <p>${product.superCat}</p>
+                      <p>{product.superCat}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Sub Category</h6>
-                      <p>${product.subCat}</p>
+                      <p>{product.subCat}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Item Category</h6>
-                      <p>${product.itemCat}</p>
+                      <p>{product.itemCat}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Brand</h6>
-                      <p>${product.brand}</p>
+                      <p>{product.brand}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Materials Made</h6>
-                      <p>${product.material}</p>
+                      <p>{product.material}</p>
                     </ListGroup.Item>
                   </ListGroup>
                 </Col>
@@ -100,7 +100,7 @@ function ViewProduct({ match, history }) {
                   <ListGroup>
                     <ListGroup.Item>
                       <h6>Shipping Cost</h6>
-                      <p>${product.shippingCost}</p>
+                      <p>{product.shippingCost}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <h6>Available Colors</h6>
