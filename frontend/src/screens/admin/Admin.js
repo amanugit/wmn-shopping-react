@@ -42,13 +42,14 @@ function Admin({ match, history }) {
   const dispatch = useDispatch();
   const { loading, adminProducts, pages, currentPageNo, error } = productList;
   const matchKey = match.params.key;
+  const currentPageNo = match.params.currentPageNo;
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
-        dispatch(adminListProducts(keyWord, currentPageNo));
+        dispatch(adminListProducts(searchTerm, currentPageNo));
       } else if (matchKey === "orders") {
         dispatch(listOrders());
       }
@@ -186,7 +187,7 @@ function Admin({ match, history }) {
                         key={x + 1}
                         to={`/admin/products/${searchTerm}/${x + 1}`}
                       >
-                        <Pagination.Item active={x + 1 === page}>
+                        <Pagination.Item active={x + 1 === currentPageNo}>
                           {x + 1}
                         </Pagination.Item>
                       </LinkContainer>;
