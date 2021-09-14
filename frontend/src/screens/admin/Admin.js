@@ -100,7 +100,7 @@ function Admin({ match, history }) {
                 </div>
               ) : error ? (
                 <Alert variant="danger" className="text-center">
-                  Opps: something went wrong..., try to reload the page
+                  {error}
                 </Alert>
               ) : (
                 <div className="py-3">
