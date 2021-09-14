@@ -35,8 +35,19 @@ export const adminListProducts =
       dispatch({
         type: ADMIN_PRODUCT_LIST_REQUEST,
       });
+
+      const {
+        userLogin: { userInfo },
+      } = getState();
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
       const { data } = await axios.get(
-        `/api/products/admin?currentPageNo=${currentPageNo}&keyWord=${keyWord}`
+        `/api/products/admin?currentPageNo=${currentPageNo}&keyWord=${keyWord}`,
+        config
       );
       dispatch({
         type: ADMIN_PRODUCT_LIST_SUCCESS,
