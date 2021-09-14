@@ -40,7 +40,7 @@ function Admin({ match, history }) {
   } = orderList;
 
   const dispatch = useDispatch();
-  const { loading, adminProducts, pages, currentPageNo, error } = productList;
+  const { loading, adminProducts, pages, error } = productList;
   const matchKey = match.params.key;
   const page = match.params.currentPageNo;
   const deletePrd = (id) => {
@@ -49,7 +49,7 @@ function Admin({ match, history }) {
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
-        dispatch(adminListProducts(searchTerm, currentPageNo));
+        dispatch(adminListProducts(searchTerm, page));
       } else if (matchKey === "orders") {
         dispatch(listOrders());
       }
