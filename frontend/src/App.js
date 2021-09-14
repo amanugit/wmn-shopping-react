@@ -47,6 +47,11 @@ function App() {
             component={Admin}
             exact
           ></Route>
+          <Route
+            path="/admin/:key/:currentPageNo"
+            component={Admin}
+            exact
+          ></Route>
           <Route path="/admin/:key/add" component={AddProduct} exact></Route>
           <Route
             path="/admin/product/:id/edit"

@@ -8,6 +8,8 @@ import {
   Pagination,
   Form,
   Button,
+  Row,
+  Col,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
@@ -109,15 +111,21 @@ function Admin({ match, history }) {
               ) : (
                 <div className="py-3">
                   <Form onSubmit={searchProduct}>
-                    <Form.Control
-                      type="text"
-                      placeholder="Search Product"
-                      value={searchTerm}
-                      onChange={(e) => setsearchTerm(e.target.value)}
-                    ></Form.Control>
-                    <Button type="submit" className="mybtn">
-                      Search
-                    </Button>
+                    <Row>
+                      <Col md={6} sm={12}>
+                        <Form.Control
+                          type="text"
+                          placeholder="Search Product"
+                          value={searchTerm}
+                          onChange={(e) => setsearchTerm(e.target.value)}
+                        ></Form.Control>
+                      </Col>
+                      <Col md={3} sm={12}>
+                        <Button type="submit" className="mybtn">
+                          Search
+                        </Button>
+                      </Col>
+                    </Row>
                   </Form>
                   <Table striped>
                     <thead>
@@ -193,7 +201,11 @@ function Admin({ match, history }) {
                       return (
                         <LinkContainer
                           key={x + 1}
-                          to={`/admin/products/${searchTerm}/${x + 1}`}
+                          to={
+                            searchTerm
+                              ? `/admin/products/${searchTerm}/${x + 1}`
+                              : `/admin/products/${x + 1}`
+                          }
                         >
                           <Pagination.Item active={x + 1 === page}>
                             {x + 1}
