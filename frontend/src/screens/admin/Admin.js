@@ -42,7 +42,7 @@ function Admin({ match, history }) {
   const dispatch = useDispatch();
   const { loading, adminProducts, pages, currentPageNo, error } = productList;
   const matchKey = match.params.key;
-  const currentPageNo = match.params.currentPageNo;
+  const page = match.params.currentPageNo;
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
