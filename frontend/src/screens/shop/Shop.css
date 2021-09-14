@@ -64,14 +64,14 @@
 }
 
 .slider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  width: 0 !important;
+  height: 0 !important;
   background: #c06d00;
   cursor: pointer;
 }
 
 .scoll_filxed::-webkit-scrollbar {
-  width: 8px;
+  width: 0 !important;
 }
 
 .scoll_filxed::-webkit-scrollbar-track {
