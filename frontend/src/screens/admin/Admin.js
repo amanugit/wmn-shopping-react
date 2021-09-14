@@ -7,6 +7,7 @@ import {
   Alert,
   Pagination,
   Form,
+  Button,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
@@ -46,6 +47,9 @@ function Admin({ match, history }) {
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
+  const searchProduct = () => {
+    dispatch(adminListProducts(searchTerm, page));
+  };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
@@ -56,7 +60,7 @@ function Admin({ match, history }) {
     } else {
       history.push("/admin/login?redirect=admin");
     }
-  }, [dispatch, matchKey, userInfo, success, history, searchTerm, page]);
+  }, [dispatch, matchKey, userInfo, success, history, page]);
 
   return (
     <section className="admin" id="admin">
@@ -104,13 +108,16 @@ function Admin({ match, history }) {
                 </Alert>
               ) : (
                 <div className="py-3">
-                  <Form>
+                  <Form onSubmit={searchProduct}>
                     <Form.Control
                       type="text"
                       placeholder="Search Product"
                       value={searchTerm}
                       onChange={(e) => setsearchTerm(e.target.value)}
                     ></Form.Control>
+                    <Button type="submit" className="mybtn">
+                      Search
+                    </Button>
                   </Form>
                   <Table striped>
                     <thead>
@@ -183,14 +190,16 @@ function Admin({ match, history }) {
                   </Table>
                   <Pagination>
                     {[...Array(pages).keys()].map((x) => {
-                      <LinkContainer
-                        key={x + 1}
-                        to={`/admin/products/${searchTerm}/${x + 1}`}
-                      >
-                        <Pagination.Item active={x + 1 === page}>
-                          {x + 1}
-                        </Pagination.Item>
-                      </LinkContainer>;
+                      return (
+                        <LinkContainer
+                          key={x + 1}
+                          to={`/admin/products/${searchTerm}/${x + 1}`}
+                        >
+                          <Pagination.Item active={x + 1 === page}>
+                            {x + 1}
+                          </Pagination.Item>
+                        </LinkContainer>
+                      );
                     })}
                   </Pagination>
                 </div>
