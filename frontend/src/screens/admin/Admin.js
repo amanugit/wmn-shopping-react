@@ -203,8 +203,8 @@ function Admin({ match, history }) {
                           key={x + 1}
                           to={
                             searchTerm
-                              ? `/admin/products/filter/${searchTerm}/${x + 1}`
-                              : `/admin/products/filter/${x + 1}`
+                              ? `/admin/filter/products/${searchTerm}/${x + 1}`
+                              : `/admin/filter/products/${x + 1}`
                           }
                         >
                           <Pagination.Item active={x + 1 === page}>
