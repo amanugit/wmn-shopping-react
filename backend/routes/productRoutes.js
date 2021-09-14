@@ -4,6 +4,7 @@ import {
   createOne,
   deleteOne,
   getAll,
+  adminGetAll,
   getOne,
   updateOne,
   groupByColor,
@@ -27,6 +28,7 @@ import {
 import { restrictTo, protect } from "../controllers/authController.js";
 
 router.route("/").get(getAll).post(protect, restrictTo, createOne);
+router.route("/admin").get(protect, restrictTo, adminGetAll);
 router.get("/filter", getAllByFilter);
 router.get("/cbm", groupByColor);
 router.get("/bbm", groupByBrand);

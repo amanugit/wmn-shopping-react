@@ -1,8 +1,17 @@
-import React, { useEffect } from "react";
-import { Container, Table, Spinner, ListGroup, Alert } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Container,
+  Table,
+  Spinner,
+  ListGroup,
+  Alert,
+  Pagination,
+  Form,
+} from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { listProducts, deleteProduct } from "../../actions/productActions";
+import { adminListProducts } from "../../actions/productActions";
 import { listOrders, deliverOrder } from "../../actions/orderActions";
 import {
   FaEye,
@@ -14,7 +23,8 @@ import {
 } from "react-icons/fa";
 import "./Admin.css";
 function Admin({ match, history }) {
-  const productList = useSelector((state) => state.productList);
+  const [searchTerm, setsearchTerm] = useState("");
+  const productList = useSelector((state) => state.productAdminList);
   const productDelete = useSelector((state) => state.productDelete);
   const userLogin = useSelector((state) => state.userLogin);
   const orderList = useSelector((state) => state.orderList);
@@ -30,7 +40,7 @@ function Admin({ match, history }) {
   } = orderList;
 
   const dispatch = useDispatch();
-  const { loading, products, error } = productList;
+  const { loading, adminProducts, pages, currentPageNo, error } = productList;
   const matchKey = match.params.key;
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
@@ -38,14 +48,14 @@ function Admin({ match, history }) {
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
-        dispatch(listProducts());
+        dispatch(adminListProducts(keyWord, currentPageNo));
       } else if (matchKey === "orders") {
         dispatch(listOrders());
       }
     } else {
       history.push("/admin/login?redirect=admin");
     }
-  }, [dispatch, matchKey, userInfo, success, history]);
+  }, [dispatch, matchKey, userInfo, success, history, keyWord, currentPageNo]);
 
   return (
     <section className="admin" id="admin">
@@ -92,7 +102,15 @@ function Admin({ match, history }) {
                   Opps: something went wrong..., try to reload the page
                 </Alert>
               ) : (
-                <div>
+                <div className="py-3">
+                  <Form>
+                    <Form.Control
+                      type="text"
+                      placeholder="Search Product"
+                      value={searchTerm}
+                      onChange={(e) => setsearchTerm(e.target.value)}
+                    ></Form.Control>
+                  </Form>
                   <Table striped>
                     <thead>
                       <tr>
@@ -110,7 +128,7 @@ function Admin({ match, history }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {products.map((pr) => {
+                      {adminProducts.map((pr) => {
                         return (
                           <tr key={pr._id}>
                             <td>{pr.name}</td>
@@ -162,6 +180,18 @@ function Admin({ match, history }) {
                       })}
                     </tbody>
                   </Table>
+                  <Pagination>
+                    {[...Array(pages).keys()].map((x) => {
+                      <LinkContainer
+                        key={x + 1}
+                        to={`/admin/products/${searchTerm}/${x + 1}`}
+                      >
+                        <Pagination.Item active={x + 1 === page}>
+                          {x + 1}
+                        </Pagination.Item>
+                      </LinkContainer>;
+                    })}
+                  </Pagination>
                 </div>
               )}
             </div>

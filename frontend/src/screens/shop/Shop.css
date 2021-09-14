@@ -114,7 +114,7 @@
 }
 .shop .side-cats {
   height: 150px;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 @media screen and (max-width: 992px) {
   .scoll_filxed {

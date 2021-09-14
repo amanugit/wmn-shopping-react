@@ -229,6 +229,29 @@ const getAllByFilter = asyncHandler(async (req, res, next) => {
   });
 });
 
+const adminGetAll = asyncHandler(async (req, res, next) => {
+  const currentPageNo = Number(req.query.currentPageNo) || 1;
+  const recordsPerPage = 10;
+  const keyWordQ = req.query.keyWord
+    ? {
+        name: {
+          $regex: req.query.keyWord,
+          $options: "i",
+        },
+      }
+    : {};
+  const count = await Product.countDocuments({ ...keyWordQ });
+  const adminProducts = await Product.find({ ...keyWordQ })
+    .limit(10)
+    .skip(recordsPerPage * (currentPageNo - 1));
+  res.status(200).json({
+    status: "success",
+    adminProducts,
+    currentPageNo,
+    pages: Math.ceil(count / recordsPerPage),
+  });
+});
+
 const getAll = asyncHandler(async (req, res, next) => {
   const superCat = req.query.superCat;
   const catq = req.query.catq;
@@ -543,6 +566,7 @@ export {
   deleteOne,
   createOne,
   getAll,
+  adminGetAll,
   updateOne,
   groupByColor,
   groupByBrand,

@@ -3,6 +3,9 @@ import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
+  ADMIN_PRODUCT_LIST_REQUEST,
+  ADMIN_PRODUCT_LIST_SUCCESS,
+  ADMIN_PRODUCT_LIST_FAIL,
   PRODUCT_GET_REQUEST,
   PRODUCT_GET_SUCCESS,
   PRODUCT_GET_FAIL,
@@ -24,6 +27,40 @@ import {
 } from "../constants/productConstants";
 import { logOut } from "../actions/userActions";
 /** list products */
+
+export const adminListProducts =
+  (keyWord, currentPageNo) => async (dispatch) => {
+    try {
+      dispatch({
+        type: ADMIN_PRODUCT_LIST_REQUEST,
+      });
+      const { data } = await axios.get(
+        `/api/products/admin?currentPageNo=${currentPageNo}&keyWord=${keyWord}`
+      );
+      dispatch({
+        type: ADMIN_PRODUCT_LIST_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      console.log(message);
+      if (
+        message === "You are not logged in please login to get access" ||
+        message === "The user belongs to this user does not exist" ||
+        message === "User recently changed password please login again" ||
+        message === "You do not have permission to perform this action"
+      ) {
+        dispatch(logOut());
+      }
+      dispatch({
+        type: ADMIN_PRODUCT_LIST_FAIL,
+        payload: message,
+      });
+    }
+  };
 export const listProducts =
   (superCat = "", catq = "") =>
   async (dispatch) => {
@@ -339,7 +376,6 @@ export const createProduct =
         payload: data,
       });
     } catch (error) {
-      console.log(error);
       const message =
         error.response && error.response.data.message
           ? error.response.data.message

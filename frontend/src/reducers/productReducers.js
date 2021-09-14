@@ -3,6 +3,9 @@ import {
   PRODUCT_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_RESET,
+  ADMIN_PRODUCT_LIST_REQUEST,
+  ADMIN_PRODUCT_LIST_SUCCESS,
+  ADMIN_PRODUCT_LIST_FAIL,
   PRODUCT_GET_REQUEST,
   PRODUCT_GET_SUCCESS,
   PRODUCT_GET_FAIL,
@@ -25,6 +28,33 @@ import {
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
+
+export const productAdminListReducer = (
+  state = { adminProducts: [] },
+  action
+) => {
+  switch (action.type) {
+    case ADMIN_PRODUCT_LIST_REQUEST:
+      return {
+        adminProducts: [],
+        loading: true,
+      };
+    case ADMIN_PRODUCT_LIST_SUCCESS:
+      return {
+        loading: false,
+        adminProducts: action.payload.adminProducts,
+        pages: action.payload.pages,
+        currentPageNo: action.payload.currentPageNo,
+      };
+    case ADMIN_PRODUCT_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 export const productListReducer = (
   state = {
     products: [],

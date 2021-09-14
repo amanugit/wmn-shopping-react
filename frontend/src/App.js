@@ -42,6 +42,11 @@ function App() {
           <Route path="/admin" component={Admin} exact></Route>
           <Route path="/admin/login" component={AdminLogin} exact></Route>
           <Route path="/admin/:key" component={Admin} exact></Route>
+          <Route
+            path="/admin/:key/:skey/pageNo"
+            component={Admin}
+            exact
+          ></Route>
           <Route path="/admin/:key/add" component={AddProduct} exact></Route>
           <Route
             path="/admin/product/:id/edit"
