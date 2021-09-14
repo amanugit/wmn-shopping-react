@@ -50,7 +50,8 @@ function Admin({ match, history }) {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
   const searchProduct = () => {
-    return history.push(`/admin/filter/products/${searchTerm}/${1}`);
+    history.push(`/admin/filter/products/${searchTerm}/${1}`);
+    return false;
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
