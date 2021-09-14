@@ -235,7 +235,7 @@ const adminGetAll = asyncHandler(async (req, res, next) => {
   const keyWordQ = req.query.keyWord
     ? {
         name: {
-          $$regex: req.query.keyWord,
+          $regex: req.query.keyWord,
           $options: "i",
         },
       }

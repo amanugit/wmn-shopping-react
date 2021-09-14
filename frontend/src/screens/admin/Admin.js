@@ -50,7 +50,7 @@ function Admin({ match, history }) {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
   const searchProduct = () => {
-    dispatch(adminListProducts(searchTerm, page));
+    dispatch(adminListProducts(searchTerm, 1));
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
