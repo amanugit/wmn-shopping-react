@@ -56,7 +56,7 @@ function Admin({ match, history }) {
     } else {
       history.push("/admin/login?redirect=admin");
     }
-  }, [dispatch, matchKey, userInfo, success, history, keyWord, currentPageNo]);
+  }, [dispatch, matchKey, userInfo, success, history, searchTerm, page]);
 
   return (
     <section className="admin" id="admin">
