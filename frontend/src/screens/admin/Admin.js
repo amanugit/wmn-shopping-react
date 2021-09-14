@@ -33,7 +33,7 @@ function Admin({ match, history }) {
   const { loading, products, error } = productList;
   const matchKey = match.params.key;
   const deletePrd = (id) => {
-    dispatch(deleteProduct(id));
+    alert("Opps, this feature is not applied! this is for demo purpose");
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
