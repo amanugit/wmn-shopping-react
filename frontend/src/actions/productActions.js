@@ -43,6 +43,11 @@ export const adminListProducts =
         payload: data,
       });
     } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+
       dispatch({
         type: ADMIN_PRODUCT_LIST_FAIL,
         payload: message,
