@@ -43,7 +43,7 @@ function App() {
           <Route path="/admin/login" component={AdminLogin} exact></Route>
           <Route path="/admin/:key" component={Admin} exact></Route>
           <Route
-            path="/admin/:key/:skey/currentPageNo"
+            path="/admin/:key/:skey/:currentPageNo"
             component={Admin}
             exact
           ></Route>
