@@ -29,7 +29,8 @@ import { logOut } from "../actions/userActions";
 /** list products */
 
 export const adminListProducts =
-  (keyWord, currentPageNo) => async (dispatch) => {
+  (keyWord = "", currentPageNo = "") =>
+  async (dispatch) => {
     try {
       dispatch({
         type: ADMIN_PRODUCT_LIST_REQUEST,
@@ -42,19 +43,6 @@ export const adminListProducts =
         payload: data,
       });
     } catch (error) {
-      const message =
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message;
-      console.log(message);
-      if (
-        message === "You are not logged in please login to get access" ||
-        message === "The user belongs to this user does not exist" ||
-        message === "User recently changed password please login again" ||
-        message === "You do not have permission to perform this action"
-      ) {
-        dispatch(logOut());
-      }
       dispatch({
         type: ADMIN_PRODUCT_LIST_FAIL,
         payload: message,
