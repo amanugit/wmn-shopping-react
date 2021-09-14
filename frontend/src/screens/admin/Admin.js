@@ -96,7 +96,7 @@ function Admin({ match, history }) {
               <Link to="/admin/products/add">
                 <FaPlus
                   title="Add Products"
-                  style={{ margin: "20px", fontSize: "2rem" }}
+                  style={{ margin: "5px", fontSize: "2rem" }}
                 ></FaPlus>
               </Link>
               {loading ? (
@@ -117,17 +117,17 @@ function Admin({ match, history }) {
                   <Form onSubmit={searchProduct}>
                     <Row>
                       <Col md={6} sm={12}>
-                        <Form.Control
-                          type="text"
-                          placeholder="Search Product"
-                          value={searchTerm}
-                          onChange={(e) => setsearchTerm(e.target.value)}
-                        ></Form.Control>
-                      </Col>
-                      <Col md={3} sm={12}>
-                        <Button type="submit" className="mybtn">
-                          Search
-                        </Button>
+                        <div style={{ display: "flex" }}>
+                          <Form.Control
+                            type="text"
+                            placeholder="Search Product"
+                            value={searchTerm}
+                            onChange={(e) => setsearchTerm(e.target.value)}
+                          ></Form.Control>
+                          <Button type="submit" className="mybtn">
+                            Search
+                          </Button>
+                        </div>
                       </Col>
                     </Row>
                   </Form>
