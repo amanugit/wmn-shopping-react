@@ -49,9 +49,9 @@ function Admin({ match, history }) {
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
-  const searchProduct = () => {
-    history.push(`/admin/filter/products/${searchTerm}/${1}`);
-    return false;
+  const searchProduct = (e) => {
+    e.preventDefault();
+    history.push(`/admin/filter/products/${searchTerm}/${1}/`);
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
