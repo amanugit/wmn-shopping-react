@@ -51,9 +51,6 @@ function Admin({ match, history }) {
   };
   const searchProduct = (e) => {
     e.preventDefault();
-    if (searchTerm === "") {
-      return;
-    }
     dispatch(adminListProducts(searchTerm, 1));
   };
   useEffect(() => {
