@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Table,
@@ -54,11 +54,8 @@ function Admin({ match, history }) {
     if (searchTerm === "") {
       return;
     }
-    history.push(`/admin/filter/products/${searchTerm}/${1}/`);
+    dispatch(adminListProducts(searchTerm, 1));
   };
-  useCallback(() => {
-    searchProduct();
-  }, [searchTerm, history]);
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
