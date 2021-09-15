@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Container,
   Table,
@@ -49,13 +49,16 @@ function Admin({ match, history }) {
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
-  const searchProduct = (e) => {
-    e.preventDefault();
-    if (searchTerm === "") {
-      return;
-    }
-    history.push(`/admin/filter/products/${searchTerm}/${1}/`);
-  };
+
+  useCallback(() => {
+    const searchProduct = (e) => {
+      e.preventDefault();
+      if (searchTerm === "") {
+        return;
+      }
+      history.push(`/admin/filter/products/${searchTerm}/${1}/`);
+    };
+  }, [searchTerm, history]);
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
