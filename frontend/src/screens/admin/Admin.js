@@ -49,15 +49,15 @@ function Admin({ match, history }) {
   const deletePrd = (id) => {
     alert("Opps, this feature is not applied! this is for demo purpose");
   };
-
+  const searchProduct = (e) => {
+    e.preventDefault();
+    if (searchTerm === "") {
+      return;
+    }
+    history.push(`/admin/filter/products/${searchTerm}/${1}/`);
+  };
   useCallback(() => {
-    const searchProduct = (e) => {
-      e.preventDefault();
-      if (searchTerm === "") {
-        return;
-      }
-      history.push(`/admin/filter/products/${searchTerm}/${1}/`);
-    };
+    searchProduct();
   }, [searchTerm, history]);
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
