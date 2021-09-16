@@ -95,7 +95,7 @@ function Cart({ history }) {
               <ListGroup.Item>
                 <h2>
                   Sub Total:
-                  {cartItems.reduce((acc, item) => acc + item.qty, 0)} Items
+                  {cartItems.reduce((acc, item) => acc+item.qty, 0)} Items
                 </h2>
 
                 {cartItems
