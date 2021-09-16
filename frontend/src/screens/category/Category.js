@@ -342,7 +342,7 @@ function Category({ match }) {
               ) : (
                 <div>
                   <div className="my-2">
-                    <div className="left-menu side-cats">
+                    <div className="left-menu side-cats" style={{height: 'auto'}}>
                       <ul>
                         <li>
                           {" "}
@@ -460,7 +460,7 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu side-cats">
+                    <div className="left-menu side-cats" style={{height: 'auto'}}>
                       <ul>
                         <li className="price">
                           <span>&lt;{priceState} $ </span>

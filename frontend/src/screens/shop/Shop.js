@@ -252,7 +252,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Categories</h6>
                     </div>
-                    <div className="left-menu side-cats">
+                    <div className="left-menu side-cats" style={{height: 'auto'}}>
                       <ul>
                         <li>
                           {" "}
@@ -363,7 +363,7 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu side-cats">
+                    <div className="left-menu side-cats" style={{height: 'auto'}}>
                       <ul>
                         <li className="price">
                           <span>&lt;{priceState} $ </span>
