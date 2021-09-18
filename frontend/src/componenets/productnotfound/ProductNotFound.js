@@ -21,7 +21,7 @@ function ProductNotFound({supCat, categoryQ}) {
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
     if(categoryQ) {
       dispatch(getSubCategory(categoryQ, supCat));
-      dispatch(listProducts(supcat, categoryQ));
+      dispatch(listProducts(supCat, categoryQ));
     } else {
       dispatch(listProducts(supCat, ""));
     }
