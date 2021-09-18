@@ -8,9 +8,14 @@ import {
 import {listProducts, getSubCategory} from '../../actions/productActions';
 function ProductNotFound({supCat, categoryQ}) {
   const dispatch = useDispatch();
-
+  /**
+   * modal was displayed
+   */
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
+    /**
+     * dispatch
+     */
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
     if(categoryQ) {
@@ -19,13 +24,19 @@ function ProductNotFound({supCat, categoryQ}) {
     } else {
       dispatch(listProducts(supCat, ""));
     }
+    /**
+     * set modal false
+     */
     const time = setTimeout(() => {
       setShowModal(false);
     }, 1000);
+    
+    /**
+     * some clean-up
+     */
     return () => {
       clearTimeout(time);
     };
-  
   }, [dispatch, supCat, categoryQ, showModal]);
   return (
     <div className="notfound" id="notfound">
