@@ -11,12 +11,6 @@ function ProductNotFound({supCat, categoryQ}) {
 
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
-    const time = setTimeout(() => {
-      setShowModal(false);
-    }, 1000);
-    return () => {
-      clearTimeout(time);
-    };
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
     if(categoryQ) {
@@ -25,7 +19,13 @@ function ProductNotFound({supCat, categoryQ}) {
     } else {
       dispatch(listProducts(supCat, ""));
     }
-
+    const time = setTimeout(() => {
+      setShowModal(false);
+    }, 1000);
+    return () => {
+      clearTimeout(time);
+    };
+  
   }, [dispatch, supCat, categoryQ, showModal]);
   return (
     <div className="notfound" id="notfound">
