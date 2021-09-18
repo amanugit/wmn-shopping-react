@@ -16,6 +16,10 @@ function ProductNotFound({supCat, categoryQ}) {
     /**
      * dispatch
      */
+    const time = setTimeout(() => {
+      setShowModal(false);
+    }, 1000);
+
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
     if(categoryQ) {
@@ -27,9 +31,7 @@ function ProductNotFound({supCat, categoryQ}) {
     /**
      * set modal false
      */
-    const time = setTimeout(() => {
-      setShowModal(false);
-    }, 1000);
+    
     
     /**
      * some clean-up
@@ -37,7 +39,7 @@ function ProductNotFound({supCat, categoryQ}) {
     return () => {
       clearTimeout(time);
     };
-  }, [dispatch, supCat, categoryQ, showModal]);
+  }, [dispatch, supCat, categoryQ]);
   return (
     <div className="notfound" id="notfound">
       <div
