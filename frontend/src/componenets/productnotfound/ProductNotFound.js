@@ -20,8 +20,6 @@ function ProductNotFound({supCat, categoryQ}) {
       setShowModal(false);
     }, 1000);
 
-    dispatch({ type: PRODUCT_LIST_RESET });
-    dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
     if(categoryQ) {
       dispatch(getSubCategory(categoryQ, supCat));
       dispatch(listProducts(supCat, categoryQ));
