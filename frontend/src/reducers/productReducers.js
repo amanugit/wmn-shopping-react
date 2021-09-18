@@ -102,18 +102,7 @@ export const productListReducer = (
         error: action.payload,
       };
     case PRODUCT_LIST_RESET:
-      return {
-        loading: false,
-        products: [],
-        colorsAPI: [],
-        categoryAPI: [],
-        brandAPI: [],
-        materialAPI: [],
-        itemCategoryAPI: [],
-        priceAPI: [],
-        clothingSizeAPI: [],
-        shoeSizeAPI: [],
-      };
+      return {};
     default:
       return state;
   }
@@ -175,10 +164,7 @@ export const getProductsByFilterReducer = (
         error: action.payload,
       };
     case PRODUCT_GET_BYFILTER_RESET:
-      return {
-        productsByFilter: [],
-        status: "",
-      };
+      return {};
     default:
       return state;
   }
