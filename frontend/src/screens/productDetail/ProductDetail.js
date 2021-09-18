@@ -67,7 +67,7 @@ function ProductDetail({ match }) {
           <Row className="product-detail-container">
             <Col md={9} sm={12}>
               <Row>
-                <Col md={12} sm={12}>
+                <Col md={12} sm={12} className="mb-2">
                   <img
                     className=" img"
                     ref={(el) => (mainImgRef.current = el)}
