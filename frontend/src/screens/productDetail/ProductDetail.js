@@ -67,32 +67,7 @@ function ProductDetail({ match }) {
           <Row className="product-detail-container">
             <Col md={9} sm={12}>
               <Row>
-                <Col
-                  className="product_detail_scroll"
-                  md={6}
-                  sm={12}
-                  style={{
-                    height: "400px",
-                    overflowY: "scroll",
-                  }}
-                >
-                  {product.images.map((img, index) => {
-                    return (
-                      <Row key={index}>
-                        <Col sm={12} md={12} style={{ marginBottom: "20px" }}>
-                          <img
-                            className="img img-item"
-                            ref={(el) => (imgRefs.current[index] = el)}
-                            src={`${img}`}
-                            alt={product.name}
-                            onClick={() => clickImage(index)}
-                          ></img>
-                        </Col>
-                      </Row>
-                    );
-                  })}
-                </Col>
-                <Col md={6} sm={12}>
+                <Col md={12} sm={12}>
                   <img
                     className=" img"
                     ref={(el) => (mainImgRef.current = el)}
@@ -104,6 +79,23 @@ function ProductDetail({ match }) {
                       objectFit: "contain",
                     }}
                   ></img>
+                </Col>
+                <Col md={12} sm={12}>
+                  <Row>
+                    {product.images.map((img, index) => {
+                      return (
+                        <Col sm={3} md={12} style={{ marginBottom: "20px" }}>
+                          <img
+                            className="img img-item"
+                            ref={(el) => (imgRefs.current[index] = el)}
+                            src={`${img}`}
+                            alt={product.name}
+                            onClick={() => clickImage(index)}
+                          ></img>
+                        </Col>
+                      );
+                    })}
+                  </Row>
                 </Col>
               </Row>
             </Col>
