@@ -84,7 +84,7 @@ function ProductDetail({ match }) {
                   <Row>
                     {product.images.map((img, index) => {
                       return (
-                        <Col sm={1} md={12} style={{ marginBottom: "20px" }}>
+                        <Col md={1} sm={12} style={{ marginBottom: "20px" }}>
                           <img
                             className="img img-item"
                             ref={(el) => (imgRefs.current[index] = el)}
