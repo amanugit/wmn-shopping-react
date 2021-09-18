@@ -176,28 +176,7 @@ function Shop({ match }) {
       )
     );
   };
-  useEffect(() => {
-    window.addEventListener("scroll", function () {
-      if (sideBarRef.current !== null) {
-        if (this.pageYOffset > 400) {
-          sideBarRef.current.classList.add("scoll_filxed");
-        } else {
-          return;
-        }
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll", function () {
-        if (sideBarRef.current !== null) {
-          if (this.pageYOffset > 400) {
-            sideBarRef.current.classList.add("scoll_filxed");
-          } else {
-            return;
-          }
-        }
-      });
-    };
-  }, []);
+  
 
   useEffect(() => {
     dispatch({ type: PRODUCT_LIST_RESET });

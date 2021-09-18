@@ -18,7 +18,7 @@ function ProductNotFound({supCat, categoryQ}) {
      */
     const time = setTimeout(() => {
       setShowModal(false);
-    }, 1000);
+    }, 2000);
 
     if(categoryQ) {
       dispatch(getSubCategory(categoryQ, supCat));
@@ -49,7 +49,7 @@ function ProductNotFound({supCat, categoryQ}) {
           <div>
             {" "}
             <h1 style={{ fontSize: "2rem" }}>Not Found</h1>
-            <p>viewing all products</p>
+            <p>Clering All Filters And viewing all products ....</p>
           </div>
         </div>
       </div>
