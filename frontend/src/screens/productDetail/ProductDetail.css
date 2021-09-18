@@ -41,6 +41,8 @@
 }
 .product-detail .img-item {
   cursor: pointer;
+  height: 200px;
+  object-fit: contain;
 }
 .myselect:focus {
   outline: 0 !important;
