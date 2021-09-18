@@ -401,7 +401,7 @@ function Shop({ match }) {
                 </Alert>
               ) : status === "notFound" ? (
                 <>
-                  <ProductNotFound></ProductNotFound>
+                  <ProductNotFound supCat={supCat}></ProductNotFound>
 
                   {productsByFilter.map((product) => {
                     return (

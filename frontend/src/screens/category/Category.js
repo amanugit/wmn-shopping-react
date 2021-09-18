@@ -553,7 +553,7 @@ function Category({ match }) {
                 </Alert>
               ) : status === "notFound" ? (
                 <>
-                  <ProductNotFound></ProductNotFound>
+                  <ProductNotFound supCat={supcat} categoryQ={categoryQ}></ProductNotFound>
 
                   {productsByFilter.map((product) => {
                     return (

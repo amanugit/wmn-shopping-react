@@ -5,7 +5,8 @@ import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
 } from "../../constants/productConstants";
-function ProductNotFound() {
+import {listProducts, getSubCategory} from '../../actions/productActions';
+function ProductNotFound({supCat, categoryQ}) {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(true);
@@ -18,7 +19,14 @@ function ProductNotFound() {
     };
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
-  }, [dispatch]);
+    if(categoryQ) {
+      dispatch(getSubCategory(categoryQ, supCat));
+      dispatch(listProducts(supcat, categoryQ));
+    } else {
+      dispatch(listProducts(supCat, ""));
+    }
+
+  }, [dispatch, supCat, categoryQ, showModal]);
   return (
     <div className="notfound" id="notfound">
       <div
