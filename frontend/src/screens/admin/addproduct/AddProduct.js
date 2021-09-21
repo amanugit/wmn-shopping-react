@@ -50,45 +50,46 @@ function AddProduct({ history }) {
     }
   }, [history, dispatch, success, userInfo]);
   const addProduct = async (e) => {
-    e.preventDefault();
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      const formData = new FormData();
-      imagesFiles.map((imgFile) => {
-        return formData.append("images", imgFile);
-      });
+    // e.preventDefault();
+    // try {
+    //   const config = {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   };
+    //   const formData = new FormData();
+    //   imagesFiles.map((imgFile) => {
+    //     return formData.append("images", imgFile);
+    //   });
 
-      formData.append("photo", photoFile);
-      const {
-        data: { uploadedImages, photoUploaded },
-      } = await axios.post("/api/upload/productImages", formData, config);
-      dispatch(
-        createProduct(
-          name,
-          desc,
-          price,
-          priceDiscount,
-          shippingCost,
-          category,
-          ItemCategory,
-          subCategory,
-          brand,
-          sizes,
-          shoeSizes,
-          material,
-          colors,
-          countInStock,
-          photoUploaded,
-          uploadedImages
-        )
-      );
-    } catch (error) {
-      //console.error(error);
-    }
+    //   formData.append("photo", photoFile);
+    //   const {
+    //     data: { uploadedImages, photoUploaded },
+    //   } = await axios.post("/api/upload/productImages", formData, config);
+    //   dispatch(
+    //     createProduct(
+    //       name,
+    //       desc,
+    //       price,
+    //       priceDiscount,
+    //       shippingCost,
+    //       category,
+    //       ItemCategory,
+    //       subCategory,
+    //       brand,
+    //       sizes,
+    //       shoeSizes,
+    //       material,
+    //       colors,
+    //       countInStock,
+    //       photoUploaded,
+    //       uploadedImages
+    //     )
+    //   );
+    // } catch (error) {
+    //   //console.error(error);
+    // }
+    alert("Ops: this feature is not allowed this is just for demo purposes");
   };
 
   const addColors = () => {
@@ -223,7 +224,7 @@ function AddProduct({ history }) {
             </Alert>
           </div>
         ) : (
-          "success"
+          ""
         )}
         <Form onSubmit={addProduct}>
           <Row>
