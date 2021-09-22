@@ -74,44 +74,7 @@ function EditProduct({ match, history }) {
   }, [dispatch, productId, productUpdateSuccess, history, userInfo]);
   const updatePr = async (e) => {
     e.preventDefault();
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      const formData = new FormData();
-      imagesFiles.map((imgFile) => {
-        return formData.append("images", imgFile);
-      });
-
-      formData.append("photo", photoFile);
-      const {
-        data: { uploadedImages, photoUploaded },
-      } = await axios.post("/api/upload/productImages", formData, config);
-      dispatch(
-        updateProduct(productId, {
-          name,
-          desc,
-          price,
-          priceDisc: priceDiscount,
-          shippingCost,
-          superCat: category,
-          subCat: subCategory,
-          itemCat: ItemCategory,
-          brand,
-          sizes,
-          shoeSize: shoeSizes,
-          material,
-          color: colors,
-          countInStock,
-          photo: photoUploaded,
-          images: uploadedImages,
-        })
-      );
-    } catch (error) {
-      console.error(error);
-    }
+    alert("Oops: this feature is not allowed this is just for demo purposes!");
   };
 
   const addColors = () => {
