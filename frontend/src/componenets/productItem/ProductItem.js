@@ -7,7 +7,6 @@ function ProductItem({ product }) {
     <Col md={3} sm={12} className="mb-2">
       <div className="p-3 shadow-sm p_item">
         <div className="hoverContainer">
-          <p>Sizes</p>
           <ul>
             {product.subCat === "clothings"
               ? product.sizes.map((s, index) => {
