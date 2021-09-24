@@ -23,7 +23,12 @@ function Cart({ history }) {
           <Col md={8} sm={12}>
             <ListGroup>
               {cartItems.length === 0 ? (
-                <h4>No Cart Item</h4>
+                <div className="my-2">
+                  <h4>No Cart Item</h4>
+                  <Link to="/women" className="mybtn">
+                    Go to shopping
+                  </Link>
+                </div>
               ) : (
                 cartItems.map((item, index) => {
                   return (
@@ -95,7 +100,11 @@ function Cart({ history }) {
               <ListGroup.Item>
                 <h2>
                   Sub Total:
-                  {cartItems.reduce((acc, item) => (acc+item.qty), 0)} Items
+                  {cartItems.reduce(
+                    (acc, item) => acc + Number(item.qty),
+                    0
+                  )}{" "}
+                  Items
                 </h2>
 
                 {cartItems

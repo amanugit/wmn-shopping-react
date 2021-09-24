@@ -62,7 +62,7 @@ function ProductDetail({ match }) {
           </Alert>
         ) : (
           <Row className="product-detail-container">
-            <Col md={9} sm={12}>
+            <Col md={8} sm={12}>
               <Row>
                 <Col md={12} sm={12} className="mb-2">
                   <img
@@ -97,7 +97,7 @@ function ProductDetail({ match }) {
               </Row>
             </Col>
 
-            <Col md={3} sm={12}>
+            <Col md={4} sm={12}>
               <h2>{product.name}</h2>
               <h3>Price: {product.price}</h3>
               <ul>
