@@ -137,9 +137,15 @@ function ProductDetail({ match }) {
                     setSize(e.target.value);
                   }}
                 >
-                  {product.sizes.map((size) => {
-                    return <option value={size}>{size}</option>;
-                  })}
+                  {product.sizes
+                    ? product.sizes.map((size) => {
+                        return <option value={size}>{size}</option>;
+                      })
+                    : product.shoeSize
+                    ? product.shoeSize.map((size) => {
+                        return <option value={size}>{size}</option>;
+                      })
+                    : null}
                 </Form.Control>
               </div>
 
