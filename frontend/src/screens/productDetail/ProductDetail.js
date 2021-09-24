@@ -174,20 +174,22 @@ function ProductDetail({ match }) {
                   </Form.Control>
                 </div>
               </div>
-              <Button
-                className="mybtn mr-5"
-                onClick={addToBag}
-                disabled={product.countInStock <= 0}
-              >
-                {product.countInStock <= 0 ? (
-                  "Not Availeble"
-                ) : (
-                  <FaCartPlus></FaCartPlus>
-                )}
-              </Button>
-              <Link to={`/${product.superCat}`}>
-                <Button className=" mybtn">Back to shop</Button>
-              </Link>
+              <div className="my-2">
+                <Button
+                  className="mybtn mr-5"
+                  onClick={addToBag}
+                  disabled={product.countInStock <= 0}
+                >
+                  {product.countInStock <= 0 ? (
+                    "Not Availeble"
+                  ) : (
+                    <FaCartPlus></FaCartPlus>
+                  )}
+                </Button>
+                <Link to={`/${product.superCat}`}>
+                  <Button className=" mybtn">Back to shop</Button>
+                </Link>
+              </div>
             </Col>
           </Row>
         )}
