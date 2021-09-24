@@ -44,6 +44,10 @@
   width: 100%;
   object-fit: cover;
 }
+.myselect {
+  margin-left: 10px !important;
+  width: 100% !important;
+}
 .myselect:focus {
   outline: 0 !important;
   border: none !important;
