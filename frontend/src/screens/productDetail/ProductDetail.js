@@ -62,7 +62,7 @@ function ProductDetail({ match }) {
           </Alert>
         ) : (
           <Row className="product-detail-container">
-            <Col md={8} sm={12}>
+            <Col md={7} sm={12}>
               <Row>
                 <Col md={12} sm={12} className="mb-2">
                   <img
@@ -97,7 +97,7 @@ function ProductDetail({ match }) {
               </Row>
             </Col>
 
-            <Col md={4} sm={12}>
+            <Col md={5} sm={12}>
               <h2>{product.name}</h2>
               <h3>Price: {product.price}</h3>
               <ul>
@@ -107,66 +107,72 @@ function ProductDetail({ match }) {
               </ul>
               <p>Shipping Cost: {product.shippingCost} $</p>
               <div className="colors">
-                <p>Select Color</p>
-                <Form.Control
-                  as="select"
-                  className="myselect"
-                  onChange={(e) => {
-                    setColor(e.target.value);
-                  }}
-                >
-                  {product.color.map((color, index) => {
-                    return (
-                      <option key={index} value={color}>
-                        {color}
-                      </option>
-                    );
-                  })}
-                </Form.Control>
+                <div className="my-1">Select Color</div>
+                <div>
+                  <Form.Control
+                    as="select"
+                    className="myselect"
+                    onChange={(e) => {
+                      setColor(e.target.value);
+                    }}
+                  >
+                    {product.color.map((color, index) => {
+                      return (
+                        <option key={index} value={color}>
+                          {color}
+                        </option>
+                      );
+                    })}
+                  </Form.Control>
+                </div>
               </div>
 
               <div className="sizes">
-                <p>Select Size</p>
-                <Form.Control
-                  as="select"
-                  className="myselect"
-                  onChange={(e) => {
-                    setSize(e.target.value);
-                  }}
-                >
-                  {product.sizes.length > 0 ? (
-                    product.sizes.map((size) => {
-                      return <option value={size}>{size}</option>;
-                    })
-                  ) : product.shoeSize.length > 0 ? (
-                    product.shoeSize.map((size) => {
-                      return <option value={size}>{size}</option>;
-                    })
-                  ) : (
-                    <option value="no size">No Size</option>
-                  )}
-                </Form.Control>
-              </div>
-
-              <div className="sizes">
-                <p>Select Qauntity</p>
-                <Form.Control
-                  as="select"
-                  className="myselect"
-                  onChange={(e) => {
-                    setQty(e.target.value);
-                  }}
-                >
-                  {product.countInStock > 0
-                    ? [...Array(product.countInStock).keys()].map((c) => {
-                        return (
-                          <option key={c + 1} value={c + 1}>
-                            {c + 1}
-                          </option>
-                        );
+                <div className="my-1">Select Size</div>
+                <div>
+                  <Form.Control
+                    as="select"
+                    className="myselect"
+                    onChange={(e) => {
+                      setSize(e.target.value);
+                    }}
+                  >
+                    {product.sizes.length > 0 ? (
+                      product.sizes.map((size) => {
+                        return <option value={size}>{size}</option>;
                       })
-                    : "Not Avialble"}
-                </Form.Control>
+                    ) : product.shoeSize.length > 0 ? (
+                      product.shoeSize.map((size) => {
+                        return <option value={size}>{size}</option>;
+                      })
+                    ) : (
+                      <option value="no size">No Size</option>
+                    )}
+                  </Form.Control>
+                </div>
+              </div>
+
+              <div className="sizes">
+                <div className="my-1">Select Qauntity</div>
+                <div>
+                  <Form.Control
+                    as="select"
+                    className="myselect"
+                    onChange={(e) => {
+                      setQty(e.target.value);
+                    }}
+                  >
+                    {product.countInStock > 0
+                      ? [...Array(product.countInStock).keys()].map((c) => {
+                          return (
+                            <option key={c + 1} value={c + 1}>
+                              {c + 1}
+                            </option>
+                          );
+                        })
+                      : "Not Avialble"}
+                  </Form.Control>
+                </div>
               </div>
               <Button
                 className="mybtn mr-5"
