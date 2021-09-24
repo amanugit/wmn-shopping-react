@@ -4,24 +4,6 @@
 .product-detail .product-detail-container {
   margin-top: 0.5rem;
 }
-.product-detail .colors {
-  display: flex;
-  align-items: center;
-}
-.product-detail .colors p {
-  margin-right: 2rem;
-}
-.product-detail .colors p span {
-  margin-right: 2rem;
-}
-
-.product-detail .sizes {
-  display: flex;
-  align-items: center;
-}
-.product-detail .sizes p {
-  margin-right: 2rem;
-}
 
 .spinner {
   position: fixed;
