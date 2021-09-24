@@ -43,9 +43,6 @@ function ProductDetail({ match }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct(productId));
-    setQty(1);
-    setColor(product.color[0]);
-    setSize(product.sizes[0]);
   }, [dispatch, match, productId]);
   return (
     <section className="product-detail">
@@ -137,15 +134,17 @@ function ProductDetail({ match }) {
                     setSize(e.target.value);
                   }}
                 >
-                  {product.sizes
-                    ? product.sizes.map((size) => {
-                        return <option value={size}>{size}</option>;
-                      })
-                    : product.shoeSize
-                    ? product.shoeSize.map((size) => {
-                        return <option value={size}>{size}</option>;
-                      })
-                    : null}
+                  {product.sizes.length > 0 ? (
+                    product.sizes.map((size) => {
+                      return <option value={size}>{size}</option>;
+                    })
+                  ) : product.shoeSize.length > 0 ? (
+                    product.shoeSize.map((size) => {
+                      return <option value={size}>{size}</option>;
+                    })
+                  ) : (
+                    <option value="no size">No Size</option>
+                  )}
                 </Form.Control>
               </div>
 
