@@ -1,7 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./ProductItem.css";
 function ProductItem({ product }) {
   return (
     <Col md={3} sm={12} className="mb-2">
@@ -27,7 +26,10 @@ function ProductItem({ product }) {
           ></img>
         </Link>
         <div className="my-2">
-          <Link to={`/${product.superCat}/${product.name}/${product._id}`}>
+          <Link
+            to={`/${product.superCat}/${product.name}/${product._id}`}
+            className="product_item_link"
+          >
             <h6>{product.name}</h6>
           </Link>
           <h6 className="text-dark">{product.desc.substr(0, 20)}</h6>

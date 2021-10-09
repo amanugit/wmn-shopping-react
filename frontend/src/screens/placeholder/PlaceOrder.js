@@ -14,7 +14,7 @@ import { updateProductQty } from "../../actions/productActions";
 import { Link } from "react-router-dom";
 import { ORDER_CREATE_RESET } from "../../constants/orderConstants";
 import { USER_DETAILS_RESET } from "../../constants/userConstants";
-import "./PlaceOrder.css";
+
 function PlaceOrder({ history }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);

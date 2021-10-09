@@ -9,11 +9,12 @@ import {
   Spinner,
   Alert,
 } from "react-bootstrap";
+import { FaBackward } from "react-icons/fa";
 import { getProduct } from "../../actions/productActions";
 import { addToCart } from "../../actions/cartActions";
-import "./ProductDetail.css";
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 function ProductDetail({ match }) {
   const productId = match.params.id;
   const productGet = useSelector((state) => state.productGet);
@@ -46,7 +47,14 @@ function ProductDetail({ match }) {
   }, [dispatch, match, productId]);
   return (
     <section className="product-detail">
-      <Container>
+      <Container fluid>
+        <div className="product_title">
+          <Link to={`/${product.superCat}`} title="Back to top">
+            <FaBackward className="backward">Back To Shop</FaBackward>
+          </Link>
+          <h2 className="product-name">{product.name}</h2>
+        </div>
+
         {loading ? (
           <div className="spinner">
             <Spinner
@@ -61,27 +69,32 @@ function ProductDetail({ match }) {
             Opps: something went wrong..., try to reload the page
           </Alert>
         ) : (
-          <Row className="product-detail-container">
-            <Col md={7} sm={12}>
+          <Row className="product-detail-container ">
+            <Col md={6} sm={12}>
               <Row>
                 <Col md={12} sm={12} className="mb-2">
                   <img
-                    className=" img"
+                    className="img"
                     ref={(el) => (mainImgRef.current = el)}
                     src={`${product.photo}`}
                     alt={product.name}
                     style={{
-                      height: "400px",
                       width: "100%",
-                      objectFit: "contain",
+                      maxHeight: "560px",
+                      objectFit: "cover",
                     }}
                   ></img>
                 </Col>
-                <Col md={12} sm={12}>
+              </Row>
+            </Col>
+
+            <Col md={6} sm={12}>
+              <Row>
+                <Col md={12} sm={12} className="pb-2">
                   <Row>
                     {product.images.map((img, index) => {
                       return (
-                        <Col md={2} sm={12} style={{ marginBottom: "20px" }}>
+                        <Col md={4} sm={12} style={{ marginBottom: "20px" }}>
                           <img
                             className="img img-item"
                             ref={(el) => (imgRefs.current[index] = el)}
@@ -94,117 +107,113 @@ function ProductDetail({ match }) {
                     })}
                   </Row>
                 </Col>
-              </Row>
-            </Col>
-
-            <Col md={5} sm={12}>
-              <h2>{product.name}</h2>
-              <h3>Price: {product.price}</h3>
-              <ul>
-                {wordlist(product.desc).map((descList, index) => {
-                  return <li key={index}>{descList}</li>;
-                })}
-              </ul>
-              <p>Shipping Cost: {product.shippingCost} $</p>
-              <div className="colors">
-                <div className="my-1">Select Color</div>
-                <div>
-                  <Form.Control
-                    as="select"
-                    className="myselect"
-                    onChange={(e) => {
-                      setColor(e.target.value);
-                    }}
-                  >
-                    {product.color.map((color, index) => {
-                      return (
-                        <option key={index} value={color}>
-                          {color}
-                        </option>
-                      );
+                <Col md={6} sm={12}>
+                  <h3>Price: {product.price}</h3>
+                  <ul>
+                    {wordlist(product.desc).map((descList, index) => {
+                      return <li key={index}>{descList}</li>;
                     })}
-                  </Form.Control>
-                </div>
-              </div>
-
-              <div className="sizes">
-                <div className="my-1">Select Size</div>
-                <div>
-                  <Form.Control
-                    as="select"
-                    className="myselect"
-                    onChange={(e) => {
-                      setSize(e.target.value);
-                    }}
-                  >
-                    {product.sizes.length > 0 ? (
-                      product.sizes.map((size) => {
-                        return <option value={size}>{size}</option>;
-                      })
-                    ) : product.shoeSize.length > 0 ? (
-                      product.shoeSize.map((size) => {
-                        return <option value={size}>{size}</option>;
-                      })
-                    ) : (
-                      <option value="no size">No Size</option>
-                    )}
-                  </Form.Control>
-                </div>
-              </div>
-
-              <div className="sizes">
-                <div className="my-1">Select Qauntity</div>
-                <div>
-                  <Form.Control
-                    as="select"
-                    className="myselect"
-                    onChange={(e) => {
-                      setQty(e.target.value);
-                    }}
-                  >
-                    {product.countInStock > 0
-                      ? [...Array(product.countInStock).keys()].map((c) => {
+                  </ul>
+                  <p>Shipping Cost: {product.shippingCost} $</p>
+                </Col>
+                <Col md={6} sm={12}>
+                  <div className="colors">
+                    <p className="my-1">Select Color</p>
+                    <div>
+                      <Form.Control
+                        as="select"
+                        className="myselect"
+                        onChange={(e) => {
+                          setColor(e.target.value);
+                        }}
+                      >
+                        {product.color.map((color, index) => {
                           return (
-                            <option key={c + 1} value={c + 1}>
-                              {c + 1}
+                            <option key={index} value={color}>
+                              {color}
                             </option>
                           );
-                        })
-                      : "Not Avialble"}
-                  </Form.Control>
-                </div>
-              </div>
-              <div className="my-2">
-                <Button
-                  className="mybtn mr-5"
-                  onClick={addToBag}
-                  disabled={product.countInStock <= 0}
-                >
-                  {product.countInStock <= 0 ? (
-                    "Not Availeble"
-                  ) : (
-                    <FaCartPlus></FaCartPlus>
-                  )}
-                </Button>
-                <Link to={`/${product.superCat}`}>
-                  <Button className=" mybtn">Back to shop</Button>
-                </Link>
-              </div>
+                        })}
+                      </Form.Control>
+                    </div>
+                  </div>
+
+                  <div className="sizes">
+                    <p className="my-1">Select Size</p>
+                    <div>
+                      <Form.Control
+                        as="select"
+                        className="myselect"
+                        onChange={(e) => {
+                          setSize(e.target.value);
+                        }}
+                      >
+                        {product.sizes.length > 0 ? (
+                          product.sizes.map((size) => {
+                            return <option value={size}>{size}</option>;
+                          })
+                        ) : product.shoeSize.length > 0 ? (
+                          product.shoeSize.map((size) => {
+                            return <option value={size}>{size}</option>;
+                          })
+                        ) : (
+                          <option value="no size">No Size</option>
+                        )}
+                      </Form.Control>
+                    </div>
+                  </div>
+
+                  <div className="sizes">
+                    <p className="my-1">Select Qauntity</p>
+                    <div>
+                      <Form.Control
+                        as="select"
+                        className="myselect"
+                        onChange={(e) => {
+                          setQty(e.target.value);
+                        }}
+                      >
+                        {product.countInStock > 0
+                          ? [...Array(product.countInStock).keys()].map((c) => {
+                              return (
+                                <option key={c + 1} value={c + 1}>
+                                  {c + 1}
+                                </option>
+                              );
+                            })
+                          : "Not Avialble"}
+                      </Form.Control>
+                    </div>
+                  </div>
+                </Col>
+                <Col md={12} sm={12}>
+                  <Button
+                    className="mybtn"
+                    style={{ width: "100%" }}
+                    onClick={addToBag}
+                    disabled={product.countInStock <= 0}
+                  >
+                    {product.countInStock <= 0 ? "Not Availeble" : "Add Cart"}
+                  </Button>
+                </Col>
+              </Row>
             </Col>
           </Row>
         )}
       </Container>
-      <Container>
+      <Container className="you-may-know">
         <Row>
           {product && relatedProducts.length > 0 && (
-            <h4 className="my-3 text-center">You migh also like</h4>
+            <h4 className="my-3 text-center product-name">
+              You migh also like
+            </h4>
           )}
           {product
             ? relatedProducts.length > 0
               ? relatedProducts.map((rp) => {
                   return (
                     <Col md={3} sm={12} className="mb-2">
-                      <div className="p-3 shadow">
+                      <div className="p-3 shadow-sm">
                         <Link to={`/${rp.superCat}/${rp.name}/${rp._id}`}>
                           <img
                             src={`${rp.photo}`}
@@ -213,7 +222,10 @@ function ProductDetail({ match }) {
                           ></img>
                         </Link>
                         <div className="my-2">
-                          <Link to={`/${rp.superCat}/${rp.name}/${rp._id}`}>
+                          <Link
+                            className="you_may_know"
+                            to={`/${rp.superCat}/${rp.name}/${rp._id}`}
+                          >
                             <h6>{rp.name}</h6>
                           </Link>
                           <h6 className="text-dark">{rp.desc.substr(0, 20)}</h6>

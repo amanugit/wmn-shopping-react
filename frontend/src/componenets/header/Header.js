@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Badge, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./Header.css";
 import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
 import { logOut } from "../../actions/userActions";

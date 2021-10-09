@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./ViewProduct.css";
 import { Container, Row, Col, ListGroup, Spinner } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { getProduct } from "../../../actions/productActions";

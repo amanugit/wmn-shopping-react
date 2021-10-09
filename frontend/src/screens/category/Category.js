@@ -9,7 +9,6 @@ import {
   getSubCategory,
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
-import "./Category.css";
 function Category({ match }) {
   const dispatch = useDispatch();
   const categoryQ = match.params.category;
@@ -284,7 +283,7 @@ function Category({ match }) {
       )
     );
   };
-  
+
   useEffect(() => {
     dispatch(getSubCategory(categoryQ, supcat));
   }, [dispatch, categoryQ, supcat]);
@@ -321,7 +320,10 @@ function Category({ match }) {
               ) : (
                 <div>
                   <div className="my-2">
-                    <div className="left-menu side-cats" style={{height: 'auto'}}>
+                    <div
+                      className="left-menu side-cats"
+                      style={{ height: "auto" }}
+                    >
                       <ul>
                         <li>
                           {" "}
@@ -439,10 +441,13 @@ function Category({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu side-cats" style={{height: 'auto'}}>
+                    <div
+                      className="left-menu side-cats"
+                      style={{ height: "auto" }}
+                    >
                       <ul>
+                        <span>&lt;{priceState} $ </span>
                         <li className="price">
-                          <span>&lt;{priceState} $ </span>
                           <input
                             className="slider"
                             onChange={ChangePrice}
@@ -532,7 +537,10 @@ function Category({ match }) {
                 </Alert>
               ) : status === "notFound" ? (
                 <>
-                  <ProductNotFound supCat={supcat} categoryQ={categoryQ}></ProductNotFound>
+                  <ProductNotFound
+                    supCat={supcat}
+                    categoryQ={categoryQ}
+                  ></ProductNotFound>
 
                   {productsByFilter.map((product) => {
                     return (

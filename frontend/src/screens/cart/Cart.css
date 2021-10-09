@@ -6,6 +6,15 @@
   border: none !important;
   background: #c06d00;
 }
+.cart_items .mybtn {
+  color: white;
+  border: none !important;
+  border: 1px solid #f1f1f1 !important;
+}
+.cart_items p,
+.cart_items h5 {
+  font-family: "Archivo Narrow", sans-serif;
+}
 
 .cart_items .removeCartBtn:focus {
   outline: none !important;

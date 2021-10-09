@@ -1,5 +1,5 @@
-import "./Men.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import "./Men.css";
 function Men({ location, history }) {
   return (
     <section className="Men" id="Men">

@@ -3,7 +3,7 @@ import { Card, Container, Button, Form, Alert, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userActions";
 import { Link } from "react-router-dom";
-import "./Login.css";
+
 function AdminLogin({ location, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

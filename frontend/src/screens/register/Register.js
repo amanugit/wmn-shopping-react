@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/userActions";
-import "./Register.css";
 function Register({ location, history }) {
   const redirect = location.search ? location.search.split("=")[1] : "/";
   const [email, setEmail] = useState("");

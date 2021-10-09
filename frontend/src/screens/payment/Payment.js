@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { savePaymentMethod } from "../../actions/cartActions";
-import "./Payment.css";
+
 function Payment({ history }) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;

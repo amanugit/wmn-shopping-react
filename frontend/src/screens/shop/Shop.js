@@ -6,10 +6,9 @@ import {
   getProductsByFilter,
   listProducts,
 } from "../../actions/productActions";
-import "./Shop.css";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 import { useHistory } from "react-router";
-import "./Shop.css";
+
 import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
@@ -176,7 +175,6 @@ function Shop({ match }) {
       )
     );
   };
-  
 
   useEffect(() => {
     dispatch({ type: PRODUCT_LIST_RESET });
@@ -231,7 +229,10 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Categories</h6>
                     </div>
-                    <div className="left-menu side-cats" style={{height: 'auto'}}>
+                    <div
+                      className="left-menu side-cats"
+                      style={{ height: "auto" }}
+                    >
                       <ul>
                         <li>
                           {" "}
@@ -342,10 +343,13 @@ function Shop({ match }) {
                     <div className="mb-1 coll">
                       <h6>Price</h6>
                     </div>
-                    <div className="left-menu side-cats" style={{height: 'auto'}}>
+                    <div
+                      className="left-menu side-cats"
+                      style={{ height: "auto" }}
+                    >
                       <ul>
+                        <span>&lt;{priceState}$</span>
                         <li className="price">
-                          <span>&lt;{priceState} $ </span>
                           <input
                             className="slider"
                             onChange={ChangePrice}

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import "./ProductNotFound.css";
 import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
 } from "../../constants/productConstants";
-import {listProducts, getSubCategory} from '../../actions/productActions';
-function ProductNotFound({supCat, categoryQ}) {
+import { listProducts, getSubCategory } from "../../actions/productActions";
+function ProductNotFound({ supCat, categoryQ }) {
   const dispatch = useDispatch();
   /**
    * modal was displayed
@@ -20,7 +19,7 @@ function ProductNotFound({supCat, categoryQ}) {
       setShowModal(false);
     }, 2000);
 
-    if(categoryQ) {
+    if (categoryQ) {
       dispatch(getSubCategory(categoryQ, supCat));
       dispatch(listProducts(supCat, categoryQ));
     } else {
@@ -29,8 +28,7 @@ function ProductNotFound({supCat, categoryQ}) {
     /**
      * set modal false
      */
-    
-    
+
     /**
      * some clean-up
      */

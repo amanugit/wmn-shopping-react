@@ -24,7 +24,6 @@ import {
   FaWindowClose,
   FaCheck,
 } from "react-icons/fa";
-import "./Admin.css";
 function Admin({ match, history }) {
   const [searchTerm, setsearchTerm] = useState("");
   const productList = useSelector((state) => state.productAdminList);

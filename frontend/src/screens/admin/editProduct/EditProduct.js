@@ -14,7 +14,6 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./EditProduct.css";
 function EditProduct({ match, history }) {
   const dispatch = useDispatch();
   const productGet = useSelector((state) => state.productGet);

@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFormCart } from "../../actions/cartActions";
 import { FaTrash } from "react-icons/fa";
-import "./Cart.css";
+import { LinkContainer } from "react-router-bootstrap";
+
 function Cart({ history }) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -30,68 +31,81 @@ function Cart({ history }) {
                   </Link>
                 </div>
               ) : (
-                cartItems.map((item, index) => {
-                  return (
-                    <ListGroup.Item>
-                      <Row>
-                        <Col md={3}>
-                          <img
-                            src={item.photo}
-                            style={{ width: "100%" }}
-                            alt={item.name}
-                          ></img>
-                        </Col>
-                        <Col md={2}>
-                          <Link
-                            style={{ color: "black", fontWeight: "bold" }}
-                            to={`/${item.superCat}/${item.name}/${item._id}`}
-                          >
-                            {item.name}
-                          </Link>
-                        </Col>
-                        <Col md={2}>
-                          <p>$ {item.price}</p>
-                        </Col>
-                        <Col md={3}>
-                          <Form.Control
-                            as="select"
-                            className="myselect"
-                            value={item.qty}
-                            onChange={(e) => {
-                              dispatch(
-                                addToCart(
-                                  item.productId,
-                                  e.target.value,
-                                  item.size,
-                                  item.color
-                                )
-                              );
-                            }}
-                          >
-                            {[...Array(item.countInStock).keys()].map((c) => {
-                              return (
-                                <option key={c + 1} value={c + 1}>
-                                  {c + 1}
-                                </option>
-                              );
-                            })}
-                          </Form.Control>
-                        </Col>
-                        <Col md={2} sm={12}>
-                          <Button
-                            variant="light"
-                            className="removeCartBtn"
-                            onClick={() => {
-                              removeCartHandler(item.productId);
-                            }}
-                          >
-                            <FaTrash></FaTrash>
-                          </Button>
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  );
-                })
+                <div>
+                  {cartItems.map((item, index) => {
+                    return (
+                      <ListGroup.Item className="shadow-sm">
+                        <Row>
+                          <Col md={3}>
+                            <img
+                              src={item.photo}
+                              style={{ width: "100%" }}
+                              alt={item.name}
+                            ></img>
+                          </Col>
+                          <Col md={2}>
+                            <Link
+                              style={{
+                                color: "black",
+                                fontWeight: "bold",
+                                textDecoration: "none",
+                              }}
+                              to={`/${item.superCat}/${item.name}/${item._id}`}
+                            >
+                              <h5>{item.name}</h5>
+                            </Link>
+                          </Col>
+                          <Col md={2}>
+                            <p>$ {item.price}</p>
+                          </Col>
+                          <Col md={3}>
+                            <Form.Control
+                              as="select"
+                              className="myselect"
+                              value={item.qty}
+                              onChange={(e) => {
+                                dispatch(
+                                  addToCart(
+                                    item.productId,
+                                    e.target.value,
+                                    item.size,
+                                    item.color
+                                  )
+                                );
+                              }}
+                            >
+                              {[...Array(item.countInStock).keys()].map((c) => {
+                                return (
+                                  <option key={c + 1} value={c + 1}>
+                                    {c + 1}
+                                  </option>
+                                );
+                              })}
+                            </Form.Control>
+                          </Col>
+                          <Col md={2} sm={12}>
+                            <Button
+                              variant="light"
+                              className="removeCartBtn"
+                              onClick={() => {
+                                removeCartHandler(item.productId);
+                              }}
+                            >
+                              <FaTrash></FaTrash>
+                            </Button>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    );
+                  })}
+                  <LinkContainer
+                    to="/women"
+                    title="Back to top"
+                    className="mybtn mt-2"
+                  >
+                    <Button>Back to shopping</Button>
+                  </LinkContainer>
+                </div>
               )}
             </ListGroup>
           </Col>

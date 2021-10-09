@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./MyOrders.css";
 import {
   Container,
   ListGroup,
