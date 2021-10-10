@@ -66,7 +66,7 @@ function MyOrders({ history, match }) {
                             </p>
                             <p>
                               <img
-                                src={`/uploads/img/${orderItem.photo}`}
+                                src={orderItem.photo}
                                 style={{ width: "200px", height: "200px" }}
                                 alt={orderItem.name}
                               ></img>

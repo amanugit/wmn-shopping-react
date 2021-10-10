@@ -4,7 +4,9 @@
 .login,
 .placeorder,
 .order,
-.myorders {
+.myorders,
+.payment,
+.shipping {
   margin-top: 4rem;
 }
 .Women {
@@ -193,7 +195,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: #c06d00;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;

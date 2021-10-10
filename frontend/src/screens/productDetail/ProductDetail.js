@@ -72,7 +72,12 @@ function ProductDetail({ match }) {
           <Row className="product-detail-container ">
             <Col md={6} sm={12}>
               <Row>
-                <Col md={12} sm={12} className="mb-2">
+                <Col
+                  md={12}
+                  sm={12}
+                  className="mb-2"
+                  style={{ maxHeight: "560px" }}
+                >
                   <img
                     className="img"
                     ref={(el) => (mainImgRef.current = el)}
@@ -80,7 +85,6 @@ function ProductDetail({ match }) {
                     alt={product.name}
                     style={{
                       width: "100%",
-                      maxHeight: "560px",
                       objectFit: "cover",
                     }}
                   ></img>
