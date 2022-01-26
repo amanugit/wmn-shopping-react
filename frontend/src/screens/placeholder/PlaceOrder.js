@@ -113,25 +113,14 @@ function PlaceOrder({ history }) {
                               alt={item.name}
                             ></img>
                           </Col>
-                          <Col md={2}>
+                          <Col md={4}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
                             >
                               {item.name}
                             </Link>
                           </Col>
-                          <Col md={1}>
-                            <p>{item.price}</p>
-                          </Col>
-                          <Col md={1}>
-                            <p>{item.color}</p>
-                          </Col>
-                          <Col md={1}>
-                            <p>{item.size}</p>
-                          </Col>
-                          <Col md={2}>
-                            <p>{item.shippingCost}</p>
-                          </Col>
+
                           <Col md={3}>
                             {item.qty} x ${item.price} x {item.shippingCost} = $
                             {item.qty * item.price + item.shippingCost}

@@ -47,7 +47,7 @@ function ProductDetail({ match }) {
   }, [dispatch, match, productId]);
   return (
     <section className="product-detail">
-      <Container fluid>
+      <Container>
         <div className="product_title">
           <Link to={`/${product.superCat}`} title="Back to top">
             <FaBackward className="backward">Back To Shop</FaBackward>
@@ -69,8 +69,8 @@ function ProductDetail({ match }) {
             Opps: something went wrong..., try to reload the page
           </Alert>
         ) : (
-          <Row className="product-detail-container ">
-            <Col md={6} sm={12}>
+          <Row className="product-detail-container">
+            <Col md={7} sm={12}>
               <Row>
                 <Col md={12} sm={12} className="mb-2">
                   <img
@@ -79,16 +79,21 @@ function ProductDetail({ match }) {
                     src={`${product.photo}`}
                     alt={product.name}
                     style={{
-                      width: "100%",
+                      width: "450px",
+                      height: "540px",
+                      objectFit: "cover",
+                      display: "block",
+                      marginLeft: "auto",
+                      marginRight: "auto",
                     }}
                   ></img>
                 </Col>
               </Row>
             </Col>
 
-            <Col md={6} sm={12}>
+            <Col md={5} sm={12}>
               <Row>
-                <Col md={12} sm={12} className="pb-2">
+                <Col md={12} sm={12}>
                   <Row>
                     {product.images.map((img, index) => {
                       return (

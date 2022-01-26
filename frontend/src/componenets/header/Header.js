@@ -26,7 +26,7 @@ function Header() {
         <nav className="header-nav">
           <Link to="/" style={{ textDecoration: "none" }}>
             {" "}
-            <h3>WMN</h3>
+            <h3 style={{ color: "black", fontSize: "2rem" }}>WMN</h3>
           </Link>
           <div className="side_nav" onClick={showMobNav}>
             <span></span>

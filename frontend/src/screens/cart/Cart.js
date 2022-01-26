@@ -34,16 +34,21 @@ function Cart({ history }) {
                 <div>
                   {cartItems.map((item, index) => {
                     return (
-                      <ListGroup.Item className="shadow-sm">
+                      <ListGroup.Item key={index}>
                         <Row>
-                          <Col md={3}>
+                          <Col md={2}>
                             <img
                               src={item.photo}
-                              style={{ width: "100%" }}
+                              style={{
+                                width: "100px",
+                                height: "100px",
+                                objectFit: "cover",
+                                margin: "auto",
+                              }}
                               alt={item.name}
                             ></img>
                           </Col>
-                          <Col md={2}>
+                          <Col md={3}>
                             <Link
                               style={{
                                 color: "black",
@@ -58,7 +63,7 @@ function Cart({ history }) {
                           <Col md={2}>
                             <p>$ {item.price}</p>
                           </Col>
-                          <Col md={3}>
+                          <Col md={2}>
                             <Form.Control
                               as="select"
                               className="myselect"
@@ -83,7 +88,7 @@ function Cart({ history }) {
                               })}
                             </Form.Control>
                           </Col>
-                          <Col md={2} sm={12}>
+                          <Col md={3} sm={12}>
                             <Button
                               variant="light"
                               className="removeCartBtn"

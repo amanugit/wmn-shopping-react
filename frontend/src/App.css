@@ -7,7 +7,7 @@
 .myorders,
 .payment,
 .shipping {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 .Women {
   margin-top: 5rem;
@@ -28,9 +28,9 @@
 }
 
 .header {
-  background: #c06d00;
+  background: #e9e7e7;
   position: fixed;
-  padding: 0.2rem;
+  padding: 0rem;
   top: 0;
   left: 0;
   right: 0;
@@ -74,7 +74,9 @@
 }
 .header .header-nav ul li a {
   padding: 0.5rem;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-family: "Dongle", sans-serif;
+  font-weight: 300;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -112,8 +114,8 @@
   position: absolute;
   z-index: 1;
   display: block;
-  background-color: #fcfcfc;
-  min-width: 260px;
+  background-color: #ffffff;
+  min-width: 360px;
   visibility: hidden;
 }
 .header .header-nav ul .drop_down:hover > .profile_drop_down {
@@ -135,7 +137,7 @@
   .profile_drop_down
   li
   .profile_nav_link:hover {
-  background-color: #f1f1f1;
+  background-color: #f8c081;
   color: rgb(0, 0, 0);
 }
 .side_nav_nav {
@@ -186,7 +188,8 @@
 }
 
 .product-detail .product-detail-container {
-  margin-top: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .spinner {
@@ -222,9 +225,8 @@
   box-shadow: none;
 }
 .mybtn {
-  background: #c06d00;
-  color: white;
-  border-radius: 25px;
+  background: #f3c588;
+  color: rgb(0, 0, 0);
   border: none !important;
   border: 1px solid #f1f1f1 !important;
 }
@@ -271,22 +273,26 @@ h6,
 h5,
 ul,
 p {
-  font-family: "Archivo Narrow", sans-serif;
-  font-size: 20px;
+  font-family: "Dongle", sans-serif;
+  font-size: 2rem !important;
 }
 
 h2,
 h3 {
-  font-family: "Archivo Narrow", sans-serif;
-  font-weight: 800;
-  font-size: 27px;
+  font-family: "Dongle", sans-serif;
+  font-weight: 300;
+}
+h4 {
+  font-family: "Dongle", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
 }
 h1 {
   font-family: "Signika", sans-serif;
   font-weight: 900;
 }
 .product-detail .product-name {
-  font-family: "Archivo Narrow", sans-serif;
+  font-family: "Dongle", sans-serif;
   font-weight: 700;
 }
 .product-detail .you_may_know {
@@ -315,11 +321,11 @@ h1 {
 }
 .p_item h5,
 .p_item h6 {
-  font-family: "Archivo Narrow", sans-serif;
+  font-family: "Dongle", sans-serif;
   font-size: 20px;
 }
 .p_item .product_item_link {
-  font-family: "Archivo Narrow", sans-serif;
+  font-family: "Dongle", sans-serif;
   font-weight: 800;
   font-weight: bold;
   text-decoration: none;
@@ -350,7 +356,7 @@ h1 {
 }
 
 .shop ul {
-  font-family: "Archivo Narrow", sans-serif;
+  font-family: "Dongle", sans-serif;
 }
 .load_more:hover {
   background: #c06d00;
@@ -367,6 +373,10 @@ h1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+.product-detail ul li {
+  line-height: 1.7rem;
+  font-weight: 300;
 }
 .left-menu ul li {
   display: flex;
@@ -477,7 +487,8 @@ h1 {
 .cart_items .checkoutBtn {
   outline: none !important;
   border: none !important;
-  background: #c06d00;
+  background: #000000;
+  color: white;
 }
 
 .cart_items .removeCartBtn:focus {
