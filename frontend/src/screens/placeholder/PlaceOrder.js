@@ -116,12 +116,12 @@ function PlaceOrder({ history }) {
                           <Col md={4}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
-                              style={{ textDecoration: 'none' }}>
+                              style={{ textDecoration: 'none', fontWeight: 'bolder', color: 'black' }}>
                               {item.name}
                             </Link>
                           </Col>
 
-                          <Col md={3}>
+                          <Col md={3} style={{ textDecoration: 'none', fontWeight: 'bolder', color: 'black' }}>
                             {item.qty} x ${item.price} x {item.shippingCost} = $
                             {item.qty * item.price + item.shippingCost}
                           </Col>

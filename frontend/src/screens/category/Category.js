@@ -291,11 +291,11 @@ function Category({ match }) {
   }, [dispatch, categoryQ, supcat]);
 
   useEffect(() => {
-    if (Object.keys(productList).length === 0) {
+    if (Object.values(productList).length === 0) {
       dispatch(listProducts(supcat, categoryQ));
     }
   }, [dispatch, supcat, categoryQ]);
-  
+
   useEffect(() => {
     if (productsByFilter.length === 0) {
       dispatch(
