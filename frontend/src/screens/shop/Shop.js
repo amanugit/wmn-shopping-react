@@ -177,7 +177,7 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    if(Object.keys(productList).length !== 0) {
+    if (Object.keys(productList).length !== 0) {
       dispatch(listProducts(supCat, ""));
     }
   }, [dispatch, supCat]);
@@ -200,10 +200,10 @@ function Shop({ match }) {
     );
   };
   useEffect(() => {
-    if(!productsByFilter) {
-    dispatch(
-      getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-    );
+    if (productsByFilter.length === 0) {
+      dispatch(
+        getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+      );
     }
   }, [dispatch, match, supCat]);
   return (
