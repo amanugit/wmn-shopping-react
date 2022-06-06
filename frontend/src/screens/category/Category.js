@@ -291,7 +291,7 @@ function Category({ match }) {
   }, [dispatch, categoryQ, supcat]);
 
   useEffect(() => {
-    if (Object.values(productList).length === 0) {
+    if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supcat, categoryQ));
     }
   }, [dispatch, supcat, categoryQ]);

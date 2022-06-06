@@ -72,8 +72,8 @@ function PlaceOrder({ history }) {
         <Row>
           <Col md={8} sm={12}>
             <ListGroup>
-              <ListGroup.Item>
-                <h2 className="my-2">Shipping</h2>
+              <ListGroup.Item className="mb-2 shadow-sm">
+                <h2 className="my-2 p-2" style={{background: 'black', color: 'white'}}>Shipping</h2>
                 <p>
                   <strong>Address: </strong>
                   {cart.shippingAddress.address}
@@ -92,13 +92,13 @@ function PlaceOrder({ history }) {
                 </p>
               </ListGroup.Item>
 
-              <ListGroup.Item>
-                <h2 className="my-2">Payment Method</h2>
+              <ListGroup.Item className="mb-2 shadow-sm">
+              <h2 className="my-2 p-2" style={{background: 'black', color: 'white'}}>Payment Method</h2>
                 {cart.paymentMethod}
               </ListGroup.Item>
 
-              <ListGroup.Item>
-                <h2 className="my-2">Order Items</h2>
+              <ListGroup.Item className="mb-2 shadow-sm">
+              <h2 className="my-2 p-2" style={{background: 'black', color: 'white'}}>Order Items</h2>
                 {cart.cartItems.length === 0 ? (
                   <Alert variant="danger">No Cart Items</Alert>
                 ) : (
@@ -113,15 +113,15 @@ function PlaceOrder({ history }) {
                               alt={item.name}
                             ></img>
                           </Col>
-                          <Col md={4}>
+                          <Col md={5}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
-                              style={{ textDecoration: 'none', fontWeight: 'bolder', color: 'black' }}>
+                              style={{ textDecoration: 'none', color: 'black' }}>
                               {item.name}
                             </Link>
                           </Col>
 
-                          <Col md={3} style={{ textDecoration: 'none', fontWeight: 'bolder', color: 'black' }}>
+                          <Col md={3} style={{ textDecoration: 'none', color: 'black' }}>
                             {item.qty} x ${item.price} x {item.shippingCost} = $
                             {item.qty * item.price + item.shippingCost}
                           </Col>
@@ -137,7 +137,7 @@ function PlaceOrder({ history }) {
             <Card>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h2>Order Summary</h2>
+                <h2 className="my-2 p-2" style={{background: 'black', color: 'white'}}>Order Summary</h2>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>

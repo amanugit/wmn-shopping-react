@@ -177,7 +177,7 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    if (Object.values(productList).length === 0) {
+    if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supCat, ""));
     }
   }, [dispatch, supCat]);
