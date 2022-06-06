@@ -288,20 +288,20 @@ function Category({ match }) {
 
     dispatch(getSubCategory(categoryQ, supcat));
 
-  }, [dispatch, categoryQ, supcat]);
+  }, [ categoryQ, supcat]);
 
   useEffect(() => {
-    if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
+    // if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supcat, categoryQ));
-    }
-  }, [dispatch, supcat, categoryQ]);
+  
+  }, [supcat, categoryQ]);
 
   useEffect(() => {
       dispatch(
         getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
  
-  }, [dispatch, supcat, categoryQ]);
+  }, [supcat, categoryQ]);
   return (
     <section className="category" id="category">
       <Container fluid className="mt-2">

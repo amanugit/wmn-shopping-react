@@ -177,10 +177,9 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
+    // if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supCat, ""));
-    }
-  }, [dispatch, supCat]);
+  }, [supCat]);
 
   const loadMore = (e) => {
     dispatch(
@@ -200,12 +199,12 @@ function Shop({ match }) {
     );
   };
   useEffect(() => {
-    if (productsByFilter.length === 0) {
+    // if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
       );
-    }
-  }, [dispatch, match, supCat]);
+   
+  }, [supCat]);
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">
