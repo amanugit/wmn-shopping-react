@@ -285,19 +285,19 @@ function Category({ match }) {
   };
 
   useEffect(() => {
-    if (!subCatsAPI) {
+      if (Object.keys(subCatsAPI).length === 0) {
       dispatch(getSubCategory(categoryQ, supcat));
     }
   }, [dispatch, categoryQ, supcat]);
-  useEffect(() => {
 
-    if (!productList) {
+  useEffect(() => {
+    if (Object.keys(productList).length === 0) {
       dispatch(listProducts(supcat, categoryQ));
     }
-
   }, [dispatch, supcat, categoryQ]);
+  
   useEffect(() => {
-    if (!productsByFilter.name) {
+    if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );

@@ -177,7 +177,7 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    if (Object.keys(productList).length !== 0) {
+    if (Object.keys(productList).length === 0) {
       dispatch(listProducts(supCat, ""));
     }
   }, [dispatch, supCat]);
