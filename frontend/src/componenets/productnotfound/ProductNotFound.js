@@ -36,7 +36,7 @@ function ProductNotFound({ supCat, categoryQ }) {
     return () => {
       clearTimeout(time);
     };
-  }, [dispatch, supCat, categoryQ]);
+  }, [supCat, categoryQ]);
   return (
     <div className="notfound" id="notfound">
       <div
