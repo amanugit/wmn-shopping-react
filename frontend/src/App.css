@@ -225,8 +225,8 @@
   box-shadow: none;
 }
 .mybtn {
-  background: #f3c588;
-  color: rgb(0, 0, 0);
+  background: #d17f15;
+  color: rgb(255, 255, 255);
   border: none !important;
   border: 1px solid #f1f1f1 !important;
 }
@@ -718,6 +718,7 @@ h1 {
   right: 0;
   bottom: 0;
   background: #f1f1f1;
+  z-index: 1;
 }
 .notfoundContainer {
   padding: 3rem;

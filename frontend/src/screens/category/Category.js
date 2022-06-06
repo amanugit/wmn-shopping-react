@@ -285,9 +285,9 @@ function Category({ match }) {
   };
 
   useEffect(() => {
-      if (Object.keys(subCatsAPI).length === 0) {
-      dispatch(getSubCategory(categoryQ, supcat));
-    }
+
+    dispatch(getSubCategory(categoryQ, supcat));
+
   }, [dispatch, categoryQ, supcat]);
 
   useEffect(() => {
@@ -297,11 +297,10 @@ function Category({ match }) {
   }, [dispatch, supcat, categoryQ]);
 
   useEffect(() => {
-    if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
-    }
+ 
   }, [dispatch, supcat, categoryQ]);
   return (
     <section className="category" id="category">

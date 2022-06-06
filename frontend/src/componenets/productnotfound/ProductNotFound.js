@@ -15,16 +15,17 @@ function ProductNotFound({ supCat, categoryQ }) {
     /**
      * dispatch
      */
-    const time = setTimeout(() => {
-      setShowModal(false);
-    }, 2000);
-
-    if (categoryQ) {
+     if (categoryQ) {
       dispatch(getSubCategory(categoryQ, supCat));
       dispatch(listProducts(supCat, categoryQ));
     } else {
       dispatch(listProducts(supCat, ""));
     }
+    const time = setTimeout(() => {
+      setShowModal(false);
+    }, 2000);
+
+ 
     /**
      * set modal false
      */

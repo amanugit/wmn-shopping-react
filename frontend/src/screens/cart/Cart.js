@@ -55,7 +55,7 @@ function Cart({ history }) {
                                 fontWeight: "bold",
                                 textDecoration: "none",
                               }}
-                              to={`/${item.superCat}/${item.name}/${item._id}`}
+                              to={`/${item.superCat}/${item.name}/${item.productId}`}
                             >
                               <h5>{item.name}</h5>
                             </Link>
