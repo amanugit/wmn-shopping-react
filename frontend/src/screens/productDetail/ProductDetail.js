@@ -43,7 +43,9 @@ function ProductDetail({ match }) {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProduct(productId));
+    if(!product.name) {
+      dispatch(getProduct(productId));
+    }
   }, [dispatch, match, productId]);
   return (
     <section className="product-detail">

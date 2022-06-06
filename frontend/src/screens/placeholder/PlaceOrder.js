@@ -116,7 +116,7 @@ function PlaceOrder({ history }) {
                           <Col md={4}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
-                            >
+                              style={{ textDecoration: 'none' }}>
                               {item.name}
                             </Link>
                           </Col>
