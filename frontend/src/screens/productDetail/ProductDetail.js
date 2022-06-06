@@ -43,7 +43,7 @@ function ProductDetail({ match }) {
   };
   const dispatch = useDispatch();
   useEffect(() => {
-    if(!product.name) {
+    if(!product._id || product._id !== productId) {
       dispatch(getProduct(productId));
     }
   }, [dispatch, match, productId]);

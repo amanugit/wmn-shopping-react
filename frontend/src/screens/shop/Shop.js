@@ -177,9 +177,9 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    dispatch({ type: PRODUCT_LIST_RESET });
-    dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
-    dispatch(listProducts(supCat, ""));
+    if(Object.keys(productList).length !== 0) {
+      dispatch(listProducts(supCat, ""));
+    }
   }, [dispatch, supCat]);
 
   const loadMore = (e) => {
@@ -200,9 +200,11 @@ function Shop({ match }) {
     );
   };
   useEffect(() => {
+    if(!productsByFilter) {
     dispatch(
       getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
     );
+    }
   }, [dispatch, match, supCat]);
   return (
     <section className="shop" id="shop">
