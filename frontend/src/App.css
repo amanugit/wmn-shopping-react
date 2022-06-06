@@ -701,3 +701,29 @@ h1 {
 .admin_view_product .spinner {
   text-align: center;
 }
+.modalShown {
+  display: block;
+}
+.modalHidden {
+  display: none;
+}
+.modalnotfound {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f1f1f1;
+}
+.notfoundContainer {
+  padding: 3rem;
+  border: 1px solid #c06d00;
+
+}
+.notfoundContainer h1, p {
+  color: black;
+}
