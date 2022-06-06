@@ -177,10 +177,11 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    // if (productList.colorsAPI.length === 0 || productList.brandAPI) {
+    if (productList.colorsAPI.length === 0 || productList.brandAPI) {
       dispatch(listProducts(supCat, ""));
+    }
     
-  }, []);
+  }, [supCat]);
 
   const loadMore = (e) => {
     dispatch(
@@ -200,11 +201,12 @@ function Shop({ match }) {
     );
   };
   useEffect(() => {
+    if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
       );
-    
-  }, []);
+      }
+  }, [supCat]);
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">
