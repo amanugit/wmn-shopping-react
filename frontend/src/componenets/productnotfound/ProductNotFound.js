@@ -38,7 +38,6 @@ function ProductNotFound({ supCat, categoryQ }) {
     };
   }, [supCat, categoryQ]);
   return (
-    <div className="notfound" id="notfound">
       <div
         className={
           showModal ? "modalShown modalnotfound" : "modalHidden modalnotfound"
@@ -52,7 +51,7 @@ function ProductNotFound({ supCat, categoryQ }) {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 
