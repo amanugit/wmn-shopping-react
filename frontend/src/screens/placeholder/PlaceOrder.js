@@ -73,7 +73,7 @@ function PlaceOrder({ history }) {
           <Col md={8} sm={12}>
             <ListGroup>
               <ListGroup.Item className="mb-4 shadow-sm">
-                <h2 className="my-2 p-2" style={{background: '#d17f15', color: 'white'}}>Shipping</h2>
+                <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Shipping</h2>
                 <p>
                   <strong>Address: </strong>
                   {cart.shippingAddress.address}
@@ -93,12 +93,12 @@ function PlaceOrder({ history }) {
               </ListGroup.Item>
 
               <ListGroup.Item className="mb-4 shadow-sm">
-              <h2 className="my-2 p-2" style={{background: '#d17f15', color: 'black'}}>Payment Method</h2>
+              <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Payment Method</h2>
                 {cart.paymentMethod}
               </ListGroup.Item>
 
               <ListGroup.Item className="mb-4 shadow-sm">
-              <h2 className="my-2 p-2" style={{background: '#d17f15', color: 'black'}}>Order Items</h2>
+              <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Order Items</h2>
                 {cart.cartItems.length === 0 ? (
                   <Alert variant="danger">No Cart Items</Alert>
                 ) : (
@@ -116,12 +116,12 @@ function PlaceOrder({ history }) {
                           <Col md={5}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
-                              style={{ textDecoration: 'none', color: '#d17f15' }}>
+                              style={{ textDecoration: 'none', color: 'black' }}>
                               {item.name}
                             </Link>
                           </Col>
 
-                          <Col md={3} style={{ textDecoration: 'none', color: '#d17f15' }}>
+                          <Col md={3} style={{ textDecoration: 'none', color: 'black' }}>
                             {item.qty} x ${item.price} x {item.shippingCost} = $
                             {item.qty * item.price + item.shippingCost}
                           </Col>

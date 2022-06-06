@@ -177,8 +177,9 @@ function Shop({ match }) {
   };
 
   useEffect(() => {
-    // if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
+    // if (productList.colorsAPI.length === 0 || productList.brandAPI) {
       dispatch(listProducts(supCat, ""));
+    
   }, [supCat]);
 
   const loadMore = (e) => {
@@ -203,8 +204,8 @@ function Shop({ match }) {
       dispatch(
         getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
       );
-   
-  }, [supCat]);
+    
+  }, [match, supCat]);
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">

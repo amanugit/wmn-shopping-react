@@ -285,22 +285,23 @@ function Category({ match }) {
   };
 
   useEffect(() => {
-
-    dispatch(getSubCategory(categoryQ, supcat));
-
-  }, [ categoryQ, supcat]);
+      // if (subCatsAPI.length === 0) {
+      dispatch(getSubCategory(categoryQ, supcat));
+    
+  }, [categoryQ, supcat]);
 
   useEffect(() => {
     // if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supcat, categoryQ));
-  
+    
   }, [supcat, categoryQ]);
 
   useEffect(() => {
+    // if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
- 
+    
   }, [supcat, categoryQ]);
   return (
     <section className="category" id="category">
