@@ -708,7 +708,6 @@ h1 {
   display: none;
 }
 .modalnotfound {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -717,14 +716,15 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #f1f1f1;
+  background: #000000;
+  opacity: 0.6;
   z-index: 1;
 }
 .notfoundContainer {
   padding: 3rem;
-  border: 1px solid #c06d00;
+  border: 1px solid #f4f1c0;
 
 }
 .notfoundContainer h1, p {
-  color: black;
+  color: rgb(255, 255, 255);
 }
