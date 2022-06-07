@@ -207,15 +207,19 @@ function Shop({ match }) {
   const ch = query.get("ch");
 
   useEffect(() => {
-    dispatch(listProducts(supCat, ""));
+    if(colorsAPI.length === 0 || priceAPI.length === 0) {
+      dispatch(listProducts(supCat, ""));
+    }
 }, [supCat, ch]);
 
 
 
   useEffect(() => {
-      dispatch(
-        getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-      );
+      if(productsByFilter.length === 0) {
+        dispatch(
+          getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+        );
+      }
   
   }, [supCat, ch]);
 
