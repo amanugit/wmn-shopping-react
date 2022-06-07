@@ -203,13 +203,8 @@ function Shop({ match }) {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
-  let ch = 0;
   const query = useQuery();
-  ch = query.get("ch");
-
-  
-
-  
+  const ch = query.get("ch");
 
   useEffect(() => {
     dispatch(listProducts(supCat, ""));
