@@ -16,16 +16,16 @@ function ProductNotFound({ supCat, categoryQ, history }) {
   useEffect(() => {
     function loader() {
       if (categoryQ) {
-        dispatch(getSubCategory(categoryQ, supCat));
-        dispatch(listProducts(supCat, categoryQ));
-        getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
-        history.push(`/${supCat}/${categoryQ}/?ch=0`);
+        // dispatch(getSubCategory(categoryQ, supCat));
+        // dispatch(listProducts(supCat, categoryQ));
+        // getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
+        history.push(`/${supCat}/${categoryQ}/?ch=${Math.random()}`);
       } else {
-        dispatch(listProducts(supCat, ""));
-        dispatch(
-          getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-        );
-        history.push(`/${supCat}/ch=1`);
+        // dispatch(listProducts(supCat, ""));
+        // dispatch(
+        //   getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+        // );
+        history.push(`/${supCat}/ch=${Math.random()}`);
       }
     }
     

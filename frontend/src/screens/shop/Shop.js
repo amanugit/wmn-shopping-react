@@ -8,7 +8,7 @@ import {
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 import { useHistory } from "react-router";
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import {
   PRODUCT_LIST_RESET,
@@ -17,6 +17,13 @@ import {
 } from "../../constants/productConstants";
 function Shop({ match }) {
   const dispatch = useDispatch();
+  function useQuery() {
+    const { serach } = useLocation();
+    return React.useMemo(() => new URLSearchParams(serach), [serach]);
+  }
+  const query = useQuery();
+
+  const [ch, setCh] = useState(query.get("ch"));
   const history = useHistory();
   const sideBarRef = useRef(null);
   const supCat = match.params.supcat;
@@ -199,29 +206,20 @@ function Shop({ match }) {
     );
   };
 
-  function useQuery() {
-    const { serach } = useLocation();
-    return React.useMemo(() => new URLSearchParams(serach), [serach]);
-  }
 
-  const query = useQuery();
-  const ch = query.get("ch");
-
-  useEffect(() => {
-    if(colorsAPI.length === 0 || priceAPI.length === 0) {
-      dispatch(listProducts(supCat, ""));
-    }
-}, [supCat, ch]);
 
 
 
   useEffect(() => {
-      if(productsByFilter.length === 0) {
-        dispatch(
-          getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-        );
-      }
-  
+    dispatch(listProducts(supCat, ""));
+  }, [supCat, ch]);
+
+
+
+  useEffect(() => {
+    dispatch(
+      getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+    );
   }, [supCat, ch]);
 
 
