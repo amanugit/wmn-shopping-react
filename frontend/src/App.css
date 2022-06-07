@@ -701,12 +701,13 @@ h1 {
 .admin_view_product .spinner {
   text-align: center;
 }
-
+.modalShown {
+  display: flex;
+}
 .modalHidden {
   display: none;
 }
 .modalnotfound {
-  display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;

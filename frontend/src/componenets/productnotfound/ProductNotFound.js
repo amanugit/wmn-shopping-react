@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
+  PRODUCT_GET_CAT_BYFILTER_RESET,
 } from "../../constants/productConstants";
 function ProductNotFound({ supCat, categoryQ, history }) {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
     };
   }, []);
   return (
-    <div className={`${showModal} ? modalnotfound : modalnotfound modalHidden` }
+    <div className={`${!showModal} ? "modalnotfound modalHidden": "modalnotfound modalShown"` }
     >
       <div className="notfoundContainer">
         <div>
