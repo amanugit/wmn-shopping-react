@@ -18,6 +18,7 @@ function Shop({ match }) {
   const history = useHistory();
   const sideBarRef = useRef(null);
   const supCat = match.params.supcat;
+  const [supCatState, setSupCatState] = useState("");
   const productList = useSelector((state) => state.productList);
   const productByFilterList = useSelector((state) => state.productByFilterList);
   const {
@@ -176,12 +177,7 @@ function Shop({ match }) {
     );
   };
 
-  useEffect(() => {
-    if (productList.colorsAPI.length === 0 || productList.brandAPI === 0) {
-      dispatch(listProducts(supCat, ""));
-    }
-    
-  }, [supCat]);
+
 
   const loadMore = (e) => {
     dispatch(
@@ -200,13 +196,30 @@ function Shop({ match }) {
       )
     );
   };
+
+  
   useEffect(() => {
-    if (productsByFilter.length === 0) {
+    if(supCat === "women") {
+      setSupCatState("women");
+    } else if(supCat === "men") {
+      setSupCatState("men"); 
+    } else if(supCat === "kid") {
+      setSupCatState("kid");
+    }
+  }, [supCat]);
+
+  useEffect(() => {
+   
+    dispatch(listProducts(supCat, ""));
+
+  
+}, [supCatState]);
+  useEffect(() => {
       dispatch(
         getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
       );
-      }
-  }, [supCat]);
+  
+  }, [supCatState]);
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">
