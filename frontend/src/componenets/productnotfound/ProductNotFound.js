@@ -27,8 +27,8 @@ function ProductNotFound({ supCat, categoryQ, history }) {
         
       }
     }
+    loader();
     const time = setTimeout(() => {
-      loader();
       setShowModal(false);
     }, 2000);
     return () => {
