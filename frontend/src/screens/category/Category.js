@@ -288,9 +288,8 @@ function Category({ match }) {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
-  let ch = null;
   const query = useQuery();
-  ch = query.get("ch");
+  const ch = query.get("ch");
 
   useEffect(() => {
     dispatch(getSubCategory(categoryQ, supcat));

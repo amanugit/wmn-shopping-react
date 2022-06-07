@@ -203,9 +203,9 @@ function Shop({ match }) {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
-  let ch = null;
+
   const query = useQuery();
-  ch = query.get("ch");
+  const ch = query.get("ch");
 
   useEffect(() => {
     if(colorsAPI.length === 0 || priceAPI.length === 0) {
