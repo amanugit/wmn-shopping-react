@@ -12,7 +12,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
    */
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
-     function loader() {
+    function loader() {
       if (categoryQ) {
         dispatch(getSubCategory(categoryQ, supCat));
         dispatch(listProducts(supCat, categoryQ));
@@ -24,7 +24,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
           getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
         );
         history.push(`/${supCat}`);
-     }
+      }
     }
     const time = setTimeout(() => {
       loader();
@@ -35,19 +35,19 @@ function ProductNotFound({ supCat, categoryQ, history }) {
     };
   }, []);
   return (
-      <div
-        className={
-          showModal ? "modalShown modalnotfound" : "modalHidden modalnotfound"
-        }
-      >
-        <div className="notfoundContainer">
-          <div>
-            {" "}
-            <h1 style={{ fontSize: "2rem" }}>Not Found</h1>
-            <p>Clering All Filters And viewing all products ....</p>
-          </div>
+    <div
+      className={
+        showModal ? "modalShown modalnotfound" : "modalHidden modalnotfound"
+      }
+    >
+      <div className="notfoundContainer">
+        <div>
+          {" "}
+          <h1 style={{ fontSize: "2rem" }}>Not Found</h1>
+          <p>Clering All Filters And viewing all products ....</p>
         </div>
       </div>
+    </div>
 
   );
 }
