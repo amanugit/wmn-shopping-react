@@ -294,26 +294,6 @@ function Category({ match, location }) {
   ch = query.get("ch");
 
   useEffect(() => {
-    if (subCatsAPI.length === 0) {
-      dispatch(getSubCategory(categoryQ, supcat));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (colorsAPI.length === 0 || priceAPI.length === 0) {
-      dispatch(listProducts(supcat, categoryQ));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (productsByFilterCat.length === 0) {
-      dispatch(
-        getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
-      );
-    }
-  }, []);
-
-  useEffect(() => {
     dispatch(getSubCategory(categoryQ, supcat));
   }, [categoryQ, supcat, ch]);
 

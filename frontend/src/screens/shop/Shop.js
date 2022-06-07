@@ -20,7 +20,6 @@ function Shop({ match, location }) {
   const history = useHistory();
   const sideBarRef = useRef(null);
   const supCat = match.params.supcat;
-  const [supCatState, setSupCatState] = useState("");
   const productList = useSelector((state) => state.productList);
   const productByFilterList = useSelector((state) => state.productByFilterList);
   const {
@@ -208,44 +207,22 @@ function Shop({ match, location }) {
   const query = useQuery();
   ch = query.get("ch");
 
-  useEffect(() => {
-    if(productsByFilter.length === 0) {
-      dispatch(
-        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
-      );
-    }
-  }, []);
-
-  useEffect(() => {
-    if(colorsAPI.length === 0 || priceAPI === 0) {
-      dispatch(
-        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
-      );
-    }
-  }, []);
   
-  useEffect(() => {
-    if(supCat === "women") {
-      setSupCatState("women");
-    } else if(supCat === "men") {
-      setSupCatState("men"); 
-    } else if(supCat === "kid") {
-      setSupCatState("kid");
-    }
-  }, [supCatState]);
+
+  
 
   useEffect(() => {
-    dispatch(listProducts(supCatState, ""));
-}, [supCatState, ch]);
+    dispatch(listProducts(supCat, ""));
+}, [supCat, ch]);
 
 
 
   useEffect(() => {
       dispatch(
-        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
+        getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
       );
   
-  }, [supCatState, ch]);
+  }, [supCat, ch]);
 
 
   return (
