@@ -36,7 +36,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
       clearTimeout(time);
     };
     
-  }, []);
+  }, [history]);
   return (
     <div className={
       showModal ? "modalnotfound modalShown" : "modalnotfound modalHidden"
