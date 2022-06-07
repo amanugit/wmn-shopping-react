@@ -13,6 +13,11 @@ import {
   PRODUCT_GET_BYFILTER_SUCCESS,
   PRODUCT_GET_BYFILTER_FAIL,
   PRODUCT_GET_BYFILTER_RESET,
+
+  PRODUCT_GET_CAT_BYFILTER_REQUEST,
+  PRODUCT_GET_CAT_BYFILTER_SUCCESS,
+  PRODUCT_GET_CAT_BYFILTER_FAIL,
+  PRODUCT_GET_CAT_BYFILTER_RESET,
   GET_PRODUCT_SUBCATEGORY_REQUEST,
   GET_PRODUCT_SUBCATEGORY_SUCCESS,
   GET_PRODUCT_SUBCATEGORY_FAIL,
@@ -178,24 +183,24 @@ export const getProductsByFilterCatReducer = (
   action
 ) => {
   switch (action.type) {
-    case PRODUCT_GET_BYFILTER_REQUEST:
+    case PRODUCT_GET_CAT_BYFILTER_REQUEST:
       return {
         loading: true,
         productsByFilterCat: [],
         status: "",
       };
-    case PRODUCT_GET_BYFILTER_SUCCESS:
+    case PRODUCT_GET_CAT_BYFILTER_SUCCESS:
       return {
         loading: false,
         productsByFilterCat: action.payload.products,
         status: action.payload.status,
       };
-    case PRODUCT_GET_BYFILTER_FAIL:
+    case PRODUCT_GET_CAT_BYFILTER_FAIL:
       return {
         loading: false,
         error: action.payload,
       };
-    case PRODUCT_GET_BYFILTER_RESET:
+    case PRODUCT_GET_CAT_BYFILTER_RESET:
       return {};
     default:
       return state;
