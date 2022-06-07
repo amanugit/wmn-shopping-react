@@ -214,16 +214,32 @@ function Shop({ match }) {
 
 
   useEffect(() => {
-    dispatch(listProducts(supCat, ""));
-  }, [supCat, ch]);
+    if(supCat === "women") {
+      dispatch(listProducts("women", ""));
+    } else if(supCat === "men") {
+      dispatch(listProducts("men", ""));
+    } else if(supCat === "kid") {
+      dispatch(listProducts("kid", ""));
+    }
+  }, [ch]);
 
 
 
   useEffect(() => {
-    dispatch(
-      getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-    );
-  }, [supCat, ch]);
+    if(supCat === "women") {
+      dispatch(
+        getProductsByFilter("women", "", "", "", "", "", "", "", "", "", 10)
+      );
+    } else if(supCat === "men") {
+      dispatch(
+        getProductsByFilter("men", "", "", "", "", "", "", "", "", "", 10)
+      );
+    } else if(supCat === "kid") {
+      dispatch(
+        getProductsByFilter("kid", "", "", "", "", "", "", "", "", "", 10)
+      );
+    }
+  }, [ch]);
 
 
   return (
