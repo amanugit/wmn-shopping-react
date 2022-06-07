@@ -19,7 +19,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
         dispatch(getSubCategory(categoryQ, supCat));
         dispatch(listProducts(supCat, categoryQ));
         getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
-        history.push(`/${supCat}/${categoryQ}/?ch=1`);
+        history.push(`/${supCat}/${categoryQ}/?ch=0`);
       } else {
         dispatch(listProducts(supCat, ""));
         dispatch(
