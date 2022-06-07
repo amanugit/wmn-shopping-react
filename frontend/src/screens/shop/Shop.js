@@ -211,10 +211,7 @@ function Shop({ match }) {
   }, [supCat]);
 
   useEffect(() => {
-   
     dispatch(listProducts(supCat, ""));
-
-  
 }, [supCatState]);
   useEffect(() => {
       dispatch(
