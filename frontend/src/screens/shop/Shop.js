@@ -198,6 +198,11 @@ function Shop({ match }) {
       )
     );
   };
+
+  const redirect = location.search ? location.search.split("=")[1] : "0";
+
+  
+
   useEffect(() => {
     if(productsByFilter.length === 0) {
       dispatch(
@@ -226,7 +231,7 @@ function Shop({ match }) {
 
   useEffect(() => {
     dispatch(listProducts(supCatState, ""));
-}, [supCatState]);
+}, [supCatState, redirect]);
 
 
 
@@ -235,7 +240,7 @@ function Shop({ match }) {
         getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
       );
   
-  }, [supCatState]);
+  }, [supCatState, redirect]);
 
 
   return (

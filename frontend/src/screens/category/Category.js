@@ -285,7 +285,7 @@ function Category({ match }) {
     );
   };
 
-
+  const redirect = location.search ? location.search.split("=")[1] : "0";
 
   useEffect(() => {
     if(subCatsAPI.length === 0) {
@@ -309,18 +309,18 @@ function Category({ match }) {
 
   useEffect(() => {
       dispatch(getSubCategory(categoryQ, supcat));
-  }, [categoryQ, supcat]);
+  }, [categoryQ, supcat, redirect]);
 
 
   useEffect(() => {
       dispatch(listProducts(supcat, categoryQ));
-  }, [supcat, categoryQ]);
+  }, [supcat, categoryQ, redirect]);
 
   useEffect(() => {
       dispatch(
         getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
-  }, [supcat, categoryQ]);
+  }, [supcat, categoryQ, redirect]);
   return (
     <section className="category" id="category">
       <Container fluid className="mt-2">
