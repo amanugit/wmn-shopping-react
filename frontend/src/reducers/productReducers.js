@@ -21,6 +21,7 @@ import {
   GET_PRODUCT_SUBCATEGORY_REQUEST,
   GET_PRODUCT_SUBCATEGORY_SUCCESS,
   GET_PRODUCT_SUBCATEGORY_FAIL,
+  GET_PRODUCT_SUBCATEGORY_RESET,
   CREATE_PRODUCT_REQUEST,
   CREATE_PRODUCT_SUCCESS,
   CREATE_PRODUCT_FAIL,
@@ -107,7 +108,16 @@ export const productListReducer = (
         error: action.payload,
       };
     case PRODUCT_LIST_RESET:
-      return {};
+      return {
+        colorsAPI: [],
+        categoryAPI: [],
+        brandAPI: [],
+        materialAPI: [],
+        itemCategoryAPI: [],
+        priceAPI: [],
+        clothingSizeAPI: [],
+        shoeSizeAPI: [],
+      };
     default:
       return state;
   }
@@ -169,7 +179,10 @@ export const getProductsByFilterReducer = (
         error: action.payload,
       };
     case PRODUCT_GET_BYFILTER_RESET:
-      return {};
+      return {
+        productsByFilter: [],
+        status: "",
+      };
     default:
       return state;
   }
@@ -201,7 +214,10 @@ export const getProductsByFilterCatReducer = (
         error: action.payload,
       };
     case PRODUCT_GET_CAT_BYFILTER_RESET:
-      return {};
+      return {
+        productsByFilterCat: [],
+        status: "",
+      };
     default:
       return state;
   }
@@ -227,6 +243,10 @@ export const productListSubCategoryReducer = (
         loading: false,
         error: action.payload,
       };
+    case GET_PRODUCT_SUBCATEGORY_RESET:
+    return {
+      subCatsAPI: []
+    }
     default:
       return state;
   }
