@@ -288,7 +288,7 @@ function Category({ match }) {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
-  let ch = nulll
+  let ch = null;
   const query = useQuery();
   ch = query.get("ch");
 
