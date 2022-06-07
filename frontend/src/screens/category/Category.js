@@ -50,7 +50,7 @@ function Category({ match }) {
   const { subCatsAPI } = productListSubCategory;
   const loadMore = (e) => {
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -86,7 +86,7 @@ function Category({ match }) {
     }
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -119,7 +119,7 @@ function Category({ match }) {
 
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -151,7 +151,7 @@ function Category({ match }) {
     }
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -183,7 +183,7 @@ function Category({ match }) {
     }
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -215,7 +215,7 @@ function Category({ match }) {
     }
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -247,7 +247,7 @@ function Category({ match }) {
     }
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
@@ -269,7 +269,7 @@ function Category({ match }) {
 
     setViewAll(false);
     dispatch(
-      getProductsByFilter(
+      getProductsByFilterCat(
         supcat,
         colors,
         "",
