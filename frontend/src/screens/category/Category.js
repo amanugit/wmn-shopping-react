@@ -13,14 +13,14 @@ function Category({ match }) {
   const dispatch = useDispatch();
   const categoryQ = match.params.category;
   const supcat = match.params.supcat;
-  const productByFilterList = useSelector((state) => state.productByFilterList);
+  const productByFilterListCat = useSelector((state) => state.productByFilterListCat);
   const productList = useSelector((state) => state.productList);
   const {
-    loading: productsByFilterLoading,
-    productsByFilter,
-    error: productsByFilterError,
+    loading: productsByFilterLoadingCat,
+    productsByFilterCat,
+    error: productsByFilterErrorCat,
     status,
-  } = productByFilterList;
+  } = productByFilterListCat;
   const sideBarRef = useRef(null);
   const {
     colorsAPI,
@@ -291,13 +291,10 @@ function Category({ match }) {
   }, [categoryQ, supcat]);
 
   useEffect(() => {
-    // if (productList.colorsAPI.length === 0 || productList.brandAPI.length === 0) {
       dispatch(listProducts(supcat, categoryQ));
-    
   }, [supcat, categoryQ]);
 
   useEffect(() => {
-    // if (productsByFilter.length === 0) {
       dispatch(
         getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
@@ -530,7 +527,7 @@ function Category({ match }) {
 
           <Col md={10} sm={12}>
             <Row>
-              {productsByFilterLoading ? (
+              {productsByFilterLoadingCat ? (
                 <div className="spinner">
                   <Spinner
                     animation="border"
@@ -539,7 +536,7 @@ function Category({ match }) {
                     style={{ width: "100px", height: "100px" }}
                   />
                 </div>
-              ) : productsByFilterError ? (
+              ) : productsByFilterErrorCat ? (
                 <Alert variant="danger" className="text-center">
                   Opps: something went wrong..., try to reload the page
                 </Alert>
@@ -549,18 +546,9 @@ function Category({ match }) {
                     supCat={supcat}
                     categoryQ={categoryQ}
                   ></ProductNotFound>
-
-                  {productsByFilter.map((product) => {
-                    return (
-                      <ProductItem
-                        product={product}
-                        key={product._id}
-                      ></ProductItem>
-                    );
-                  })}
                 </>
               ) : (
-                productsByFilter.map((product) => {
+                productsByFilterCat.map((product) => {
                   return (
                     <ProductItem
                       product={product}

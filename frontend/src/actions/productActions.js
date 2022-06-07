@@ -221,6 +221,43 @@ export const listProducts =
     }
   };
 
+  export const getProductsByFilterCat =
+  (
+    supCat,
+    colors,
+    categories,
+    brands,
+    materials,
+    subcategories,
+    catq,
+    price,
+    clothingsize,
+    shoesize,
+    skip
+  ) =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: PRODUCT_GET_BYFILTER_REQUEST,
+      });
+      const { data } = await axios.get(
+        `/api/products/filter?supCat=${supCat}&colors=${colors}&categories=${categories}&brands=${brands}&materials=${materials}&subcategories=${subcategories}&catq=${catq}&price=${price}&clothingsize=${clothingsize}&shoesize=${shoesize}&skip=${skip}`
+      );
+      dispatch({
+        type: PRODUCT_GET_BYFILTER_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_GET_BYFILTER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
+
 export const getProductsByFilter =
   (
     supCat,

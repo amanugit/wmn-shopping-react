@@ -5,38 +5,35 @@ import {
   PRODUCT_GET_BYFILTER_RESET,
 } from "../../constants/productConstants";
 import { listProducts, getSubCategory } from "../../actions/productActions";
-function ProductNotFound({ supCat, categoryQ }) {
+function ProductNotFound({ supCat, categoryQ, history }) {
   const dispatch = useDispatch();
   /**
    * modal was displayed
    */
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
-    /**
-     * dispatch
-     */
-     if (categoryQ) {
-      dispatch(getSubCategory(categoryQ, supCat));
-      dispatch(listProducts(supCat, categoryQ));
-    } else {
-      dispatch(listProducts(supCat, ""));
+     function loader() {
+      if (categoryQ) {
+        dispatch(getSubCategory(categoryQ, supCat));
+        dispatch(listProducts(supCat, categoryQ));
+        getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "");
+        history.push(`/${supCat}/${categoryQ}`);
+      } else {
+        dispatch(listProducts(supCat, ""));
+        dispatch(
+          getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+        );
+        history.push(`/${supCat}`);
+     }
     }
     const time = setTimeout(() => {
+      loader();
       setShowModal(false);
     }, 2000);
-
- 
-    /**
-     * set modal false
-     */
-
-    /**
-     * some clean-up
-     */
     return () => {
       clearTimeout(time);
     };
-  }, [supCat, categoryQ]);
+  }, []);
   return (
       <div
         className={

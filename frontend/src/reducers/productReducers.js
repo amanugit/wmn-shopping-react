@@ -170,6 +170,38 @@ export const getProductsByFilterReducer = (
   }
 };
 
+export const getProductsByFilterCatReducer = (
+  state = {
+    productsByFilter: [],
+    status: "",
+  },
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_GET_BYFILTER_REQUEST:
+      return {
+        loading: true,
+        productsByFilter: [],
+        status: "",
+      };
+    case PRODUCT_GET_BYFILTER_SUCCESS:
+      return {
+        loading: false,
+        productsByFilter: action.payload.products,
+        status: action.payload.status,
+      };
+    case PRODUCT_GET_BYFILTER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case PRODUCT_GET_BYFILTER_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
 export const productListSubCategoryReducer = (
   state = { subCatsAPI: [] },
   action
