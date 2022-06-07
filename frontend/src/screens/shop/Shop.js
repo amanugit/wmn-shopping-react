@@ -15,7 +15,7 @@ import {
   PRODUCT_GET_BYFILTER_RESET,
   PRODUCT_GET_CAT_BYFILTER_RESET
 } from "../../constants/productConstants";
-function Shop({ match, location }) {
+function Shop({ match }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const sideBarRef = useRef(null);

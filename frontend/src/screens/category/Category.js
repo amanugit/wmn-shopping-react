@@ -5,13 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import {useLocation} from 'react-router-dom';
 import {
-  getProductsByFilter,
   listProducts,
   getSubCategory,
   getProductsByFilterCat
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
-function Category({ match, location }) {
+function Category({ match }) {
   const dispatch = useDispatch();
   const categoryQ = match.params.category;
   const supcat = match.params.supcat;
