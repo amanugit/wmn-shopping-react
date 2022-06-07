@@ -8,13 +8,14 @@ import {
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 import { useHistory } from "react-router";
+import {useSearchParams } from 'react-router-dom';
 
 import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
   PRODUCT_GET_CAT_BYFILTER_RESET
 } from "../../constants/productConstants";
-function Shop({ match }) {
+function Shop({ match, location }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const sideBarRef = useRef(null);
@@ -200,8 +201,6 @@ function Shop({ match }) {
   };
 
   const redirect = location.search ? location.search.split("=")[1] : "0";
-
-  
 
   useEffect(() => {
     if(productsByFilter.length === 0) {

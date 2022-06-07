@@ -10,7 +10,7 @@ import {
   getProductsByFilterCat
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
-function Category({ match }) {
+function Category({ match, location }) {
   const dispatch = useDispatch();
   const categoryQ = match.params.category;
   const supcat = match.params.supcat;
