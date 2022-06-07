@@ -18,22 +18,23 @@ function ProductNotFound({ supCat, categoryQ, history }) {
         dispatch(getSubCategory(categoryQ, supCat));
         dispatch(listProducts(supCat, categoryQ));
         getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
-       
+        history.push(`/${supCat}/${categoryQ}`);
       } else {
         dispatch(listProducts(supCat, ""));
         dispatch(
           getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
         );
-        
+        history.push(`/${supCat}`);
       }
     }
-    loader();
+    
     const time = setTimeout(() => {
       setShowModal(false);
     }, 2000);
     return () => {
       clearTimeout(time);
     };
+    loader();
   }, []);
   return (
     <div className={
