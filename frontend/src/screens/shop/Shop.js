@@ -214,12 +214,28 @@ function Shop({ match }) {
     dispatch(listProducts(supCatState, ""));
 }, [supCatState]);
 
+useEffect(() => {
+  if(colorsAPI.length === 0 || priceAPI === 0) {
+    dispatch(
+      getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
+    );
+  }
+}, [])
+
   useEffect(() => {
       dispatch(
         getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
       );
   
   }, [supCatState]);
+
+  useEffect(() => {
+    if(productsByFilter.length === 0) {
+      dispatch(
+        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
+      );
+    }
+  }, [])
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">
