@@ -208,7 +208,7 @@ function Shop({ match }) {
     } else if(supCat === "kid") {
       setSupCatState("kid");
     }
-  }, []);
+  }, [supCatState]);
 
   useEffect(() => {
     dispatch(listProducts(supCatState, ""));
