@@ -3,6 +3,7 @@ import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
 import ProductItem from "../../componenets/productItem/ProductItem";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import {useLocation} from 'react-router-dom';
 import {
   getProductsByFilter,
   listProducts,
@@ -284,43 +285,48 @@ function Category({ match, location }) {
       )
     );
   };
-
-  const redirect = location.search ? location.search.split("=")[1] : "0";
+  function useQuery() {
+    const { serach } = useLocation();
+    return React.useMemo(() => new URLSearchParams(serach), [serach]);
+  }
+  let ch = 0;
+  const query = useQuery();
+  ch = query.get("ch");
 
   useEffect(() => {
-    if(subCatsAPI.length === 0) {
+    if (subCatsAPI.length === 0) {
       dispatch(getSubCategory(categoryQ, supcat));
     }
   }, []);
 
   useEffect(() => {
-    if(colorsAPI.length === 0 || priceAPI.length === 0) {
+    if (colorsAPI.length === 0 || priceAPI.length === 0) {
       dispatch(listProducts(supcat, categoryQ));
     }
   }, []);
 
   useEffect(() => {
-    if(productsByFilterCat.length === 0) {
+    if (productsByFilterCat.length === 0) {
       dispatch(
         getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
     }
-    }, []);
+  }, []);
 
   useEffect(() => {
-      dispatch(getSubCategory(categoryQ, supcat));
-  }, [categoryQ, supcat, redirect]);
+    dispatch(getSubCategory(categoryQ, supcat));
+  }, [categoryQ, supcat, ch]);
 
 
   useEffect(() => {
-      dispatch(listProducts(supcat, categoryQ));
-  }, [supcat, categoryQ, redirect]);
+    dispatch(listProducts(supcat, categoryQ));
+  }, [supcat, categoryQ, ch]);
 
   useEffect(() => {
-      dispatch(
-        getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
-      );
-  }, [supcat, categoryQ, redirect]);
+    dispatch(
+      getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
+    );
+  }, [supcat, categoryQ, ch]);
   return (
     <section className="category" id="category">
       <Container fluid className="mt-2">

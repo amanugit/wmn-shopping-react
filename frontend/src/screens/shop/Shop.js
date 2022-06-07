@@ -8,7 +8,7 @@ import {
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 import { useHistory } from "react-router";
-import {useSearchParams } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 import {
   PRODUCT_LIST_RESET,
@@ -200,7 +200,13 @@ function Shop({ match, location }) {
     );
   };
 
-  const redirect = location.search ? location.search.split("=")[1] : "0";
+  function useQuery() {
+    const { serach } = useLocation();
+    return React.useMemo(() => new URLSearchParams(serach), [serach]);
+  }
+  let ch = 0;
+  const query = useQuery();
+  ch = query.get("ch");
 
   useEffect(() => {
     if(productsByFilter.length === 0) {
@@ -230,7 +236,7 @@ function Shop({ match, location }) {
 
   useEffect(() => {
     dispatch(listProducts(supCatState, ""));
-}, [supCatState, redirect]);
+}, [supCatState, ch]);
 
 
 
@@ -239,7 +245,7 @@ function Shop({ match, location }) {
         getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
       );
   
-  }, [supCatState, redirect]);
+  }, [supCatState, ch]);
 
 
   return (
