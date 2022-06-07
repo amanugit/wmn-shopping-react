@@ -12,6 +12,10 @@ import {
   PRODUCT_GET_BYFILTER_REQUEST,
   PRODUCT_GET_BYFILTER_SUCCESS,
   PRODUCT_GET_BYFILTER_FAIL,
+
+  PRODUCT_GET_CAT_BYFILTER_REQUEST,
+  PRODUCT_GET_CAT_BYFILTER_SUCCESS,
+  PRODUCT_GET_CAT_BYFILTER_FAIL,
   GET_PRODUCT_SUBCATEGORY_REQUEST,
   GET_PRODUCT_SUBCATEGORY_SUCCESS,
   GET_PRODUCT_SUBCATEGORY_FAIL,
@@ -238,18 +242,18 @@ export const listProducts =
   async (dispatch) => {
     try {
       dispatch({
-        type: PRODUCT_GET_BYFILTER_REQUEST,
+        type: PRODUCT_GET_CAT_BYFILTER_REQUEST,
       });
       const { data } = await axios.get(
         `/api/products/filter?supCat=${supCat}&colors=${colors}&categories=${categories}&brands=${brands}&materials=${materials}&subcategories=${subcategories}&catq=${catq}&price=${price}&clothingsize=${clothingsize}&shoesize=${shoesize}&skip=${skip}`
       );
       dispatch({
-        type: PRODUCT_GET_BYFILTER_SUCCESS,
+        type: PRODUCT_GET_CAT_BYFILTER_SUCCESS,
         payload: data,
       });
     } catch (error) {
       dispatch({
-        type: PRODUCT_GET_BYFILTER_FAIL,
+        type: PRODUCT_GET_CAT_BYFILTER_FAIL,
         payload:
           error.response && error.response.data.message
             ? error.response.data.message

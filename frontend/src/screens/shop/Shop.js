@@ -12,6 +12,7 @@ import { useHistory } from "react-router";
 import {
   PRODUCT_LIST_RESET,
   PRODUCT_GET_BYFILTER_RESET,
+  PRODUCT_GET_CAT_BYFILTER_RESET
 } from "../../constants/productConstants";
 function Shop({ match }) {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function Shop({ match }) {
   const onCheckViewAll = () => {
     dispatch({ type: PRODUCT_LIST_RESET });
     dispatch({ type: PRODUCT_GET_BYFILTER_RESET });
+    dispatch({ type: PRODUCT_GET_CAT_BYFILTER_RESET });
     setPriceState(priceAPI.maxprice);
     dispatch(listProducts(supCat, "", ""));
     dispatch(

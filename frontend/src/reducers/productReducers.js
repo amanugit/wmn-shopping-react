@@ -172,7 +172,7 @@ export const getProductsByFilterReducer = (
 
 export const getProductsByFilterCatReducer = (
   state = {
-    productsByFilter: [],
+    productsByFilterCat: [],
     status: "",
   },
   action
@@ -181,13 +181,13 @@ export const getProductsByFilterCatReducer = (
     case PRODUCT_GET_BYFILTER_REQUEST:
       return {
         loading: true,
-        productsByFilter: [],
+        productsByFilterCat: [],
         status: "",
       };
     case PRODUCT_GET_BYFILTER_SUCCESS:
       return {
         loading: false,
-        productsByFilter: action.payload.products,
+        productsByFilterCat: action.payload.products,
         status: action.payload.status,
       };
     case PRODUCT_GET_BYFILTER_FAIL:
