@@ -12,13 +12,14 @@ import {
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 function Category({ match }) {
   const dispatch = useDispatch();
+  const { serach } = useLocation();
   function useQuery() {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
   const query = useQuery();
 
-  const [ch, setCh] = useState(query.get("ch"));
+  const [ch, setCh] = useState("");
   const categoryQ = match.params.category;
   const supcat = match.params.supcat;
   const productByFilterListCat = useSelector((state) => state.productByFilterListCat);
@@ -291,7 +292,9 @@ function Category({ match }) {
       )
     );
   };
- 
+  useEffect(() => {
+    setCh(query.get("ch"))
+  }, [serach]);
 
 
   useEffect(() => {

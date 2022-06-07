@@ -17,13 +17,14 @@ import {
 } from "../../constants/productConstants";
 function Shop({ match }) {
   const dispatch = useDispatch();
+  const { serach } = useLocation();
   function useQuery() {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
   }
   const query = useQuery();
 
-  const [ch, setCh] = useState(query.get("ch"));
+  const [ch, setCh] = useState("");
   const history = useHistory();
   const sideBarRef = useRef(null);
   const supCat = match.params.supcat;
@@ -207,7 +208,9 @@ function Shop({ match }) {
   };
 
 
-
+  useEffect(() => {
+    setCh(query.get("ch"))
+  }, [serach]);
 
 
   useEffect(() => {
