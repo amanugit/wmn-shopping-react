@@ -7,6 +7,7 @@ import {
   getProductsByFilter,
   listProducts,
   getSubCategory,
+  getProductsByFilterCat
 } from "../../actions/productActions";
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 function Category({ match }) {
@@ -60,7 +61,7 @@ function Category({ match }) {
         priceState,
         clothingSizes,
         shoeSizes,
-        productsByFilter.length + 10
+        productsByFilterCat.length + 10
       )
     );
   };
@@ -296,7 +297,7 @@ function Category({ match }) {
 
   useEffect(() => {
       dispatch(
-        getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
+        getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
       );
     
   }, [supcat, categoryQ]);
@@ -560,7 +561,7 @@ function Category({ match }) {
             </Row>
             <div className="mt-3 mb-5 load_more_container">
               {" "}
-              {productsByFilter.length >= 10 ? (
+              {productsByFilterCat.length >= 10 ? (
                 <button className="load_more" onClick={loadMore}>
                   Load More
                 </button>

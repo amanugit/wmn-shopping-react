@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {getProductsByFilter, getProductsByFilterCat} from '../../actions/productActions/getProductsByFilter'
 import { useDispatch } from "react-redux";
 import {
   PRODUCT_LIST_RESET,
@@ -16,7 +17,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
       if (categoryQ) {
         dispatch(getSubCategory(categoryQ, supCat));
         dispatch(listProducts(supCat, categoryQ));
-        getProductsByFilter(supcat, "", "", "", "", "", categoryQ, "", "", "", "");
+        getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "");
         history.push(`/${supCat}/${categoryQ}`);
       } else {
         dispatch(listProducts(supCat, ""));
