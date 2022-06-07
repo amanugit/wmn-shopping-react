@@ -198,7 +198,21 @@ function Shop({ match }) {
       )
     );
   };
+  useEffect(() => {
+    if(productsByFilter.length === 0) {
+      dispatch(
+        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
+      );
+    }
+  }, []);
 
+  useEffect(() => {
+    if(colorsAPI.length === 0 || priceAPI === 0) {
+      dispatch(
+        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
+      );
+    }
+  }, []);
   
   useEffect(() => {
     if(supCat === "women") {
@@ -214,13 +228,7 @@ function Shop({ match }) {
     dispatch(listProducts(supCatState, ""));
 }, [supCatState]);
 
-useEffect(() => {
-  if(colorsAPI.length === 0 || priceAPI === 0) {
-    dispatch(
-      getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
-    );
-  }
-}, [])
+
 
   useEffect(() => {
       dispatch(
@@ -229,13 +237,7 @@ useEffect(() => {
   
   }, [supCatState]);
 
-  useEffect(() => {
-    if(productsByFilter.length === 0) {
-      dispatch(
-        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
-      );
-    }
-  }, [])
+
   return (
     <section className="shop" id="shop">
       <Container fluid className="mt-2">

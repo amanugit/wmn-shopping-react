@@ -285,30 +285,37 @@ function Category({ match }) {
     );
   };
 
-  useEffect(() => {
-      dispatch(getSubCategory(categoryQ, supcat));
-  }, [categoryQ, supcat]);
+
+
   useEffect(() => {
     if(subCatsAPI.length === 0) {
       dispatch(getSubCategory(categoryQ, supcat));
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if(colorsAPI.length === 0 || priceAPI.length === 0) {
+      dispatch(listProducts(supcat, categoryQ));
+    }
+  }, []);
+
+  useEffect(() => {
+    if(productsByFilterCat.length === 0) {
+      dispatch(
+        getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
+      );
+    }
+    }, []);
+
+  useEffect(() => {
+      dispatch(getSubCategory(categoryQ, supcat));
+  }, [categoryQ, supcat]);
+
 
   useEffect(() => {
       dispatch(listProducts(supcat, categoryQ));
   }, [supcat, categoryQ]);
-useEffect(() => {
-  if(colorsAPI.length === 0 || priceAPI.length === 0) {
-    dispatch(listProducts(supcat, categoryQ));
-  }
-}, [])
-useEffect(() => {
-if(productsByFilterCat.length === 0) {
-  dispatch(
-    getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
-  );
-}
-}, [])
+
   useEffect(() => {
       dispatch(
         getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
