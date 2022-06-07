@@ -701,9 +701,7 @@ h1 {
 .admin_view_product .spinner {
   text-align: center;
 }
-.modalShown {
-  display: block;
-}
+
 .modalHidden {
   display: none;
 }

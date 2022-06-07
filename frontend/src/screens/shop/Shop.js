@@ -211,11 +211,12 @@ function Shop({ match }) {
   }, [supCat]);
 
   useEffect(() => {
-    dispatch(listProducts(supCat, ""));
+    dispatch(listProducts(supCatState, ""));
 }, [supCatState]);
+
   useEffect(() => {
       dispatch(
-        getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
+        getProductsByFilter(supCatState, "", "", "", "", "", "", "", "", "", 10)
       );
   
   }, [supCatState]);
