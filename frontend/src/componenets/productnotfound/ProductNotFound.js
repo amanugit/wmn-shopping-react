@@ -15,17 +15,11 @@ function ProductNotFound({ supCat, categoryQ, history }) {
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
     function loader() {
+      const chValue = Math.random();
       if (categoryQ) {
-        // dispatch(getSubCategory(categoryQ, supCat));
-        // dispatch(listProducts(supCat, categoryQ));
-        // getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
-        history.push(`/${supCat}/${categoryQ}/?ch=${Math.random()}`);
+        history.push(`/${supCat}/${categoryQ}?ch=${chValue}`);
       } else {
-        // dispatch(listProducts(supCat, ""));
-        // dispatch(
-        //   getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10)
-        // );
-        history.push(`/${supCat}/ch=${Math.random()}`);
+        history.push(`/${supCat}?ch=${chValue}`);
       }
     }
     
@@ -37,7 +31,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
       clearTimeout(time);
     };
     
-  }, [history]);
+  }, []);
   return (
     <div className={
       showModal ? "modalnotfound modalShown" : "modalnotfound modalHidden"
