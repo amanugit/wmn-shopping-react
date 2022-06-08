@@ -82,7 +82,7 @@ function Login({ location, history }) {
               </div>
               <div>
                 <Link
-                  to={redirect ? `/register?${redirect}` : "/"}
+                  to={redirect ? `/register?${redirect}` : "/women"}
                   className="ml-3"
                 >
                   <Button
