@@ -73,7 +73,7 @@ function PlaceOrder({ history }) {
           <Col md={8} sm={12}>
             <ListGroup>
               <ListGroup.Item className="mb-4 shadow-sm">
-                <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Shipping</h2>
+                <h2 className="my-2 p-2 text-center" style={{background: '#ddd', color: 'black'}}>Shipping</h2>
                 <p>
                   <strong>Address: </strong>
                   {cart.shippingAddress.address}
@@ -93,12 +93,12 @@ function PlaceOrder({ history }) {
               </ListGroup.Item>
 
               <ListGroup.Item className="mb-4 shadow-sm">
-              <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Payment Method</h2>
+              <h2 className="my-2 p-2 text-center" style={{background: '#ddd', color: 'black'}}>Payment Method</h2>
                 {cart.paymentMethod}
               </ListGroup.Item>
 
               <ListGroup.Item className="mb-4 shadow-sm">
-              <h2 className="my-2 p-2" style={{background: '#ddd', color: 'black'}}>Order Items</h2>
+              <h2 className="my-2 p-2 text-center" style={{background: '#ddd', color: 'black'}}>Order Items</h2>
                 {cart.cartItems.length === 0 ? (
                   <Alert variant="danger">No Cart Items</Alert>
                 ) : (
@@ -121,7 +121,7 @@ function PlaceOrder({ history }) {
                             </Link>
                           </Col>
 
-                          <Col md={3} style={{ textDecoration: 'none', color: 'black' }}>
+                          <Col md={3} style={{ color: 'black' }}>
                             {item.qty} x ${item.price} x {item.shippingCost} = $
                             {item.qty * item.price + item.shippingCost}
                           </Col>
@@ -137,7 +137,7 @@ function PlaceOrder({ history }) {
             <Card>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                <h2 className="my-2 p-2" style={{background: '#d17f15', color: 'white'}}>Order Summary</h2>
+                <h2 className="my-2 p-2 text-center" style={{background: '#ddd', color: 'white'}}>Order Summary</h2>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
