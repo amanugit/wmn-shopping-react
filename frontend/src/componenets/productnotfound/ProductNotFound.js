@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {getProductsByFilter, getProductsByFilterCat, listProducts, getSubCategory } from '../../actions/productActions';
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 function ProductNotFound({ supCat, categoryQ, history }) {
-  const dispatch = useDispatch();
-  /**
-   * modal was displayed
-   */
+  
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
     function loader() {
@@ -26,7 +22,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
       clearTimeout(time);
     };
     
-  }, []);
+  }, [categoryQ, supCat]);
   return (
     <div className={
       showModal ? "modalnotfound modalShown" : "modalnotfound modalHidden"
