@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 function ProductNotFound({ supCat, categoryQ, history }) {
-  
+
   const [showModal, setShowModal] = useState(true);
   useEffect(() => {
     function loader() {
