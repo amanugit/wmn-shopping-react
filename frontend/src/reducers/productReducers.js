@@ -36,7 +36,7 @@ import {
 } from "../constants/productConstants";
 
 export const productAdminListReducer = (
-  state = { adminProducts: [] },
+  state = { adminProducts: [], loading: false },
   action
 ) => {
   switch (action.type) {
@@ -63,6 +63,7 @@ export const productAdminListReducer = (
 };
 export const productListReducer = (
   state = {
+    loading: false,
     products: [],
     colorsAPI: [],
     categoryAPI: [],
@@ -109,6 +110,7 @@ export const productListReducer = (
       };
     case PRODUCT_LIST_RESET:
       return {
+        loading: false,
         colorsAPI: [],
         categoryAPI: [],
         brandAPI: [],
@@ -125,6 +127,7 @@ export const productListReducer = (
 
 export const productGetReducer = (
   state = {
+    loading: false,
     product: { name: "", color: [], images: [], sizes: [], shoeSize: [] },
     relatedProducts: [],
   },
@@ -155,6 +158,7 @@ export const productGetReducer = (
 
 export const getProductsByFilterReducer = (
   state = {
+    loading: false,
     productsByFilter: [],
     status: "",
   },
@@ -180,6 +184,7 @@ export const getProductsByFilterReducer = (
       };
     case PRODUCT_GET_BYFILTER_RESET:
       return {
+        loading: false,
         productsByFilter: [],
         status: "",
       };
@@ -190,6 +195,7 @@ export const getProductsByFilterReducer = (
 
 export const getProductsByFilterCatReducer = (
   state = {
+    loading: false,
     productsByFilterCat: [],
     status: "",
   },
@@ -215,6 +221,7 @@ export const getProductsByFilterCatReducer = (
       };
     case PRODUCT_GET_CAT_BYFILTER_RESET:
       return {
+        loading: false,
         productsByFilterCat: [],
         status: "",
       };
@@ -224,7 +231,7 @@ export const getProductsByFilterCatReducer = (
 };
 
 export const productListSubCategoryReducer = (
-  state = { subCatsAPI: [] },
+  state = { subCatsAPI: [], loading: false },
   action
 ) => {
   switch (action.type) {
@@ -244,15 +251,16 @@ export const productListSubCategoryReducer = (
         error: action.payload,
       };
     case GET_PRODUCT_SUBCATEGORY_RESET:
-    return {
-      subCatsAPI: []
-    }
+      return {
+        loading: false,
+        subCatsAPI: []
+      }
     default:
       return state;
   }
 };
 
-export const productCreateReducer = (state = { product: {} }, action) => {
+export const productCreateReducer = (state = { loading: false, product: {} }, action) => {
   switch (action.type) {
     case CREATE_PRODUCT_REQUEST:
       return {
@@ -273,13 +281,13 @@ export const productCreateReducer = (state = { product: {} }, action) => {
         error: action.payload,
       };
     case CREATE_PRODUCT_RESET:
-      return {};
+      return { loading: false, product: {} };
     default:
       return state;
   }
 };
 
-export const productUpdateReducer = (state = { product: {} }, action) => {
+export const productUpdateReducer = (state = { loading: false, product: {} }, action) => {
   switch (action.type) {
     case UPDATE_PRODUCT_REQUEST:
       return {
@@ -300,13 +308,13 @@ export const productUpdateReducer = (state = { product: {} }, action) => {
         success: false,
       };
     case UPDATE_PRODUCT_RESET:
-      return {};
+      return { loading: false, product: {} };
     default:
       return state;
   }
 };
 
-export const productDeleteReducer = (state = {}, action) => {
+export const productDeleteReducer = (state = { loading: false }, action) => {
   switch (action.type) {
     case DELETE_PRODUCT_REQUEST:
       return {
