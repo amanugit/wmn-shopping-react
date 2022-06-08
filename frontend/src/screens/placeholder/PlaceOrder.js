@@ -104,7 +104,7 @@ function PlaceOrder({ history }) {
                 ) : (
                   cart.cartItems.map((item, index) => {
                     return (
-                      <ListGroup.Item>
+                      <ListGroup.Item key={index}>
                         <Row>
                           <Col md={2}>
                             <img
@@ -116,7 +116,7 @@ function PlaceOrder({ history }) {
                           <Col md={5}>
                             <Link
                               to={`/${item.superCat}/${item.name}/${item.productId}`}
-                              style={{ textDecoration: 'none', color: 'black' }}>
+                              style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>
                               {item.name}
                             </Link>
                           </Col>
