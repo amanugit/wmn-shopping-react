@@ -2,11 +2,6 @@ import React, { useEffect, useState } from "react";
 import {getProductsByFilter, getProductsByFilterCat, listProducts, getSubCategory } from '../../actions/productActions';
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
-import {
-  PRODUCT_LIST_RESET,
-  PRODUCT_GET_BYFILTER_RESET,
-  PRODUCT_GET_CAT_BYFILTER_RESET,
-} from "../../constants/productConstants";
 function ProductNotFound({ supCat, categoryQ, history }) {
   const dispatch = useDispatch();
   /**
