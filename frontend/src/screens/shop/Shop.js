@@ -23,7 +23,7 @@ function Shop({ match }) {
   }
   const query = useQuery();
 
-  const [ch, setCh] = useState("");
+  const [ch, setCh] = useState(query.get("ch"));
   const history = useHistory();
   const sideBarRef = useRef(null);
   const supCat = match.params.supcat;
@@ -207,9 +207,7 @@ function Shop({ match }) {
   };
 
 
-  useEffect(() => {
-    setCh(query.get("ch"))
-  }, [query]);
+
 
 
   useEffect(() => {

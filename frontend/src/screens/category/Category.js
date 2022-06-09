@@ -18,7 +18,7 @@ function Category({ match }) {
   }
   const query = useQuery();
 
-  const [ch, setCh] = useState("");
+  const [ch, setCh] = useState(query.get("ch"));
   const categoryQ = match.params.category;
   const supcat = match.params.supcat;
   const productByFilterListCat = useSelector((state) => state.productByFilterListCat);
@@ -291,9 +291,7 @@ function Category({ match }) {
       )
     );
   };
-  useEffect(() => {
-    setCh(query.get("ch"))
-  }, [query]);
+ 
 
 
   useEffect(() => {
