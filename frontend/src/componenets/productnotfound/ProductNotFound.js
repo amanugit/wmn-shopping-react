@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {useDispatch} from 'react-redux';
 import { withRouter } from "react-router-dom";
 import {listProducts, getSubCategory, getProductsByFilter, getProductsByFilterCat} from '../../actions/productActions';
+import {PRODUCT_LIST_RESET, PRODUCT_GET_CAT_BYFILTER_RESET, PRODUCT_GET_BYFILTER_RESET,} from '../../constants/productConstants';
 function ProductNotFound({ supCat, categoryQ, history }) {
   const dispatch = useDispatch();
 
@@ -11,11 +12,18 @@ function ProductNotFound({ supCat, categoryQ, history }) {
       const chValue = Math.random();
       if (categoryQ) {
         // history.push(`/${supCat}/${categoryQ}?ch=${chValue}`);
+        dispatch({type: PRODUCT_LIST_RESET});
+        dispatch({type: PRODUCT_GET_CAT_BYFILTER_RESET});
+        dispatch({type: PRODUCT_GET_BYFILTER_RESET});
         dispatch(getSubCategory(categoryQ, supCat));
+
         dispatch(listProducts(supCat, categoryQ));
         getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", 10);
       } else {
         // history.push(`/${supCat}?ch=${chValue}`);
+        dispatch({type: PRODUCT_LIST_RESET});
+        dispatch({type: PRODUCT_GET_CAT_BYFILTER_RESET});
+        dispatch({type: PRODUCT_GET_BYFILTER_RESET});
         dispatch(listProducts(supCat, ""));
         getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10);
       }
