@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <section className="home" id="home">
-      <Container>
+      <Container fluid>
         <Row>
           <Col md={4} sm={12} className="cat-container mb-3">
             <Link to="/shop/men">
