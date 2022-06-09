@@ -23,7 +23,7 @@ import {
   ORDER_CREATE_RESET,
 } from "../constants/orderConstants";
 
-export const orderCreateReducer = (state = {}, action) => {
+export const orderCreateReducer = (state = {loading: false}, action) => {
   switch (action.type) {
     case ORDER_CREATE_REQUEST:
       return {
@@ -48,7 +48,7 @@ export const orderCreateReducer = (state = {}, action) => {
 };
 
 export const orderDetailsReducer = (
-  state = { loading: true, orderItems: [], shippingAddress: {} },
+  state = { loading: false, orderItems: [], shippingAddress: {} },
   action
 ) => {
   switch (action.type) {
@@ -72,7 +72,7 @@ export const orderDetailsReducer = (
   }
 };
 
-export const orderPayReducer = (state = {}, action) => {
+export const orderPayReducer = (state = {loading: false}, action) => {
   switch (action.type) {
     case ORDER_PAY_REQUEST:
       return {
@@ -95,7 +95,7 @@ export const orderPayReducer = (state = {}, action) => {
   }
 };
 
-export const orderDeliverReducer = (state = {}, action) => {
+export const orderDeliverReducer = (state = {loading: false}, action) => {
   switch (action.type) {
     case ORDER_DELIVER_REQUEST:
       return {
@@ -121,7 +121,7 @@ export const orderDeliverReducer = (state = {}, action) => {
 export const orderListMyReducer = (
   state = {
     orders: [{ orderItems: [] }, { shippingAddress: {} }],
-    loading: true,
+    loading: false,
   },
   action
 ) => {
@@ -148,7 +148,7 @@ export const orderListMyReducer = (
   }
 };
 
-export const orderListReducer = (state = { orders: [] }, action) => {
+export const orderListReducer = (state = { loading: false, orders: [] }, action) => {
   switch (action.type) {
     case ORDER_LIST_REQUEST:
       return {
