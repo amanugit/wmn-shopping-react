@@ -305,7 +305,7 @@ function Category({ match }) {
 
   useEffect(() => {
     dispatch(
-      getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", "")
+      getProductsByFilterCat(supcat, "", "", "", "", "", categoryQ, "", "", "", 10)
     );
   }, [supcat, categoryQ, ch]);
   return (

@@ -13,7 +13,7 @@ function ProductNotFound({ supCat, categoryQ, history }) {
         // history.push(`/${supCat}/${categoryQ}?ch=${chValue}`);
         dispatch(getSubCategory(categoryQ, supCat));
         dispatch(listProducts(supCat, categoryQ));
-        getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
+        getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", 10);
       } else {
         // history.push(`/${supCat}?ch=${chValue}`);
         dispatch(listProducts(supCat, ""));
