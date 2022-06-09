@@ -12,11 +12,11 @@ function ProductNotFound({ supCat, categoryQ, history }) {
         history.push(`/${supCat}?ch=${chValue}`);
       }
     }
-    
+    loader();
     const time = setTimeout(() => {
       setShowModal(false);
     }, 2000);
-    loader();
+    
     return () => {
       clearTimeout(time);
     };
