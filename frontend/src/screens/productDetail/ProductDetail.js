@@ -12,7 +12,6 @@ import {
 import { FaBackward } from "react-icons/fa";
 import { getProduct } from "../../actions/productActions";
 import { addToCart } from "../../actions/cartActions";
-import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function ProductDetail({ match }) {

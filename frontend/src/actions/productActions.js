@@ -97,10 +97,6 @@ export const listProducts =
         `/api/products/mbm?superCat=${superCat}&catq=${catq}`
       );
 
-      /****
-       * new
-       */
-
       const {
         data: { clothingSizes },
       } = await axios.get(
@@ -137,17 +133,8 @@ export const listProducts =
       let brandsForState = [];
       let materialsForState = [];
       let itemCategoriesForState = [];
-
-      /**
-       * new
-       */
-
       let clothingSizeForState = [];
       let shoeSiezeForState = [];
-
-      /**
-       * new
-       */
 
       clothingSizes.map((cs) => {
         return clothingSizeForState.push({
@@ -161,11 +148,7 @@ export const listProducts =
           isChecked: false,
         });
       });
-
-      /**
-       * ------------------------
-       */
-
+      
       colors.map((color) => {
         return colorsForState.push({
           color: color._id,
