@@ -12,7 +12,6 @@ import {
 import ProductNotFound from "../../componenets/productnotfound/ProductNotFound";
 function Category({ match }) {
   const dispatch = useDispatch();
-  const { serach } = useLocation();
   function useQuery() {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
@@ -294,7 +293,7 @@ function Category({ match }) {
   };
   useEffect(() => {
     setCh(query.get("ch"))
-  }, [serach]);
+  }, [query]);
 
 
   useEffect(() => {

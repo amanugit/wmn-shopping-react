@@ -17,7 +17,6 @@ import {
 } from "../../constants/productConstants";
 function Shop({ match }) {
   const dispatch = useDispatch();
-  const { serach } = useLocation();
   function useQuery() {
     const { serach } = useLocation();
     return React.useMemo(() => new URLSearchParams(serach), [serach]);
@@ -210,7 +209,7 @@ function Shop({ match }) {
 
   useEffect(() => {
     setCh(query.get("ch"))
-  }, [serach]);
+  }, [query]);
 
 
   useEffect(() => {
