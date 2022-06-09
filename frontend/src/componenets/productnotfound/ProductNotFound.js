@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import {useDispatch} from 'react-redux';
 import { withRouter } from "react-router-dom";
+import {listProducts, getSubCategory, getProductsByFilter, getProductsByFilterCat} from '../../actions/productActions';
 function ProductNotFound({ supCat, categoryQ, history }) {
 
   const [showModal, setShowModal] = useState(true);
