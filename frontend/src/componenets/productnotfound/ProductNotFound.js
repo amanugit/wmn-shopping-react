@@ -7,9 +7,14 @@ function ProductNotFound({ supCat, categoryQ, history }) {
     function loader() {
       const chValue = Math.random();
       if (categoryQ) {
-        history.push(`/${supCat}/${categoryQ}?ch=${chValue}`);
+        // history.push(`/${supCat}/${categoryQ}?ch=${chValue}`);
+        dispatch(getSubCategory(categoryQ, supCat));
+        dispatch(listProducts(supCat, categoryQ));
+        getProductsByFilterCat(supCat, "", "", "", "", "", categoryQ, "", "", "", "");
       } else {
-        history.push(`/${supCat}?ch=${chValue}`);
+        // history.push(`/${supCat}?ch=${chValue}`);
+        dispatch(listProducts(supCat, ""));
+        getProductsByFilter(supCat, "", "", "", "", "", "", "", "", "", 10);
       }
     }
     loader();
