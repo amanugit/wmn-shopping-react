@@ -52,6 +52,14 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   if (order) {
     order.isPaid = true;
     order.paidAt = Date.now();
+    /**
+     * here the body is come as an object from payMentResult axios.put 
+     * second parameter
+     * {
+     * id: 7983742something
+     * status: 
+     * }
+     */
     order.paymentResult = {
       id: req.body.id,
       status: req.body.status,
@@ -69,7 +77,6 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 });
 
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-  console.log("hittttttttttt");
   const order = await Order.findById(req.params.id);
 
   if (order) {
