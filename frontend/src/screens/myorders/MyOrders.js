@@ -44,10 +44,10 @@ function MyOrders({ history, match }) {
                   <ListGroup>
                     <h4 className="my-3">Shipping Address</h4>
                     <ListGroup.Item>
-                      <p style={{color: black}}>{order.shippingAddress.address}</p>
-                      <p style={{color: black}}>{order.shippingAddress.city}</p>
-                      <p style={{color: black}}>{order.shippingAddress.postalCode}</p>
-                      <p style={{color: black}}>{order.shippingAddress.country}</p>
+                      <p style={{color: "black"}}>{order.shippingAddress.address}</p>
+                      <p style={{color: "black"}}>{order.shippingAddress.city}</p>
+                      <p style={{color: "black"}}>{order.shippingAddress.postalCode}</p>
+                      <p style={{color: "black"}}>{order.shippingAddress.country}</p>
                     </ListGroup.Item>
                   </ListGroup>
                   <ListGroup>
@@ -58,25 +58,25 @@ function MyOrders({ history, match }) {
                       order.orderItems.map((orderItem) => {
                         return (
                           <ListGroup.Item>
-                            <p style={{color: black}}>
+                            <p style={{color: "black"}}>
                               <span className="font-weight-bold">
                                 Product Name
                               </span>
                               : {orderItem.name}
                             </p>
-                            <p style={{color: black}}>
+                            <p style={{color: "black"}}>
                               <img
                                 src={orderItem.photo}
                                 style={{ width: "200px", height: "200px" }}
                                 alt={orderItem.name}
                               ></img>
                             </p>
-                            <p style={{color: black}}>
+                            <p style={{color: "black"}}>
                               <span className="font-weight-bold">Quantity</span>
                               : {orderItem.qty}
                             </p>
 
-                            <p style={{color: black}}>
+                            <p style={{color: "black"}}>
                               <span className="font-weight-bold">
                                 Item Price
                               </span>{" "}
@@ -89,11 +89,11 @@ function MyOrders({ history, match }) {
                   </ListGroup>
                   <ListGroup>
                     <ListGroup.Item>
-                      <p style={{color: black}}>
+                      <p style={{color: "black"}}>
                         <span className="font-weight-bold">Tax Price: </span>
                         {order.taxPrice}
                       </p>
-                      <p style={{color: black}}>
+                      <p style={{color: "black"}}>
                         <span className="font-weight-bold">Total Price: </span>
                         {order.totalPrice}
                       </p>

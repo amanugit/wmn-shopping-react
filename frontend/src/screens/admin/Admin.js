@@ -265,11 +265,11 @@ function Admin({ match, history }) {
                               {order.orderItems.map((oi) => {
                                 return (
                                   <ListGroup.Item key={oi._id}>
-                                    <p style={{color: black}}>
+                                    <p style={{color: "black"}}>
                                       <strong>Name: </strong>
                                       <span>{oi.name}</span>
                                     </p>
-                                    <p style={{color: black}}>
+                                    <p style={{color: "black"}}>
                                       <strong>Photo: </strong>
                                       <img
                                         src={oi.photo}
@@ -282,11 +282,11 @@ function Admin({ match, history }) {
                                         alt={oi.name}
                                       ></img>
                                     </p>
-                                    <p style={{color: black}}>
+                                    <p style={{color: "black"}}>
                                       <strong>Price: </strong>
                                       <span>{oi.price}</span>
                                     </p>
-                                    <p style={{color: black}}>
+                                    <p style={{color: "black"}}>
                                       <strong>Quanity: </strong>
                                       <span>{oi.qty}</span>
                                     </p>
@@ -300,25 +300,25 @@ function Admin({ match, history }) {
                           <td>
                             <ListGroup>
                               <ListGroup.Item>
-                                <p style={{color: black}}>
+                                <p style={{color: "black"}}>
                                   <strong>Address: </strong>
                                   {order.shippingAddress.address}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p style={{color: black}}>
+                                <p style={{color: "black"}}>
                                   <strong>City: </strong>
                                   {order.shippingAddress.city}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p style={{color: black}}>
+                                <p style={{color: "black"}}>
                                   <strong>Postal Code: </strong>
                                   {order.shippingAddress.postalCode}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p style={{color: black}}>
+                                <p style={{color: "black"}}>
                                   <strong>Country: </strong>
                                   {order.shippingAddress.country}
                                 </p>
