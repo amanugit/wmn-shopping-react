@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { adminListProducts } from "../../actions/productActions";
 import { listOrders, deliverOrder } from "../../actions/orderActions";
-import {ORDER_DELIVER_RESET} from '../../constants/productConstants';
+import {ORDER_DELIVER_RESET} from '../../constants/orderConstants';
 import {
   FaEye,
   FaEdit,
@@ -57,14 +57,14 @@ function Admin({ match, history }) {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
         dispatch(adminListProducts(searchTerm, page));
-      } else if (matchKey === "orders" || success) {
+      } else if (matchKey === "orders" || orderDeliverSuccess) {
         dispatch({type: ORDER_DELIVER_RESET});
         dispatch(listOrders());
       }
     } else {
       history.push("/admin/login?redirect=admin");
     }
-  }, [dispatch, matchKey, userInfo, success, history, page]);
+  }, [dispatch, matchKey, userInfo, orderDeliverSuccess, history, page]);
 
   return (
     <section className="admin" id="admin">
