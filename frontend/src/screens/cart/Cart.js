@@ -108,7 +108,7 @@ function Cart({ history }) {
                     title="Back to top"
                     className="mybtn mt-2"
                   >
-                    <Button>Back to shopping</Button>
+                    <Button className="mybtn">Back to shopping</Button>
                   </LinkContainer>
                 </div>
               )}
