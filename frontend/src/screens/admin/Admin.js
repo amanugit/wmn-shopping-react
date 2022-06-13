@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { adminListProducts } from "../../actions/productActions";
 import { listOrders, deliverOrder } from "../../actions/orderActions";
+import {ORDER_DELIVER_RESET} from '../../constants/productConstants';
 import {
   FaEye,
   FaEdit,
@@ -56,7 +57,8 @@ function Admin({ match, history }) {
     if (userInfo && userInfo.isAdmin) {
       if (matchKey === "products") {
         dispatch(adminListProducts(searchTerm, page));
-      } else if (matchKey === "orders") {
+      } else if (matchKey === "orders" || success) {
+        dispatch({type: ORDER_DELIVER_RESET});
         dispatch(listOrders());
       }
     } else {
@@ -263,11 +265,11 @@ function Admin({ match, history }) {
                               {order.orderItems.map((oi) => {
                                 return (
                                   <ListGroup.Item key={oi._id}>
-                                    <p>
+                                    <p style={{color: black}}>
                                       <strong>Name: </strong>
                                       <span>{oi.name}</span>
                                     </p>
-                                    <p>
+                                    <p style={{color: black}}>
                                       <strong>Photo: </strong>
                                       <img
                                         src={oi.photo}
@@ -280,11 +282,11 @@ function Admin({ match, history }) {
                                         alt={oi.name}
                                       ></img>
                                     </p>
-                                    <p>
+                                    <p style={{color: black}}>
                                       <strong>Price: </strong>
                                       <span>{oi.price}</span>
                                     </p>
-                                    <p>
+                                    <p style={{color: black}}>
                                       <strong>Quanity: </strong>
                                       <span>{oi.qty}</span>
                                     </p>
@@ -298,25 +300,25 @@ function Admin({ match, history }) {
                           <td>
                             <ListGroup>
                               <ListGroup.Item>
-                                <p>
+                                <p style={{color: black}}>
                                   <strong>Address: </strong>
                                   {order.shippingAddress.address}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p>
+                                <p style={{color: black}}>
                                   <strong>City: </strong>
                                   {order.shippingAddress.city}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p>
+                                <p style={{color: black}}>
                                   <strong>Postal Code: </strong>
                                   {order.shippingAddress.postalCode}
                                 </p>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                <p>
+                                <p style={{color: black}}>
                                   <strong>Country: </strong>
                                   {order.shippingAddress.country}
                                 </p>
